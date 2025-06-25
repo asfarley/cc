@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @device_state %>
+
+<div>
+  <%= link_to "Edit this device state", edit_device_state_path(@device_state) %> |
+  <%= link_to "Back to device states", device_states_path %>
+
+  <%= button_to "Destroy this device state", @device_state, method: :delete %>
+</div>

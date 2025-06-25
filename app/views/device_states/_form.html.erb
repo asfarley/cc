@@ -1,0 +1,1852 @@
+<%= form_with(model: device_state) do |form| %>
+  <% if device_state.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(device_state.errors.count, "error") %> prohibited this device_state from being saved:</h2>
+
+      <ul>
+        <% device_state.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Device_id, style: "display: block" %>
+    <%= form.text_field :Device_id %>
+  </div>
+
+  <div>
+    <%= form.label :version, style: "display: block" %>
+    <%= form.text_field :version %>
+  </div>
+
+  <div>
+    <%= form.label :armed, style: "display: block" %>
+    <%= form.checkbox :armed %>
+  </div>
+
+  <div>
+    <%= form.label :prearmed, style: "display: block" %>
+    <%= form.checkbox :prearmed %>
+  </div>
+
+  <div>
+    <%= form.label :mode, style: "display: block" %>
+    <%= form.text_field :mode %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :latitude1, style: "display: block" %>
+    <%= form.text_field :latitude1 %>
+  </div>
+
+  <div>
+    <%= form.label :longitude1, style: "display: block" %>
+    <%= form.text_field :longitude1 %>
+  </div>
+
+  <div>
+    <%= form.label :gps1_status, style: "display: block" %>
+    <%= form.text_field :gps1_status %>
+  </div>
+
+  <div>
+    <%= form.label :gps1_timestamp, style: "display: block" %>
+    <%= form.number_field :gps1_timestamp %>
+  </div>
+
+  <div>
+    <%= form.label :satcount1, style: "display: block" %>
+    <%= form.number_field :satcount1 %>
+  </div>
+
+  <div>
+    <%= form.label :gps1_altitude, style: "display: block" %>
+    <%= form.text_field :gps1_altitude %>
+  </div>
+
+  <div>
+    <%= form.label :gps1_speed, style: "display: block" %>
+    <%= form.text_field :gps1_speed %>
+  </div>
+
+  <div>
+    <%= form.label :gps1_heading, style: "display: block" %>
+    <%= form.text_field :gps1_heading %>
+  </div>
+
+  <div>
+    <%= form.label :gps1_hdop, style: "display: block" %>
+    <%= form.text_field :gps1_hdop %>
+  </div>
+
+  <div>
+    <%= form.label :gps1_fix_type, style: "display: block" %>
+    <%= form.text_field :gps1_fix_type %>
+  </div>
+
+  <div>
+    <%= form.label :latitude2, style: "display: block" %>
+    <%= form.text_field :latitude2 %>
+  </div>
+
+  <div>
+    <%= form.label :longitude2, style: "display: block" %>
+    <%= form.text_field :longitude2 %>
+  </div>
+
+  <div>
+    <%= form.label :gps2_status, style: "display: block" %>
+    <%= form.text_field :gps2_status %>
+  </div>
+
+  <div>
+    <%= form.label :gps2_timestamp, style: "display: block" %>
+    <%= form.number_field :gps2_timestamp %>
+  </div>
+
+  <div>
+    <%= form.label :satcount2, style: "display: block" %>
+    <%= form.number_field :satcount2 %>
+  </div>
+
+  <div>
+    <%= form.label :gps2_altitude, style: "display: block" %>
+    <%= form.text_field :gps2_altitude %>
+  </div>
+
+  <div>
+    <%= form.label :gps2_speed, style: "display: block" %>
+    <%= form.text_field :gps2_speed %>
+  </div>
+
+  <div>
+    <%= form.label :gps2_heading, style: "display: block" %>
+    <%= form.text_field :gps2_heading %>
+  </div>
+
+  <div>
+    <%= form.label :gps2_hdop, style: "display: block" %>
+    <%= form.text_field :gps2_hdop %>
+  </div>
+
+  <div>
+    <%= form.label :gps2_fix_type, style: "display: block" %>
+    <%= form.text_field :gps2_fix_type %>
+  </div>
+
+  <div>
+    <%= form.label :vibex, style: "display: block" %>
+    <%= form.text_field :vibex %>
+  </div>
+
+  <div>
+    <%= form.label :vibey, style: "display: block" %>
+    <%= form.text_field :vibey %>
+  </div>
+
+  <div>
+    <%= form.label :vibez, style: "display: block" %>
+    <%= form.text_field :vibez %>
+  </div>
+
+  <div>
+    <%= form.label :heading_deg, style: "display: block" %>
+    <%= form.text_field :heading_deg %>
+  </div>
+
+  <div>
+    <%= form.label :roll_deg, style: "display: block" %>
+    <%= form.text_field :roll_deg %>
+  </div>
+
+  <div>
+    <%= form.label :yaw_deg, style: "display: block" %>
+    <%= form.text_field :yaw_deg %>
+  </div>
+
+  <div>
+    <%= form.label :landed, style: "display: block" %>
+    <%= form.checkbox :landed %>
+  </div>
+
+  <div>
+    <%= form.label :landed_state, style: "display: block" %>
+    <%= form.number_field :landed_state %>
+  </div>
+
+  <div>
+    <%= form.label :timeInAir, style: "display: block" %>
+    <%= form.text_field :timeInAir %>
+  </div>
+
+  <div>
+    <%= form.label :extended1, style: "display: block" %>
+    <%= form.checkbox :extended1 %>
+  </div>
+
+  <div>
+    <%= form.label :extend1, style: "display: block" %>
+    <%= form.checkbox :extend1 %>
+  </div>
+
+  <div>
+    <%= form.label :extended2, style: "display: block" %>
+    <%= form.checkbox :extended2 %>
+  </div>
+
+  <div>
+    <%= form.label :extend2, style: "display: block" %>
+    <%= form.checkbox :extend2 %>
+  </div>
+
+  <div>
+    <%= form.label :maglock, style: "display: block" %>
+    <%= form.checkbox :maglock %>
+  </div>
+
+  <div>
+    <%= form.label :laser, style: "display: block" %>
+    <%= form.checkbox :laser %>
+  </div>
+
+  <div>
+    <%= form.label :headlight, style: "display: block" %>
+    <%= form.checkbox :headlight %>
+  </div>
+
+  <div>
+    <%= form.label :spotlight, style: "display: block" %>
+    <%= form.checkbox :spotlight %>
+  </div>
+
+  <div>
+    <%= form.label :ax1, style: "display: block" %>
+    <%= form.text_field :ax1 %>
+  </div>
+
+  <div>
+    <%= form.label :ay1, style: "display: block" %>
+    <%= form.text_field :ay1 %>
+  </div>
+
+  <div>
+    <%= form.label :az1, style: "display: block" %>
+    <%= form.text_field :az1 %>
+  </div>
+
+  <div>
+    <%= form.label :ax2, style: "display: block" %>
+    <%= form.text_field :ax2 %>
+  </div>
+
+  <div>
+    <%= form.label :ay2, style: "display: block" %>
+    <%= form.text_field :ay2 %>
+  </div>
+
+  <div>
+    <%= form.label :az2, style: "display: block" %>
+    <%= form.text_field :az2 %>
+  </div>
+
+  <div>
+    <%= form.label :ax3, style: "display: block" %>
+    <%= form.text_field :ax3 %>
+  </div>
+
+  <div>
+    <%= form.label :ay3, style: "display: block" %>
+    <%= form.text_field :ay3 %>
+  </div>
+
+  <div>
+    <%= form.label :az3, style: "display: block" %>
+    <%= form.text_field :az3 %>
+  </div>
+
+  <div>
+    <%= form.label :vx, style: "display: block" %>
+    <%= form.text_field :vx %>
+  </div>
+
+  <div>
+    <%= form.label :vy, style: "display: block" %>
+    <%= form.text_field :vy %>
+  </div>
+
+  <div>
+    <%= form.label :vz, style: "display: block" %>
+    <%= form.text_field :vz %>
+  </div>
+
+  <div>
+    <%= form.label :imu1_temp_c, style: "display: block" %>
+    <%= form.text_field :imu1_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :imu2_temp_c, style: "display: block" %>
+    <%= form.text_field :imu2_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :imu3_temp_c, style: "display: block" %>
+    <%= form.text_field :imu3_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :gimbal_heading_deg, style: "display: block" %>
+    <%= form.text_field :gimbal_heading_deg %>
+  </div>
+
+  <div>
+    <%= form.label :gimbal_tilt_deg, style: "display: block" %>
+    <%= form.text_field :gimbal_tilt_deg %>
+  </div>
+
+  <div>
+    <%= form.label :gimbal_yaw_deg, style: "display: block" %>
+    <%= form.text_field :gimbal_yaw_deg %>
+  </div>
+
+  <div>
+    <%= form.label :gimbal_target_heading_deg, style: "display: block" %>
+    <%= form.text_field :gimbal_target_heading_deg %>
+  </div>
+
+  <div>
+    <%= form.label :gimbal_target_tilt_deg, style: "display: block" %>
+    <%= form.text_field :gimbal_target_tilt_deg %>
+  </div>
+
+  <div>
+    <%= form.label :gimbal_target_yaw_deg, style: "display: block" %>
+    <%= form.text_field :gimbal_target_yaw_deg %>
+  </div>
+
+  <div>
+    <%= form.label :nav_bearing, style: "display: block" %>
+    <%= form.text_field :nav_bearing %>
+  </div>
+
+  <div>
+    <%= form.label :nav_pitch, style: "display: block" %>
+    <%= form.text_field :nav_pitch %>
+  </div>
+
+  <div>
+    <%= form.label :nav_roll, style: "display: block" %>
+    <%= form.text_field :nav_roll %>
+  </div>
+
+  <div>
+    <%= form.label :magnetic_x, style: "display: block" %>
+    <%= form.text_field :magnetic_x %>
+  </div>
+
+  <div>
+    <%= form.label :magnetic_y, style: "display: block" %>
+    <%= form.text_field :magnetic_y %>
+  </div>
+
+  <div>
+    <%= form.label :magnetic_z, style: "display: block" %>
+    <%= form.text_field :magnetic_z %>
+  </div>
+
+  <div>
+    <%= form.label :sonar_range_m, style: "display: block" %>
+    <%= form.text_field :sonar_range_m %>
+  </div>
+
+  <div>
+    <%= form.label :sonar_v, style: "display: block" %>
+    <%= form.text_field :sonar_v %>
+  </div>
+
+  <div>
+    <%= form.label :terrainactive, style: "display: block" %>
+    <%= form.checkbox :terrainactive %>
+  </div>
+
+  <div>
+    <%= form.label :safetyactive, style: "display: block" %>
+    <%= form.checkbox :safetyactive %>
+  </div>
+
+  <div>
+    <%= form.label :failsafe, style: "display: block" %>
+    <%= form.checkbox :failsafe %>
+  </div>
+
+  <div>
+    <%= form.label :temp1_c, style: "display: block" %>
+    <%= form.text_field :temp1_c %>
+  </div>
+
+  <div>
+    <%= form.label :temp2_c, style: "display: block" %>
+    <%= form.text_field :temp2_c %>
+  </div>
+
+  <div>
+    <%= form.label :temp3_c, style: "display: block" %>
+    <%= form.text_field :temp3_c %>
+  </div>
+
+  <div>
+    <%= form.label :temp4_c, style: "display: block" %>
+    <%= form.text_field :temp4_c %>
+  </div>
+
+  <div>
+    <%= form.label :temp5_c, style: "display: block" %>
+    <%= form.text_field :temp5_c %>
+  </div>
+
+  <div>
+    <%= form.label :temp6_c, style: "display: block" %>
+    <%= form.text_field :temp6_c %>
+  </div>
+
+  <div>
+    <%= form.label :temp7_c, style: "display: block" %>
+    <%= form.text_field :temp7_c %>
+  </div>
+
+  <div>
+    <%= form.label :temp8_c, style: "display: block" %>
+    <%= form.text_field :temp8_c %>
+  </div>
+
+  <div>
+    <%= form.label :pressure_pa, style: "display: block" %>
+    <%= form.text_field :pressure_pa %>
+  </div>
+
+  <div>
+    <%= form.label :airspeed, style: "display: block" %>
+    <%= form.text_field :airspeed %>
+  </div>
+
+  <div>
+    <%= form.label :battery1_v, style: "display: block" %>
+    <%= form.text_field :battery1_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery1_a, style: "display: block" %>
+    <%= form.text_field :battery1_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery1_temp_c, style: "display: block" %>
+    <%= form.text_field :battery1_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery1_percent, style: "display: block" %>
+    <%= form.text_field :battery1_percent %>
+  </div>
+
+  <div>
+    <%= form.label :battery2_v, style: "display: block" %>
+    <%= form.text_field :battery2_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery2_a, style: "display: block" %>
+    <%= form.text_field :battery2_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery2_temp_c, style: "display: block" %>
+    <%= form.text_field :battery2_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery2_percent, style: "display: block" %>
+    <%= form.text_field :battery2_percent %>
+  </div>
+
+  <div>
+    <%= form.label :battery3_v, style: "display: block" %>
+    <%= form.text_field :battery3_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery3_a, style: "display: block" %>
+    <%= form.text_field :battery3_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery3_temp_c, style: "display: block" %>
+    <%= form.text_field :battery3_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery3_percent, style: "display: block" %>
+    <%= form.text_field :battery3_percent %>
+  </div>
+
+  <div>
+    <%= form.label :battery4_v, style: "display: block" %>
+    <%= form.text_field :battery4_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery4_a, style: "display: block" %>
+    <%= form.text_field :battery4_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery4_temp_c, style: "display: block" %>
+    <%= form.text_field :battery4_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery4_percent, style: "display: block" %>
+    <%= form.text_field :battery4_percent %>
+  </div>
+
+  <div>
+    <%= form.label :battery5_v, style: "display: block" %>
+    <%= form.text_field :battery5_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery5_a, style: "display: block" %>
+    <%= form.text_field :battery5_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery5_temp_c, style: "display: block" %>
+    <%= form.text_field :battery5_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery5_percent, style: "display: block" %>
+    <%= form.text_field :battery5_percent %>
+  </div>
+
+  <div>
+    <%= form.label :battery6_v, style: "display: block" %>
+    <%= form.text_field :battery6_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery6_a, style: "display: block" %>
+    <%= form.text_field :battery6_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery6_temp_c, style: "display: block" %>
+    <%= form.text_field :battery6_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery6_percent, style: "display: block" %>
+    <%= form.text_field :battery6_percent %>
+  </div>
+
+  <div>
+    <%= form.label :battery7_v, style: "display: block" %>
+    <%= form.text_field :battery7_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery7_a, style: "display: block" %>
+    <%= form.text_field :battery7_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery7_temp_c, style: "display: block" %>
+    <%= form.text_field :battery7_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery7_percent, style: "display: block" %>
+    <%= form.text_field :battery7_percent %>
+  </div>
+
+  <div>
+    <%= form.label :battery8_v, style: "display: block" %>
+    <%= form.text_field :battery8_v %>
+  </div>
+
+  <div>
+    <%= form.label :battery8_a, style: "display: block" %>
+    <%= form.text_field :battery8_a %>
+  </div>
+
+  <div>
+    <%= form.label :battery8_temp_c, style: "display: block" %>
+    <%= form.text_field :battery8_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :battery8_percent, style: "display: block" %>
+    <%= form.text_field :battery8_percent %>
+  </div>
+
+  <div>
+    <%= form.label :esc1_v, style: "display: block" %>
+    <%= form.text_field :esc1_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc1_a, style: "display: block" %>
+    <%= form.text_field :esc1_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc1_temp_c, style: "display: block" %>
+    <%= form.text_field :esc1_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc1_rpm, style: "display: block" %>
+    <%= form.text_field :esc1_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc2_v, style: "display: block" %>
+    <%= form.text_field :esc2_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc2_a, style: "display: block" %>
+    <%= form.text_field :esc2_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc2_temp_c, style: "display: block" %>
+    <%= form.text_field :esc2_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc2_rpm, style: "display: block" %>
+    <%= form.text_field :esc2_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc3_v, style: "display: block" %>
+    <%= form.text_field :esc3_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc3_a, style: "display: block" %>
+    <%= form.text_field :esc3_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc3_temp_c, style: "display: block" %>
+    <%= form.text_field :esc3_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc3_rpm, style: "display: block" %>
+    <%= form.text_field :esc3_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc4_v, style: "display: block" %>
+    <%= form.text_field :esc4_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc4_a, style: "display: block" %>
+    <%= form.text_field :esc4_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc4_temp_c, style: "display: block" %>
+    <%= form.text_field :esc4_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc4_rpm, style: "display: block" %>
+    <%= form.text_field :esc4_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc5_v, style: "display: block" %>
+    <%= form.text_field :esc5_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc5_a, style: "display: block" %>
+    <%= form.text_field :esc5_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc5_temp_c, style: "display: block" %>
+    <%= form.text_field :esc5_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc5_rpm, style: "display: block" %>
+    <%= form.text_field :esc5_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc6_v, style: "display: block" %>
+    <%= form.text_field :esc6_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc6_a, style: "display: block" %>
+    <%= form.text_field :esc6_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc6_temp_c, style: "display: block" %>
+    <%= form.text_field :esc6_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc6_rpm, style: "display: block" %>
+    <%= form.text_field :esc6_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc7_v, style: "display: block" %>
+    <%= form.text_field :esc7_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc7_a, style: "display: block" %>
+    <%= form.text_field :esc7_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc7_temp_c, style: "display: block" %>
+    <%= form.text_field :esc7_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc7_rpm, style: "display: block" %>
+    <%= form.text_field :esc7_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc8_v, style: "display: block" %>
+    <%= form.text_field :esc8_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc8_a, style: "display: block" %>
+    <%= form.text_field :esc8_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc8_temp_c, style: "display: block" %>
+    <%= form.text_field :esc8_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc8_rpm, style: "display: block" %>
+    <%= form.text_field :esc8_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc9_v, style: "display: block" %>
+    <%= form.text_field :esc9_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc9_a, style: "display: block" %>
+    <%= form.text_field :esc9_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc9_temp_c, style: "display: block" %>
+    <%= form.text_field :esc9_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc9_rpm, style: "display: block" %>
+    <%= form.text_field :esc9_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc10_v, style: "display: block" %>
+    <%= form.text_field :esc10_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc10_a, style: "display: block" %>
+    <%= form.text_field :esc10_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc10_temp_c, style: "display: block" %>
+    <%= form.text_field :esc10_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc10_rpm, style: "display: block" %>
+    <%= form.text_field :esc10_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc11_v, style: "display: block" %>
+    <%= form.text_field :esc11_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc11_a, style: "display: block" %>
+    <%= form.text_field :esc11_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc11_temp_c, style: "display: block" %>
+    <%= form.text_field :esc11_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc11_rpm, style: "display: block" %>
+    <%= form.text_field :esc11_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc12_v, style: "display: block" %>
+    <%= form.text_field :esc12_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc12_a, style: "display: block" %>
+    <%= form.text_field :esc12_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc12_temp_c, style: "display: block" %>
+    <%= form.text_field :esc12_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc12_rpm, style: "display: block" %>
+    <%= form.text_field :esc12_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc13_v, style: "display: block" %>
+    <%= form.text_field :esc13_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc13_a, style: "display: block" %>
+    <%= form.text_field :esc13_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc13_temp_c, style: "display: block" %>
+    <%= form.text_field :esc13_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc13_rpm, style: "display: block" %>
+    <%= form.text_field :esc13_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc14_v, style: "display: block" %>
+    <%= form.text_field :esc14_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc14_a, style: "display: block" %>
+    <%= form.text_field :esc14_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc14_temp_c, style: "display: block" %>
+    <%= form.text_field :esc14_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc14_rpm, style: "display: block" %>
+    <%= form.text_field :esc14_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc15_v, style: "display: block" %>
+    <%= form.text_field :esc15_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc15_a, style: "display: block" %>
+    <%= form.text_field :esc15_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc15_temp_c, style: "display: block" %>
+    <%= form.text_field :esc15_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc15_rpm, style: "display: block" %>
+    <%= form.text_field :esc15_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :esc16_v, style: "display: block" %>
+    <%= form.text_field :esc16_v %>
+  </div>
+
+  <div>
+    <%= form.label :esc16_a, style: "display: block" %>
+    <%= form.text_field :esc16_a %>
+  </div>
+
+  <div>
+    <%= form.label :esc16_temp_c, style: "display: block" %>
+    <%= form.text_field :esc16_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :esc16_rpm, style: "display: block" %>
+    <%= form.text_field :esc16_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :efi_rpm, style: "display: block" %>
+    <%= form.text_field :efi_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :efi_fuel_pressure_bar, style: "display: block" %>
+    <%= form.text_field :efi_fuel_pressure_bar %>
+  </div>
+
+  <div>
+    <%= form.label :efi_intake_temp_c, style: "display: block" %>
+    <%= form.text_field :efi_intake_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :efi_exhaust_temp_c, style: "display: block" %>
+    <%= form.text_field :efi_exhaust_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :efi_fuel_flow_lps, style: "display: block" %>
+    <%= form.text_field :efi_fuel_flow_lps %>
+  </div>
+
+  <div>
+    <%= form.label :efi_fuel_percent, style: "display: block" %>
+    <%= form.text_field :efi_fuel_percent %>
+  </div>
+
+  <div>
+    <%= form.label :efi_baro, style: "display: block" %>
+    <%= form.text_field :efi_baro %>
+  </div>
+
+  <div>
+    <%= form.label :efi_load, style: "display: block" %>
+    <%= form.text_field :efi_load %>
+  </div>
+
+  <div>
+    <%= form.label :throttle_angle, style: "display: block" %>
+    <%= form.text_field :throttle_angle %>
+  </div>
+
+  <div>
+    <%= form.label :brake_angle, style: "display: block" %>
+    <%= form.text_field :brake_angle %>
+  </div>
+
+  <div>
+    <%= form.label :steering_wheel_angle, style: "display: block" %>
+    <%= form.text_field :steering_wheel_angle %>
+  </div>
+
+  <div>
+    <%= form.label :turn_signal, style: "display: block" %>
+    <%= form.number_field :turn_signal %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_adsb_tx_sys_fail, style: "display: block" %>
+    <%= form.checkbox :xpdr_adsb_tx_sys_fail %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_airborne_status, style: "display: block" %>
+    <%= form.checkbox :xpdr_airborne_status %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_board_temperature_c, style: "display: block" %>
+    <%= form.text_field :xpdr_board_temperature_c %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_es1090_tx_enable, style: "display: block" %>
+    <%= form.checkbox :xpdr_es1090_tx_enable %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_flight_id, style: "display: block" %>
+    <%= form.text_field :xpdr_flight_id %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_gps_no_fix, style: "display: block" %>
+    <%= form.checkbox :xpdr_gps_no_fix %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_gps_unavail, style: "display: block" %>
+    <%= form.checkbox :xpdr_gps_unavail %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_ident_active, style: "display: block" %>
+    <%= form.checkbox :xpdr_ident_active %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_interrogated_since, style: "display: block" %>
+    <%= form.checkbox :xpdr_interrogated_since %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_maint_req, style: "display: block" %>
+    <%= form.checkbox :xpdr_maint_req %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_mode_A_enable, style: "display: block" %>
+    <%= form.checkbox :xpdr_mode_A_enable %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_mode_A_squawk, style: "display: block" %>
+    <%= form.number_field :xpdr_mode_A_squawk %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_mode_C_enable, style: "display: block" %>
+    <%= form.checkbox :xpdr_mode_C_enable %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_mode_S_enable, style: "display: block" %>
+    <%= form.checkbox :xpdr_mode_S_enable %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_nacp, style: "display: block" %>
+    <%= form.number_field :xpdr_nacp %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_nic, style: "display: block" %>
+    <%= form.number_field :xpdr_nic %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_status_pending, style: "display: block" %>
+    <%= form.checkbox :xpdr_status_pending %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_status_unavail, style: "display: block" %>
+    <%= form.checkbox :xpdr_status_unavail %>
+  </div>
+
+  <div>
+    <%= form.label :xpdr_x_bit_status, style: "display: block" %>
+    <%= form.checkbox :xpdr_x_bit_status %>
+  </div>
+
+  <div>
+    <%= form.label :cell_rssi_dbm, style: "display: block" %>
+    <%= form.number_field :cell_rssi_dbm %>
+  </div>
+
+  <div>
+    <%= form.label :cell_rsrp, style: "display: block" %>
+    <%= form.number_field :cell_rsrp %>
+  </div>
+
+  <div>
+    <%= form.label :cell_rsrq, style: "display: block" %>
+    <%= form.number_field :cell_rsrq %>
+  </div>
+
+  <div>
+    <%= form.label :cell_sinr, style: "display: block" %>
+    <%= form.number_field :cell_sinr %>
+  </div>
+
+  <div>
+    <%= form.label :cell_network_type, style: "display: block" %>
+    <%= form.text_field :cell_network_type %>
+  </div>
+
+  <div>
+    <%= form.label :cell_id, style: "display: block" %>
+    <%= form.text_field :cell_id %>
+  </div>
+
+  <div>
+    <%= form.label :cell_connection_state, style: "display: block" %>
+    <%= form.text_field :cell_connection_state %>
+  </div>
+
+  <div>
+    <%= form.label :cell_network_registration_state, style: "display: block" %>
+    <%= form.text_field :cell_network_registration_state %>
+  </div>
+
+  <div>
+    <%= form.label :cell_retry_count, style: "display: block" %>
+    <%= form.number_field :cell_retry_count %>
+  </div>
+
+  <div>
+    <%= form.label :cell_latency_ms, style: "display: block" %>
+    <%= form.number_field :cell_latency_ms %>
+  </div>
+
+  <div>
+    <%= form.label :cell_ip, style: "display: block" %>
+    <%= form.text_field :cell_ip %>
+  </div>
+
+  <div>
+    <%= form.label :cell_network_bytes_sent, style: "display: block" %>
+    <%= form.number_field :cell_network_bytes_sent %>
+  </div>
+
+  <div>
+    <%= form.label :cell_network_bytes_recevied, style: "display: block" %>
+    <%= form.number_field :cell_network_bytes_recevied %>
+  </div>
+
+  <div>
+    <%= form.label :cell_network_bps_up, style: "display: block" %>
+    <%= form.number_field :cell_network_bps_up %>
+  </div>
+
+  <div>
+    <%= form.label :cell_network_bps_down, style: "display: block" %>
+    <%= form.number_field :cell_network_bps_down %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_ssid, style: "display: block" %>
+    <%= form.text_field :wifi_ssid %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_bssid, style: "display: block" %>
+    <%= form.text_field :wifi_bssid %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_rssi_dbm, style: "display: block" %>
+    <%= form.number_field :wifi_rssi_dbm %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_snr_db, style: "display: block" %>
+    <%= form.number_field :wifi_snr_db %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_link_speed_mbps, style: "display: block" %>
+    <%= form.number_field :wifi_link_speed_mbps %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_band, style: "display: block" %>
+    <%= form.text_field :wifi_band %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_channel, style: "display: block" %>
+    <%= form.number_field :wifi_channel %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_ip_address, style: "display: block" %>
+    <%= form.text_field :wifi_ip_address %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_connection_status, style: "display: block" %>
+    <%= form.text_field :wifi_connection_status %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_uptime_sec, style: "display: block" %>
+    <%= form.number_field :wifi_uptime_sec %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_bytes_sent, style: "display: block" %>
+    <%= form.number_field :wifi_bytes_sent %>
+  </div>
+
+  <div>
+    <%= form.label :wifi_bytes_received, style: "display: block" %>
+    <%= form.number_field :wifi_bytes_received %>
+  </div>
+
+  <div>
+    <%= form.label :mac_address, style: "display: block" %>
+    <%= form.text_field :mac_address %>
+  </div>
+
+  <div>
+    <%= form.label :ethernet_link_status, style: "display: block" %>
+    <%= form.text_field :ethernet_link_status %>
+  </div>
+
+  <div>
+    <%= form.label :ethernet_speed, style: "display: block" %>
+    <%= form.text_field :ethernet_speed %>
+  </div>
+
+  <div>
+    <%= form.label :ip_address, style: "display: block" %>
+    <%= form.text_field :ip_address %>
+  </div>
+
+  <div>
+    <%= form.label :subnet_mask, style: "display: block" %>
+    <%= form.text_field :subnet_mask %>
+  </div>
+
+  <div>
+    <%= form.label :default_gateway, style: "display: block" %>
+    <%= form.text_field :default_gateway %>
+  </div>
+
+  <div>
+    <%= form.label :dhcp_status, style: "display: block" %>
+    <%= form.text_field :dhcp_status %>
+  </div>
+
+  <div>
+    <%= form.label :dhcp_lease, style: "display: block" %>
+    <%= form.text_field :dhcp_lease %>
+  </div>
+
+  <div>
+    <%= form.label :ham_radio_rx_hz, style: "display: block" %>
+    <%= form.text_field :ham_radio_rx_hz %>
+  </div>
+
+  <div>
+    <%= form.label :ham_radio_tx_hz, style: "display: block" %>
+    <%= form.text_field :ham_radio_tx_hz %>
+  </div>
+
+  <div>
+    <%= form.label :ham_radio_watts, style: "display: block" %>
+    <%= form.text_field :ham_radio_watts %>
+  </div>
+
+  <div>
+    <%= form.label :ham_radio_enable, style: "display: block" %>
+    <%= form.checkbox :ham_radio_enable %>
+  </div>
+
+  <div>
+    <%= form.label :ham_radio_v, style: "display: block" %>
+    <%= form.text_field :ham_radio_v %>
+  </div>
+
+  <div>
+    <%= form.label :ham_radio_a, style: "display: block" %>
+    <%= form.text_field :ham_radio_a %>
+  </div>
+
+  <div>
+    <%= form.label :heater1_v, style: "display: block" %>
+    <%= form.text_field :heater1_v %>
+  </div>
+
+  <div>
+    <%= form.label :heater1_a, style: "display: block" %>
+    <%= form.text_field :heater1_a %>
+  </div>
+
+  <div>
+    <%= form.label :heater1_temp_c, style: "display: block" %>
+    <%= form.text_field :heater1_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :heater2_v, style: "display: block" %>
+    <%= form.text_field :heater2_v %>
+  </div>
+
+  <div>
+    <%= form.label :heater2_a, style: "display: block" %>
+    <%= form.text_field :heater2_a %>
+  </div>
+
+  <div>
+    <%= form.label :heater2_temp_c, style: "display: block" %>
+    <%= form.text_field :heater2_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :heater3_v, style: "display: block" %>
+    <%= form.text_field :heater3_v %>
+  </div>
+
+  <div>
+    <%= form.label :heater3_a, style: "display: block" %>
+    <%= form.text_field :heater3_a %>
+  </div>
+
+  <div>
+    <%= form.label :heater3_temp_c, style: "display: block" %>
+    <%= form.text_field :heater3_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :heater4_v, style: "display: block" %>
+    <%= form.text_field :heater4_v %>
+  </div>
+
+  <div>
+    <%= form.label :heater4_a, style: "display: block" %>
+    <%= form.text_field :heater4_a %>
+  </div>
+
+  <div>
+    <%= form.label :heater4_temp_c, style: "display: block" %>
+    <%= form.text_field :heater4_temp_c %>
+  </div>
+
+  <div>
+    <%= form.label :humidity1, style: "display: block" %>
+    <%= form.text_field :humidity1 %>
+  </div>
+
+  <div>
+    <%= form.label :humidity2, style: "display: block" %>
+    <%= form.text_field :humidity2 %>
+  </div>
+
+  <div>
+    <%= form.label :fan1_v, style: "display: block" %>
+    <%= form.text_field :fan1_v %>
+  </div>
+
+  <div>
+    <%= form.label :fan1_a, style: "display: block" %>
+    <%= form.text_field :fan1_a %>
+  </div>
+
+  <div>
+    <%= form.label :fan1_rpm, style: "display: block" %>
+    <%= form.text_field :fan1_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :fan2_v, style: "display: block" %>
+    <%= form.text_field :fan2_v %>
+  </div>
+
+  <div>
+    <%= form.label :fan2_a, style: "display: block" %>
+    <%= form.text_field :fan2_a %>
+  </div>
+
+  <div>
+    <%= form.label :fan2_rpm, style: "display: block" %>
+    <%= form.text_field :fan2_rpm %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder1_m, style: "display: block" %>
+    <%= form.text_field :rangefinder1_m %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder2_m, style: "display: block" %>
+    <%= form.text_field :rangefinder2_m %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder3_m, style: "display: block" %>
+    <%= form.text_field :rangefinder3_m %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder4_m, style: "display: block" %>
+    <%= form.text_field :rangefinder4_m %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder5_m, style: "display: block" %>
+    <%= form.text_field :rangefinder5_m %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder6_m, style: "display: block" %>
+    <%= form.text_field :rangefinder6_m %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder7_m, style: "display: block" %>
+    <%= form.text_field :rangefinder7_m %>
+  </div>
+
+  <div>
+    <%= form.label :rangefinder8_m, style: "display: block" %>
+    <%= form.text_field :rangefinder8_m %>
+  </div>
+
+  <div>
+    <%= form.label :solar1_v, style: "display: block" %>
+    <%= form.text_field :solar1_v %>
+  </div>
+
+  <div>
+    <%= form.label :solar1_a, style: "display: block" %>
+    <%= form.text_field :solar1_a %>
+  </div>
+
+  <div>
+    <%= form.label :solar2_v, style: "display: block" %>
+    <%= form.text_field :solar2_v %>
+  </div>
+
+  <div>
+    <%= form.label :solar2_a, style: "display: block" %>
+    <%= form.text_field :solar2_a %>
+  </div>
+
+  <div>
+    <%= form.label :charge_v, style: "display: block" %>
+    <%= form.text_field :charge_v %>
+  </div>
+
+  <div>
+    <%= form.label :charge_a, style: "display: block" %>
+    <%= form.text_field :charge_a %>
+  </div>
+
+  <div>
+    <%= form.label :mag1, style: "display: block" %>
+    <%= form.number_field :mag1 %>
+  </div>
+
+  <div>
+    <%= form.label :mag2, style: "display: block" %>
+    <%= form.number_field :mag2 %>
+  </div>
+
+  <div>
+    <%= form.label :mag3, style: "display: block" %>
+    <%= form.number_field :mag3 %>
+  </div>
+
+  <div>
+    <%= form.label :mag4, style: "display: block" %>
+    <%= form.number_field :mag4 %>
+  </div>
+
+  <div>
+    <%= form.label :button1, style: "display: block" %>
+    <%= form.checkbox :button1 %>
+  </div>
+
+  <div>
+    <%= form.label :button2, style: "display: block" %>
+    <%= form.checkbox :button2 %>
+  </div>
+
+  <div>
+    <%= form.label :switch1, style: "display: block" %>
+    <%= form.checkbox :switch1 %>
+  </div>
+
+  <div>
+    <%= form.label :switch2, style: "display: block" %>
+    <%= form.checkbox :switch2 %>
+  </div>
+
+  <div>
+    <%= form.label :load_cell1_n, style: "display: block" %>
+    <%= form.text_field :load_cell1_n %>
+  </div>
+
+  <div>
+    <%= form.label :load_cell2_n, style: "display: block" %>
+    <%= form.text_field :load_cell2_n %>
+  </div>
+
+  <div>
+    <%= form.label :load_cell3_n, style: "display: block" %>
+    <%= form.text_field :load_cell3_n %>
+  </div>
+
+  <div>
+    <%= form.label :load_cell4_n, style: "display: block" %>
+    <%= form.text_field :load_cell4_n %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor1_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor1_ma %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor2_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor2_ma %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor3_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor3_ma %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor4_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor4_ma %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor5_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor5_ma %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor6_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor6_ma %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor7_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor7_ma %>
+  </div>
+
+  <div>
+    <%= form.label :current_sensor8_ma, style: "display: block" %>
+    <%= form.text_field :current_sensor8_ma %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor1_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor1_mv %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor2_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor2_mv %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor3_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor3_mv %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor4_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor4_mv %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor5_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor5_mv %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor6_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor6_mv %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor7_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor7_mv %>
+  </div>
+
+  <div>
+    <%= form.label :voltage_sensor9_mv, style: "display: block" %>
+    <%= form.text_field :voltage_sensor9_mv %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output1, style: "display: block" %>
+    <%= form.checkbox :digital_output1 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output2, style: "display: block" %>
+    <%= form.checkbox :digital_output2 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output3, style: "display: block" %>
+    <%= form.checkbox :digital_output3 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output4, style: "display: block" %>
+    <%= form.checkbox :digital_output4 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output5, style: "display: block" %>
+    <%= form.checkbox :digital_output5 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output6, style: "display: block" %>
+    <%= form.checkbox :digital_output6 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output7, style: "display: block" %>
+    <%= form.checkbox :digital_output7 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_output8, style: "display: block" %>
+    <%= form.checkbox :digital_output8 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input1, style: "display: block" %>
+    <%= form.checkbox :digital_input1 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input2, style: "display: block" %>
+    <%= form.checkbox :digital_input2 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input3, style: "display: block" %>
+    <%= form.checkbox :digital_input3 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input4, style: "display: block" %>
+    <%= form.checkbox :digital_input4 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input5, style: "display: block" %>
+    <%= form.checkbox :digital_input5 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input6, style: "display: block" %>
+    <%= form.checkbox :digital_input6 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input7, style: "display: block" %>
+    <%= form.checkbox :digital_input7 %>
+  </div>
+
+  <div>
+    <%= form.label :digital_input8, style: "display: block" %>
+    <%= form.checkbox :digital_input8 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output1, style: "display: block" %>
+    <%= form.text_field :analog_output1 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output2, style: "display: block" %>
+    <%= form.text_field :analog_output2 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output3, style: "display: block" %>
+    <%= form.text_field :analog_output3 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output4, style: "display: block" %>
+    <%= form.text_field :analog_output4 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output5, style: "display: block" %>
+    <%= form.text_field :analog_output5 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output6, style: "display: block" %>
+    <%= form.text_field :analog_output6 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output7, style: "display: block" %>
+    <%= form.text_field :analog_output7 %>
+  </div>
+
+  <div>
+    <%= form.label :analog_output8, style: "display: block" %>
+    <%= form.text_field :analog_output8 %>
+  </div>
+
+  <div>
+    <%= form.label :hall1_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall1_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall2_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall2_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall3_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall3_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall4_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall4_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall5_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall5_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall6_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall6_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall7_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall7_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall8_angle_degrees, style: "display: block" %>
+    <%= form.text_field :hall8_angle_degrees %>
+  </div>
+
+  <div>
+    <%= form.label :hall1_presence, style: "display: block" %>
+    <%= form.checkbox :hall1_presence %>
+  </div>
+
+  <div>
+    <%= form.label :hall2_presence, style: "display: block" %>
+    <%= form.checkbox :hall2_presence %>
+  </div>
+
+  <div>
+    <%= form.label :hall3_presence, style: "display: block" %>
+    <%= form.checkbox :hall3_presence %>
+  </div>
+
+  <div>
+    <%= form.label :hall4_presence, style: "display: block" %>
+    <%= form.checkbox :hall4_presence %>
+  </div>
+
+  <div>
+    <%= form.label :hall5_presence, style: "display: block" %>
+    <%= form.checkbox :hall5_presence %>
+  </div>
+
+  <div>
+    <%= form.label :hall6_presence, style: "display: block" %>
+    <%= form.checkbox :hall6_presence %>
+  </div>
+
+  <div>
+    <%= form.label :hall7_presence, style: "display: block" %>
+    <%= form.checkbox :hall7_presence %>
+  </div>
+
+  <div>
+    <%= form.label :hall8_presence, style: "display: block" %>
+    <%= form.checkbox :hall8_presence %>
+  </div>
+
+  <div>
+    <%= form.label :geiger_mrad, style: "display: block" %>
+    <%= form.text_field :geiger_mrad %>
+  </div>
+
+  <div>
+    <%= form.label :color_r, style: "display: block" %>
+    <%= form.text_field :color_r %>
+  </div>
+
+  <div>
+    <%= form.label :color_g, style: "display: block" %>
+    <%= form.text_field :color_g %>
+  </div>
+
+  <div>
+    <%= form.label :color_b, style: "display: block" %>
+    <%= form.text_field :color_b %>
+  </div>
+
+  <div>
+    <%= form.label :text1, style: "display: block" %>
+    <%= form.text_field :text1 %>
+  </div>
+
+  <div>
+    <%= form.label :text2, style: "display: block" %>
+    <%= form.text_field :text2 %>
+  </div>
+
+  <div>
+    <%= form.label :text3, style: "display: block" %>
+    <%= form.text_field :text3 %>
+  </div>
+
+  <div>
+    <%= form.label :text4, style: "display: block" %>
+    <%= form.text_field :text4 %>
+  </div>
+
+  <div>
+    <%= form.label :text5, style: "display: block" %>
+    <%= form.text_field :text5 %>
+  </div>
+
+  <div>
+    <%= form.label :text6, style: "display: block" %>
+    <%= form.text_field :text6 %>
+  </div>
+
+  <div>
+    <%= form.label :text7, style: "display: block" %>
+    <%= form.text_field :text7 %>
+  </div>
+
+  <div>
+    <%= form.label :text8, style: "display: block" %>
+    <%= form.text_field :text8 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

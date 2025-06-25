@@ -1,0 +1,42 @@
+<%= form_with(model: command) do |form| %>
+  <% if command.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(command.errors.count, "error") %> prohibited this command from being saved:</h2>
+
+      <ul>
+        <% command.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Device_id, style: "display: block" %>
+    <%= form.text_field :Device_id %>
+  </div>
+
+  <div>
+    <%= form.label :trigger_time, style: "display: block" %>
+    <%= form.datetime_field :trigger_time %>
+  </div>
+
+  <div>
+    <%= form.label :command, style: "display: block" %>
+    <%= form.text_field :command %>
+  </div>
+
+  <div>
+    <%= form.label :type, style: "display: block" %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div>
+    <%= form.label :result, style: "display: block" %>
+    <%= form.text_field :result %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
