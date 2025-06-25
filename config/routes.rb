@@ -1,7 +1,24 @@
 Rails.application.routes.draw do
-  resources :device_states
   resources :commands
-  resources :devices
+  devise_for :users
+  namespace :api do
+    mount_devise_token_auth_for 'User', at: 'auth'  
+  end
+  resources :device_states
+  resources :devices do
+    resources :commands
+  end
+
+
+  devise_scope :user do
+    authenticated do
+      root to: 'devices#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root to: 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
