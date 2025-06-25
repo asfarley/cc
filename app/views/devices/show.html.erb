@@ -2,20 +2,34 @@
 
 <%= render @device %>
 
-<script>
-  var latlng = new L.latLng(<%= @device.state.latitude1 %>,<%= @device.state.longitude1 %>)
-  var map = L.map('map').setView(latlng, 17);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
-  var marker = L.marker([<%= @device.state.latitude1 %>,<%= @device.state.longitude1 %>]).addTo(map);
-
-</script>
-
 <div>
   <%= link_to "Edit this device", edit_device_path(@device) %> |
   <%= link_to "Back to devices", devices_path %>
 
   <%= button_to "Destroy this device", @device, method: :delete %>
 </div>
+
+<% if @device.state.present? && @device.state.latitude1.present? && @device.state.longitude1.present? %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var mapId = 'map_<%= @device.id %>';
+    var lat = <%= @device.state.latitude1 %>;
+    var lng = <%= @device.state.longitude1 %>;
+    var latlng = new L.latLng(lat, lng);
+    
+    var map = L.map(mapId).setView(latlng, 17);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    
+    var marker = L.marker([lat, lng]).addTo(map);
+    marker.bindPopup("<b><%= @device.name %></b><br>Lat: " + lat + "<br>Lng: " + lng).openPopup();
+    
+    // Ensure the map is properly rendered by triggering a resize event
+    setTimeout(function() {
+      map.invalidateSize();
+    }, 100);
+  });
+</script>
+<% end %>

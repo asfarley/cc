@@ -21,16 +21,25 @@
 </div>
 
 <script>
-
-  <% @devices.each do |device| %>
-  <% if device.state !=  nil %>  
-  var latlng = new L.latLng(<%= device.state.latitude1 %>,<%= device.state.longitude1 %>)
-  var map = L.map('map').setView(latlng, 17);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
-  var marker = L.marker([<%= device.state.latitude1 %>,<%= device.state.longitude1 %>]).addTo(map);
-  <% end %>
-  <% end %>
+  document.addEventListener('DOMContentLoaded', function() {
+    <% @devices.each do |device| %>
+      <% if device.state != nil && device.state.latitude1.present? && device.state.longitude1.present? %>
+        (function() {
+          var mapId = 'map_<%= device.id %>';
+          var lat = <%= device.state.latitude1 %>;
+          var lng = <%= device.state.longitude1 %>;
+          var latlng = new L.latLng(lat, lng);
+          
+          var map = L.map(mapId).setView(latlng, 17);
+          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+          
+          var marker = L.marker([lat, lng]).addTo(map);
+          marker.bindPopup("<b><%= device.name %></b><br>Lat: " + lat + "<br>Lng: " + lng);
+        })();
+      <% end %>
+    <% end %>
+  });
 </script>

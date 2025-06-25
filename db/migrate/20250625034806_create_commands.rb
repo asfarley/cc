@@ -4,7 +4,7 @@ class CreateCommands < ActiveRecord::Migration[8.0]
       t.belongs_to :Device, null: false, foreign_key: true
       t.datetime :trigger_time
       t.string :command
-      t.string :type
+      t.string :commandtype
       t.string :result
 
       t.timestamps

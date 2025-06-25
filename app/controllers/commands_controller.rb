@@ -66,6 +66,6 @@ class CommandsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def command_params
-      params.expect(command: [ :Device_id, :trigger_time, :command, :type, :result ])
+      params.expect(command: [ :Device_id, :trigger_time, :command, :commandtype, :result ])
     end
 end

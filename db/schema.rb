@@ -15,7 +15,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_044540) do
     t.integer "Device_id", null: false
     t.datetime "trigger_time"
     t.string "command"
-    t.string "type"
+    t.string "commandtype"
     t.string "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

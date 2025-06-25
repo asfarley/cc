@@ -55,4 +55,4 @@ state_res = Net::HTTP.start(hostname_state, uri_state.port) do |http2|
   http2.request(req)
 end
 
-puts "Command Get response: #{state_res}"
+puts "Command Get response: #{state_res.body}"

@@ -5,7 +5,7 @@
 
   <% if device.state != nil %>
   <%= render device.state %>
-  <div id="map" ></div>
+  <div id="map_<%= device.id %>" style="height: 250px; width: 100%;"></div>
   <% else %>
   <p>Device state is missing.</p>
   <% end %>
