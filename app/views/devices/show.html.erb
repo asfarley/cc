@@ -2,6 +2,17 @@
 
 <%= render @device %>
 
+<script>
+  var latlng = new L.latLng(<%= @device.state.latitude1 %>,<%= @device.state.longitude1 %>)
+  var map = L.map('map').setView(latlng, 17);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+  var marker = L.marker([<%= @device.state.latitude1 %>,<%= @device.state.longitude1 %>]).addTo(map);
+
+</script>
+
 <div>
   <%= link_to "Edit this device", edit_device_path(@device) %> |
   <%= link_to "Back to devices", devices_path %>

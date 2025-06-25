@@ -1,12 +1,13 @@
 <div id="<%= dom_id device %>">
   <p>
-    <strong>Name:</strong>
-    <%= device.name %>
+    <strong><%= device.name %></strong>
   </p>
 
-  <p>
-    <strong>State:</strong>
-    <%= device.state_id %>
-  </p>
+  <% if device.state != nil %>
+  <%= render device.state %>
+  <div id="map" ></div>
+  <% else %>
+  <p>Device state is missing.</p>
+  <% end %>
 
 </div>

@@ -1,3 +1,3 @@
 class DeviceState < ApplicationRecord
-  belongs_to :Device
+  belongs_to :Device, optional: true
 end

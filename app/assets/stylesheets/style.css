@@ -1,0 +1,14 @@
+var {
+	font-family:monospace;
+	font-style:normal;
+	color:  #5d5d62;
+}
+
+.value {
+	font-family:monospace;
+	font-style:normal;
+	font-weight:bold;
+}
+
+
+#map { height: 180px; width: 360px;}

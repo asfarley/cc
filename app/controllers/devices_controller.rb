@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /devices or /devices.json
   def index
@@ -22,7 +23,8 @@ class DevicesController < ApplicationController
   # POST /devices or /devices.json
   def create
     @device = Device.new(device_params)
-
+    @device.state = DeviceState.new()
+    
     respond_to do |format|
       if @device.save
         format.html { redirect_to @device, notice: "Device was successfully created." }

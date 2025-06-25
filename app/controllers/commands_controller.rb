@@ -1,5 +1,6 @@
 class CommandsController < ApplicationController
   before_action :set_command, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /commands or /commands.json
   def index

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_25_044540) do
   create_table "commands", force: :cascade do |t|
     t.integer "Device_id", null: false
     t.datetime "trigger_time"
@@ -23,32 +23,32 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
   end
 
   create_table "device_states", force: :cascade do |t|
-    t.integer "Device_id", null: false
-    t.string "version"
-    t.boolean "armed"
-    t.boolean "prearmed"
-    t.string "mode"
-    t.string "status"
-    t.decimal "latitude1"
-    t.decimal "longitude1"
-    t.string "gps1_status"
+    t.integer "Device_id"
+    t.string "version", default: ""
+    t.boolean "armed", default: false
+    t.boolean "prearmed", default: false
+    t.string "mode", default: ""
+    t.string "status", default: ""
+    t.decimal "latitude1", default: "51.0475"
+    t.decimal "longitude1", default: "-114.068889"
+    t.string "gps1_status", default: ""
     t.integer "gps1_timestamp"
     t.integer "satcount1"
     t.float "gps1_altitude"
     t.float "gps1_speed"
     t.float "gps1_heading"
     t.float "gps1_hdop"
-    t.string "gps1_fix_type"
-    t.decimal "latitude2"
-    t.decimal "longitude2"
-    t.string "gps2_status"
+    t.string "gps1_fix_type", default: ""
+    t.decimal "latitude2", default: "51.0475"
+    t.decimal "longitude2", default: "-114.068889"
+    t.string "gps2_status", default: ""
     t.integer "gps2_timestamp"
     t.integer "satcount2"
     t.float "gps2_altitude"
     t.float "gps2_speed"
     t.float "gps2_heading"
     t.float "gps2_hdop"
-    t.string "gps2_fix_type"
+    t.string "gps2_fix_type", default: ""
     t.float "vibex"
     t.float "vibey"
     t.float "vibez"
@@ -58,14 +58,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
     t.boolean "landed"
     t.integer "landed_state"
     t.float "timeInAir"
-    t.boolean "extended1"
-    t.boolean "extend1"
-    t.boolean "extended2"
-    t.boolean "extend2"
-    t.boolean "maglock"
-    t.boolean "laser"
-    t.boolean "headlight"
-    t.boolean "spotlight"
+    t.boolean "extended1", default: false
+    t.boolean "extend1", default: false
+    t.boolean "extended2", default: false
+    t.boolean "extend2", default: false
+    t.boolean "maglock", default: false
+    t.boolean "laser", default: false
+    t.boolean "headlight", default: false
+    t.boolean "spotlight", default: false
     t.float "ax1"
     t.float "ay1"
     t.float "az1"
@@ -212,15 +212,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
     t.float "efi_fuel_percent"
     t.float "efi_baro"
     t.float "efi_load"
-    t.float "throttle_angle"
-    t.float "brake_angle"
-    t.float "steering_wheel_angle"
-    t.integer "turn_signal"
+    t.float "throttle_angle", default: 0.0
+    t.float "brake_angle", default: 0.0
+    t.float "steering_wheel_angle", default: 0.0
+    t.integer "turn_signal", default: 0
     t.boolean "xpdr_adsb_tx_sys_fail"
     t.boolean "xpdr_airborne_status"
     t.float "xpdr_board_temperature_c"
     t.boolean "xpdr_es1090_tx_enable"
-    t.string "xpdr_flight_id"
+    t.string "xpdr_flight_id", default: ""
     t.boolean "xpdr_gps_no_fix"
     t.boolean "xpdr_gps_unavail"
     t.boolean "xpdr_ident_active"
@@ -239,37 +239,37 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
     t.integer "cell_rsrp"
     t.integer "cell_rsrq"
     t.integer "cell_sinr"
-    t.string "cell_network_type"
-    t.string "cell_id"
-    t.string "cell_connection_state"
-    t.string "cell_network_registration_state"
+    t.string "cell_network_type", default: ""
+    t.string "cell_id", default: ""
+    t.string "cell_connection_state", default: ""
+    t.string "cell_network_registration_state", default: ""
     t.integer "cell_retry_count"
     t.integer "cell_latency_ms"
-    t.string "cell_ip"
+    t.string "cell_ip", default: ""
     t.integer "cell_network_bytes_sent"
     t.integer "cell_network_bytes_recevied"
     t.integer "cell_network_bps_up"
     t.integer "cell_network_bps_down"
-    t.string "wifi_ssid"
-    t.string "wifi_bssid"
+    t.string "wifi_ssid", default: ""
+    t.string "wifi_bssid", default: ""
     t.integer "wifi_rssi_dbm"
     t.integer "wifi_snr_db"
     t.integer "wifi_link_speed_mbps"
-    t.string "wifi_band"
+    t.string "wifi_band", default: ""
     t.integer "wifi_channel"
-    t.string "wifi_ip_address"
-    t.string "wifi_connection_status"
+    t.string "wifi_ip_address", default: ""
+    t.string "wifi_connection_status", default: ""
     t.integer "wifi_uptime_sec"
     t.integer "wifi_bytes_sent"
     t.integer "wifi_bytes_received"
-    t.string "mac_address"
-    t.string "ethernet_link_status"
-    t.string "ethernet_speed"
-    t.string "ip_address"
-    t.string "subnet_mask"
-    t.string "default_gateway"
-    t.string "dhcp_status"
-    t.string "dhcp_lease"
+    t.string "mac_address", default: ""
+    t.string "ethernet_link_status", default: ""
+    t.string "ethernet_speed", default: ""
+    t.string "ip_address", default: ""
+    t.string "subnet_mask", default: ""
+    t.string "default_gateway", default: ""
+    t.string "dhcp_status", default: ""
+    t.string "dhcp_lease", default: ""
     t.float "ham_radio_rx_hz"
     t.float "ham_radio_tx_hz"
     t.float "ham_radio_watts"
@@ -310,10 +310,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
     t.float "solar2_a"
     t.float "charge_v"
     t.float "charge_a"
-    t.integer "mag1"
-    t.integer "mag2"
-    t.integer "mag3"
-    t.integer "mag4"
+    t.integer "mag1", default: 0
+    t.integer "mag2", default: 0
+    t.integer "mag3", default: 0
+    t.integer "mag4", default: 0
     t.boolean "button1"
     t.boolean "button2"
     t.boolean "switch1"
@@ -338,14 +338,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
     t.float "voltage_sensor6_mv"
     t.float "voltage_sensor7_mv"
     t.float "voltage_sensor9_mv"
-    t.boolean "digital_output1"
-    t.boolean "digital_output2"
-    t.boolean "digital_output3"
-    t.boolean "digital_output4"
-    t.boolean "digital_output5"
-    t.boolean "digital_output6"
-    t.boolean "digital_output7"
-    t.boolean "digital_output8"
+    t.boolean "digital_output1", default: false
+    t.boolean "digital_output2", default: false
+    t.boolean "digital_output3", default: false
+    t.boolean "digital_output4", default: false
+    t.boolean "digital_output5", default: false
+    t.boolean "digital_output6", default: false
+    t.boolean "digital_output7", default: false
+    t.boolean "digital_output8", default: false
     t.boolean "digital_input1"
     t.boolean "digital_input2"
     t.boolean "digital_input3"
@@ -354,14 +354,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
     t.boolean "digital_input6"
     t.boolean "digital_input7"
     t.boolean "digital_input8"
-    t.float "analog_output1"
-    t.float "analog_output2"
-    t.float "analog_output3"
-    t.float "analog_output4"
-    t.float "analog_output5"
-    t.float "analog_output6"
-    t.float "analog_output7"
-    t.float "analog_output8"
+    t.float "analog_output1", default: 0.0
+    t.float "analog_output2", default: 0.0
+    t.float "analog_output3", default: 0.0
+    t.float "analog_output4", default: 0.0
+    t.float "analog_output5", default: 0.0
+    t.float "analog_output6", default: 0.0
+    t.float "analog_output7", default: 0.0
+    t.float "analog_output8", default: 0.0
     t.float "hall1_angle_degrees"
     t.float "hall2_angle_degrees"
     t.float "hall3_angle_degrees"
@@ -382,14 +382,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
     t.float "color_r"
     t.float "color_g"
     t.float "color_b"
-    t.string "text1"
-    t.string "text2"
-    t.string "text3"
-    t.string "text4"
-    t.string "text5"
-    t.string "text6"
-    t.string "text7"
-    t.string "text8"
+    t.string "text1", default: ""
+    t.string "text2", default: ""
+    t.string "text3", default: ""
+    t.string "text4", default: ""
+    t.string "text5", default: ""
+    t.string "text6", default: ""
+    t.string "text7", default: ""
+    t.string "text8", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["Device_id"], name: "index_device_states_on_Device_id"
@@ -397,13 +397,38 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_034812) do
 
   create_table "devices", force: :cascade do |t|
     t.string "name"
-    t.integer "state_id", null: false
+    t.integer "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_devices_on_state_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.boolean "allow_password_change", default: false
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "name"
+    t.string "nickname"
+    t.string "image"
+    t.string "email"
+    t.text "tokens"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+  end
+
   add_foreign_key "commands", "Devices"
   add_foreign_key "device_states", "Devices"
-  add_foreign_key "devices", "states"
+  add_foreign_key "devices", "device_states", column: "state_id"
 end

@@ -1,1837 +1,1911 @@
 <div id="<%= dom_id device_state %>">
-  <p>
-    <strong>Device:</strong>
-    <%= device_state.Device_id %>
-  </p>
+  <details>
+    <Summary>Device Info</Summary>
 
   <p>
-    <strong>Version:</strong>
-    <%= device_state.version %>
+    <var>Version:</var>
+    <var class="value"><%= device_state.version %></var>
   </p>
 
   <p>
-    <strong>Armed:</strong>
-    <%= device_state.armed %>
+    <var>Armed:</var>
+    <var class="value"><%= device_state.armed %></var>
   </p>
 
   <p>
-    <strong>Prearmed:</strong>
-    <%= device_state.prearmed %>
+    <var>Prearmed:</var>
+    <var class="value"><%= device_state.prearmed %></var>
   </p>
 
   <p>
-    <strong>Mode:</strong>
-    <%= device_state.mode %>
+    <var>Mode:</var>
+    <var class="value"><%= device_state.mode %></var>
   </p>
 
   <p>
-    <strong>Status:</strong>
-    <%= device_state.status %>
+    <var>Status:</var>
+    <var class="value"><%= device_state.status %></var>
   </p>
+  </details>
 
+<details>
+  <Summary>Position</Summary>
+
   <p>
-    <strong>Latitude1:</strong>
-    <%= device_state.latitude1 %>
+    <var>Latitude1:</var>
+    <var class="value"><%= device_state.latitude1 %></var>
   </p>
 
   <p>
-    <strong>Longitude1:</strong>
-    <%= device_state.longitude1 %>
+    <var>Longitude1:</var>
+    <var class="value"><%= device_state.longitude1 %></var>
   </p>
 
   <p>
-    <strong>Gps1 status:</strong>
-    <%= device_state.gps1_status %>
+    <var>Gps1 status:</var>
+    <var class="value"><%= device_state.gps1_status %></var>
   </p>
 
   <p>
-    <strong>Gps1 timestamp:</strong>
-    <%= device_state.gps1_timestamp %>
+    <var>Gps1 timestamp:</var>
+    <var class="value"><%= device_state.gps1_timestamp %></var>
   </p>
 
   <p>
-    <strong>Satcount1:</strong>
-    <%= device_state.satcount1 %>
+    <var>Satcount1:</var>
+    <var class="value"><%= device_state.satcount1 %></var>
   </p>
 
   <p>
-    <strong>Gps1 altitude:</strong>
-    <%= device_state.gps1_altitude %>
+    <var>Gps1 altitude:</var>
+    <var class="value"><%= device_state.gps1_altitude %></var>
   </p>
 
   <p>
-    <strong>Gps1 speed:</strong>
-    <%= device_state.gps1_speed %>
+    <var>Gps1 speed:</var>
+    <var class="value"><%= device_state.gps1_speed %></var>
   </p>
 
   <p>
-    <strong>Gps1 heading:</strong>
-    <%= device_state.gps1_heading %>
+    <var>Gps1 heading:</var>
+    <var class="value"><%= device_state.gps1_heading %></var>
   </p>
 
   <p>
-    <strong>Gps1 hdop:</strong>
-    <%= device_state.gps1_hdop %>
+    <var>Gps1 hdop:</var>
+    <var class="value"><%= device_state.gps1_hdop %></var>
   </p>
 
   <p>
-    <strong>Gps1 fix type:</strong>
-    <%= device_state.gps1_fix_type %>
+    <var>Gps1 fix type:</var>
+    <var class="value"><%= device_state.gps1_fix_type %></var>
   </p>
 
   <p>
-    <strong>Latitude2:</strong>
-    <%= device_state.latitude2 %>
+    <var>Latitude2:</var>
+    <var class="value"><%= device_state.latitude2 %></var>
   </p>
 
   <p>
-    <strong>Longitude2:</strong>
-    <%= device_state.longitude2 %>
+    <var>Longitude2:</var>
+    <var class="value"><%= device_state.longitude2 %></var>
   </p>
 
   <p>
-    <strong>Gps2 status:</strong>
-    <%= device_state.gps2_status %>
+    <var>Gps2 status:</var>
+    <var class="value"><%= device_state.gps2_status %></var>
   </p>
 
   <p>
-    <strong>Gps2 timestamp:</strong>
-    <%= device_state.gps2_timestamp %>
+    <var>Gps2 timestamp:</var>
+    <var class="value"><%= device_state.gps2_timestamp %></var>
   </p>
 
   <p>
-    <strong>Satcount2:</strong>
-    <%= device_state.satcount2 %>
+    <var>Satcount2:</var>
+    <var class="value"><%= device_state.satcount2 %></var>
   </p>
 
   <p>
-    <strong>Gps2 altitude:</strong>
-    <%= device_state.gps2_altitude %>
+    <var>Gps2 altitude:</var>
+    <var class="value"><%= device_state.gps2_altitude %></var>
   </p>
 
   <p>
-    <strong>Gps2 speed:</strong>
-    <%= device_state.gps2_speed %>
+    <var>Gps2 speed:</var>
+    <var class="value"><%= device_state.gps2_speed %></var>
   </p>
 
   <p>
-    <strong>Gps2 heading:</strong>
-    <%= device_state.gps2_heading %>
+    <var>Gps2 heading:</var>
+    <var class="value"><%= device_state.gps2_heading %></var>
   </p>
 
   <p>
-    <strong>Gps2 hdop:</strong>
-    <%= device_state.gps2_hdop %>
+    <var>Gps2 hdop:</var>
+    <var class="value"><%= device_state.gps2_hdop %></var>
   </p>
 
   <p>
-    <strong>Gps2 fix type:</strong>
-    <%= device_state.gps2_fix_type %>
+    <var>Gps2 fix type:</var>
+    <var class="value"><%= device_state.gps2_fix_type %></var>
   </p>
+  </details>
 
+<details>
+  <Summary>IMU</Summary>
   <p>
-    <strong>Vibex:</strong>
-    <%= device_state.vibex %>
+    <var>Vibex:</var>
+    <var class="value"><%= device_state.vibex %></var>
   </p>
 
   <p>
-    <strong>Vibey:</strong>
-    <%= device_state.vibey %>
+    <var>Vibey:</var>
+    <var class="value"><%= device_state.vibey %></var>
   </p>
 
   <p>
-    <strong>Vibez:</strong>
-    <%= device_state.vibez %>
+    <var>Vibez:</var>
+    <var class="value"><%= device_state.vibez %></var>
   </p>
 
   <p>
-    <strong>Heading deg:</strong>
-    <%= device_state.heading_deg %>
+    <var>Heading deg:</var>
+    <var class="value"><%= device_state.heading_deg %></var>
   </p>
 
   <p>
-    <strong>Roll deg:</strong>
-    <%= device_state.roll_deg %>
+    <var>Roll deg:</var>
+    <var class="value"><%= device_state.roll_deg %></var>
   </p>
 
   <p>
-    <strong>Yaw deg:</strong>
-    <%= device_state.yaw_deg %>
+    <var>Yaw deg:</var>
+    <var class="value"><%= device_state.yaw_deg %></var>
   </p>
 
   <p>
-    <strong>Landed:</strong>
-    <%= device_state.landed %>
+    <var>Landed:</var>
+    <var class="value"><%= device_state.landed %></var>
   </p>
 
   <p>
-    <strong>Landed state:</strong>
-    <%= device_state.landed_state %>
+    <var>Landed state:</var>
+    <var class="value"><%= device_state.landed_state %></var>
   </p>
 
   <p>
-    <strong>Timeinair:</strong>
-    <%= device_state.timeInAir %>
+    <var>Timeinair:</var>
+    <var class="value"><%= device_state.timeInAir %></var>
   </p>
 
   <p>
-    <strong>Extended1:</strong>
-    <%= device_state.extended1 %>
+    <var>Extended1:</var>
+    <var class="value"><%= device_state.extended1 %></var>
   </p>
 
   <p>
-    <strong>Extend1:</strong>
-    <%= device_state.extend1 %>
+    <var>Extend1:</var>
+    <var class="value"><%= device_state.extend1 %></var>
   </p>
 
   <p>
-    <strong>Extended2:</strong>
-    <%= device_state.extended2 %>
+    <var>Extended2:</var>
+    <var class="value"><%= device_state.extended2 %></var>
   </p>
 
   <p>
-    <strong>Extend2:</strong>
-    <%= device_state.extend2 %>
+    <var>Extend2:</var>
+    <var class="value"><%= device_state.extend2 %></var>
   </p>
 
   <p>
-    <strong>Maglock:</strong>
-    <%= device_state.maglock %>
+    <var>Maglock:</var>
+    <var class="value"><%= device_state.maglock %></var>
   </p>
 
   <p>
-    <strong>Laser:</strong>
-    <%= device_state.laser %>
+    <var>Laser:</var>
+    <var class="value"><%= device_state.laser %></var>
   </p>
 
   <p>
-    <strong>Headlight:</strong>
-    <%= device_state.headlight %>
+    <var>Headlight:</var>
+    <var class="value"><%= device_state.headlight %></var>
   </p>
 
   <p>
-    <strong>Spotlight:</strong>
-    <%= device_state.spotlight %>
+    <var>Spotlight:</var>
+    <var class="value"><%= device_state.spotlight %></var>
   </p>
 
   <p>
-    <strong>Ax1:</strong>
-    <%= device_state.ax1 %>
+    <var>Ax1:</var>
+    <var class="value"><%= device_state.ax1 %></var>
   </p>
 
   <p>
-    <strong>Ay1:</strong>
-    <%= device_state.ay1 %>
+    <var>Ay1:</var>
+    <var class="value"><%= device_state.ay1 %></var>
   </p>
 
   <p>
-    <strong>Az1:</strong>
-    <%= device_state.az1 %>
+    <var>Az1:</var>
+    <var class="value"><%= device_state.az1 %></var>
   </p>
 
   <p>
-    <strong>Ax2:</strong>
-    <%= device_state.ax2 %>
+    <var>Ax2:</var>
+    <var class="value"><%= device_state.ax2 %></var>
   </p>
 
   <p>
-    <strong>Ay2:</strong>
-    <%= device_state.ay2 %>
+    <var>Ay2:</var>
+    <var class="value"><%= device_state.ay2 %></var>
   </p>
 
   <p>
-    <strong>Az2:</strong>
-    <%= device_state.az2 %>
+    <var>Az2:</var>
+    <var class="value"><%= device_state.az2 %></var>
   </p>
 
   <p>
-    <strong>Ax3:</strong>
-    <%= device_state.ax3 %>
+    <var>Ax3:</var>
+    <var class="value"><%= device_state.ax3 %></var>
   </p>
 
   <p>
-    <strong>Ay3:</strong>
-    <%= device_state.ay3 %>
+    <var>Ay3:</var>
+    <var class="value"><%= device_state.ay3 %></var>
   </p>
 
   <p>
-    <strong>Az3:</strong>
-    <%= device_state.az3 %>
+    <var>Az3:</var>
+    <var class="value"><%= device_state.az3 %></var>
   </p>
 
   <p>
-    <strong>Vx:</strong>
-    <%= device_state.vx %>
+    <var>Vx:</var>
+    <var class="value"><%= device_state.vx %></var>
   </p>
 
   <p>
-    <strong>Vy:</strong>
-    <%= device_state.vy %>
+    <var>Vy:</var>
+    <var class="value"><%= device_state.vy %></var>
   </p>
 
   <p>
-    <strong>Vz:</strong>
-    <%= device_state.vz %>
+    <var>Vz:</var>
+    <var class="value"><%= device_state.vz %></var>
   </p>
 
   <p>
-    <strong>Imu1 temp c:</strong>
-    <%= device_state.imu1_temp_c %>
+    <var>Imu1 temp c:</var>
+    <var class="value"><%= device_state.imu1_temp_c %></var>
   </p>
 
   <p>
-    <strong>Imu2 temp c:</strong>
-    <%= device_state.imu2_temp_c %>
+    <var>Imu2 temp c:</var>
+    <var class="value"><%= device_state.imu2_temp_c %></var>
   </p>
 
   <p>
-    <strong>Imu3 temp c:</strong>
-    <%= device_state.imu3_temp_c %>
+    <var>Imu3 temp c:</var>
+    <var class="value"><%= device_state.imu3_temp_c %></var>
   </p>
+</details>
 
+<details>
+<summary>Configuration</summary>
   <p>
-    <strong>Gimbal heading deg:</strong>
-    <%= device_state.gimbal_heading_deg %>
+    <var>Gimbal heading deg:</var>
+    <var class="value"><%= device_state.gimbal_heading_deg %></var>
   </p>
 
   <p>
-    <strong>Gimbal tilt deg:</strong>
-    <%= device_state.gimbal_tilt_deg %>
+    <var>Gimbal tilt deg:</var>
+    <var class="value"><%= device_state.gimbal_tilt_deg %></var>
   </p>
 
   <p>
-    <strong>Gimbal yaw deg:</strong>
-    <%= device_state.gimbal_yaw_deg %>
+    <var>Gimbal yaw deg:</var>
+    <var class="value"><%= device_state.gimbal_yaw_deg %></var>
   </p>
 
   <p>
-    <strong>Gimbal target heading deg:</strong>
-    <%= device_state.gimbal_target_heading_deg %>
+    <var>Gimbal target heading deg:</var>
+    <var class="value"><%= device_state.gimbal_target_heading_deg %></var>
   </p>
 
   <p>
-    <strong>Gimbal target tilt deg:</strong>
-    <%= device_state.gimbal_target_tilt_deg %>
+    <var>Gimbal target tilt deg:</var>
+    <var class="value"><%= device_state.gimbal_target_tilt_deg %></var>
   </p>
 
   <p>
-    <strong>Gimbal target yaw deg:</strong>
-    <%= device_state.gimbal_target_yaw_deg %>
+    <var>Gimbal target yaw deg:</var>
+    <var class="value"><%= device_state.gimbal_target_yaw_deg %></var>
   </p>
 
   <p>
-    <strong>Nav bearing:</strong>
-    <%= device_state.nav_bearing %>
+    <var>Nav bearing:</var>
+    <var class="value"><%= device_state.nav_bearing %></var>
   </p>
 
   <p>
-    <strong>Nav pitch:</strong>
-    <%= device_state.nav_pitch %>
+    <var>Nav pitch:</var>
+    <var class="value"><%= device_state.nav_pitch %></var>
   </p>
 
   <p>
-    <strong>Nav roll:</strong>
-    <%= device_state.nav_roll %>
+    <var>Nav roll:</var>
+    <var class="value"><%= device_state.nav_roll %></var>
   </p>
 
   <p>
-    <strong>Magnetic x:</strong>
-    <%= device_state.magnetic_x %>
+    <var>Magnetic x:</var>
+    <var class="value"><%= device_state.magnetic_x %></var>
   </p>
 
   <p>
-    <strong>Magnetic y:</strong>
-    <%= device_state.magnetic_y %>
+    <var>Magnetic y:</var>
+    <var class="value"><%= device_state.magnetic_y %></var>
   </p>
 
   <p>
-    <strong>Magnetic z:</strong>
-    <%= device_state.magnetic_z %>
+    <var>Magnetic z:</var>
+    <var class="value"><%= device_state.magnetic_z %></var>
   </p>
 
   <p>
-    <strong>Sonar range m:</strong>
-    <%= device_state.sonar_range_m %>
+    <var>Sonar range m:</var>
+    <var class="value"><%= device_state.sonar_range_m %></var>
   </p>
 
   <p>
-    <strong>Sonar v:</strong>
-    <%= device_state.sonar_v %>
+    <var>Sonar v:</var>
+    <var class="value"><%= device_state.sonar_v %></var>
   </p>
 
   <p>
-    <strong>Terrainactive:</strong>
-    <%= device_state.terrainactive %>
+    <var>Terrainactive:</var>
+    <var class="value"><%= device_state.terrainactive %></var>
   </p>
 
   <p>
-    <strong>Safetyactive:</strong>
-    <%= device_state.safetyactive %>
+    <var>Safetyactive:</var>
+    <var class="value"><%= device_state.safetyactive %></var>
   </p>
 
   <p>
-    <strong>Failsafe:</strong>
-    <%= device_state.failsafe %>
+    <var>Failsafe:</var>
+    <var class="value"><%= device_state.failsafe %></var>
   </p>
+</details>
 
+<details>
+<summary>Temperature</summary>
   <p>
-    <strong>Temp1 c:</strong>
-    <%= device_state.temp1_c %>
+    <var>Temp1 c:</var>
+    <var class="value"><%= device_state.temp1_c %></var>
   </p>
 
   <p>
-    <strong>Temp2 c:</strong>
-    <%= device_state.temp2_c %>
+    <var>Temp2 c:</var>
+    <var class="value"><%= device_state.temp2_c %></var>
   </p>
 
   <p>
-    <strong>Temp3 c:</strong>
-    <%= device_state.temp3_c %>
+    <var>Temp3 c:</var>
+    <var class="value"><%= device_state.temp3_c %></var>
   </p>
 
   <p>
-    <strong>Temp4 c:</strong>
-    <%= device_state.temp4_c %>
+    <var>Temp4 c:</var>
+    <var class="value"><%= device_state.temp4_c %></var>
   </p>
 
   <p>
-    <strong>Temp5 c:</strong>
-    <%= device_state.temp5_c %>
+    <var>Temp5 c:</var>
+    <var class="value"><%= device_state.temp5_c %></var>
   </p>
 
   <p>
-    <strong>Temp6 c:</strong>
-    <%= device_state.temp6_c %>
+    <var>Temp6 c:</var>
+    <var class="value"><%= device_state.temp6_c %></var>
   </p>
 
   <p>
-    <strong>Temp7 c:</strong>
-    <%= device_state.temp7_c %>
+    <var>Temp7 c:</var>
+    <var class="value"><%= device_state.temp7_c %></var>
   </p>
 
   <p>
-    <strong>Temp8 c:</strong>
-    <%= device_state.temp8_c %>
+    <var>Temp8 c:</var>
+    <var class="value"><%= device_state.temp8_c %></var>
   </p>
+</details>
 
+<details>
+<summary>Environmental</summary>
   <p>
-    <strong>Pressure pa:</strong>
-    <%= device_state.pressure_pa %>
+    <var>Pressure pa:</var>
+    <var class="value"><%= device_state.pressure_pa %></var>
   </p>
 
   <p>
-    <strong>Airspeed:</strong>
-    <%= device_state.airspeed %>
+    <var>Airspeed:</var>
+    <var class="value"><%= device_state.airspeed %></var>
   </p>
+</details>
 
+<details>
+<summary>Battery</summary>
   <p>
-    <strong>Battery1 v:</strong>
-    <%= device_state.battery1_v %>
+    <var>Battery1 v:</var>
+    <var class="value"><%= device_state.battery1_v %></var>
   </p>
 
   <p>
-    <strong>Battery1 a:</strong>
-    <%= device_state.battery1_a %>
+    <var>Battery1 a:</var>
+    <var class="value"><%= device_state.battery1_a %></var>
   </p>
 
   <p>
-    <strong>Battery1 temp c:</strong>
-    <%= device_state.battery1_temp_c %>
+    <var>Battery1 temp c:</var>
+    <var class="value"><%= device_state.battery1_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery1 percent:</strong>
-    <%= device_state.battery1_percent %>
+    <var>Battery1 percent:</var>
+    <var class="value"><%= device_state.battery1_percent %></var>
   </p>
 
   <p>
-    <strong>Battery2 v:</strong>
-    <%= device_state.battery2_v %>
+    <var>Battery2 v:</var>
+    <var class="value"><%= device_state.battery2_v %></var>
   </p>
 
   <p>
-    <strong>Battery2 a:</strong>
-    <%= device_state.battery2_a %>
+    <var>Battery2 a:</var>
+    <var class="value"><%= device_state.battery2_a %></var>
   </p>
 
   <p>
-    <strong>Battery2 temp c:</strong>
-    <%= device_state.battery2_temp_c %>
+    <var>Battery2 temp c:</var>
+    <var class="value"><%= device_state.battery2_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery2 percent:</strong>
-    <%= device_state.battery2_percent %>
+    <var>Battery2 percent:</var>
+    <var class="value"><%= device_state.battery2_percent %></var>
   </p>
 
   <p>
-    <strong>Battery3 v:</strong>
-    <%= device_state.battery3_v %>
+    <var>Battery3 v:</var>
+    <var class="value"><%= device_state.battery3_v %></var>
   </p>
 
   <p>
-    <strong>Battery3 a:</strong>
-    <%= device_state.battery3_a %>
+    <var>Battery3 a:</var>
+    <var class="value"><%= device_state.battery3_a %></var>
   </p>
 
   <p>
-    <strong>Battery3 temp c:</strong>
-    <%= device_state.battery3_temp_c %>
+    <var>Battery3 temp c:</var>
+    <var class="value"><%= device_state.battery3_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery3 percent:</strong>
-    <%= device_state.battery3_percent %>
+    <var>Battery3 percent:</var>
+    <var class="value"><%= device_state.battery3_percent %></var>
   </p>
 
   <p>
-    <strong>Battery4 v:</strong>
-    <%= device_state.battery4_v %>
+    <var>Battery4 v:</var>
+    <var class="value"><%= device_state.battery4_v %></var>
   </p>
 
   <p>
-    <strong>Battery4 a:</strong>
-    <%= device_state.battery4_a %>
+    <var>Battery4 a:</var>
+    <var class="value"><%= device_state.battery4_a %></var>
   </p>
 
   <p>
-    <strong>Battery4 temp c:</strong>
-    <%= device_state.battery4_temp_c %>
+    <var>Battery4 temp c:</var>
+    <var class="value"><%= device_state.battery4_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery4 percent:</strong>
-    <%= device_state.battery4_percent %>
+    <var>Battery4 percent:</var>
+    <var class="value"><%= device_state.battery4_percent %></var>
   </p>
 
   <p>
-    <strong>Battery5 v:</strong>
-    <%= device_state.battery5_v %>
+    <var>Battery5 v:</var>
+    <var class="value"><%= device_state.battery5_v %></var>
   </p>
 
   <p>
-    <strong>Battery5 a:</strong>
-    <%= device_state.battery5_a %>
+    <var>Battery5 a:</var>
+    <var class="value"><%= device_state.battery5_a %></var>
   </p>
 
   <p>
-    <strong>Battery5 temp c:</strong>
-    <%= device_state.battery5_temp_c %>
+    <var>Battery5 temp c:</var>
+    <var class="value"><%= device_state.battery5_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery5 percent:</strong>
-    <%= device_state.battery5_percent %>
+    <var>Battery5 percent:</var>
+    <var class="value"><%= device_state.battery5_percent %></var>
   </p>
 
   <p>
-    <strong>Battery6 v:</strong>
-    <%= device_state.battery6_v %>
+    <var>Battery6 v:</var>
+    <var class="value"><%= device_state.battery6_v %></var>
   </p>
 
   <p>
-    <strong>Battery6 a:</strong>
-    <%= device_state.battery6_a %>
+    <var>Battery6 a:</var>
+    <var class="value"><%= device_state.battery6_a %></var>
   </p>
 
   <p>
-    <strong>Battery6 temp c:</strong>
-    <%= device_state.battery6_temp_c %>
+    <var>Battery6 temp c:</var>
+    <var class="value"><%= device_state.battery6_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery6 percent:</strong>
-    <%= device_state.battery6_percent %>
+    <var>Battery6 percent:</var>
+    <var class="value"><%= device_state.battery6_percent %></var>
   </p>
 
   <p>
-    <strong>Battery7 v:</strong>
-    <%= device_state.battery7_v %>
+    <var>Battery7 v:</var>
+    <var class="value"><%= device_state.battery7_v %></var>
   </p>
 
   <p>
-    <strong>Battery7 a:</strong>
-    <%= device_state.battery7_a %>
+    <var>Battery7 a:</var>
+    <var class="value"><%= device_state.battery7_a %></var>
   </p>
 
   <p>
-    <strong>Battery7 temp c:</strong>
-    <%= device_state.battery7_temp_c %>
+    <var>Battery7 temp c:</var>
+    <var class="value"><%= device_state.battery7_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery7 percent:</strong>
-    <%= device_state.battery7_percent %>
+    <var>Battery7 percent:</var>
+    <var class="value"><%= device_state.battery7_percent %></var>
   </p>
 
   <p>
-    <strong>Battery8 v:</strong>
-    <%= device_state.battery8_v %>
+    <var>Battery8 v:</var>
+    <var class="value"><%= device_state.battery8_v %></var>
   </p>
 
   <p>
-    <strong>Battery8 a:</strong>
-    <%= device_state.battery8_a %>
+    <var>Battery8 a:</var>
+    <var class="value"><%= device_state.battery8_a %></var>
   </p>
 
   <p>
-    <strong>Battery8 temp c:</strong>
-    <%= device_state.battery8_temp_c %>
+    <var>Battery8 temp c:</var>
+    <var class="value"><%= device_state.battery8_temp_c %></var>
   </p>
 
   <p>
-    <strong>Battery8 percent:</strong>
-    <%= device_state.battery8_percent %>
+    <var>Battery8 percent:</var>
+    <var class="value"><%= device_state.battery8_percent %></var>
   </p>
+  </details>
 
+<details>
+<summary>ESC</summary>
   <p>
-    <strong>Esc1 v:</strong>
-    <%= device_state.esc1_v %>
+    <var>Esc1 v:</var>
+    <var class="value"><%= device_state.esc1_v %></var>
   </p>
 
   <p>
-    <strong>Esc1 a:</strong>
-    <%= device_state.esc1_a %>
+    <var>Esc1 a:</var>
+    <var class="value"><%= device_state.esc1_a %></var>
   </p>
 
   <p>
-    <strong>Esc1 temp c:</strong>
-    <%= device_state.esc1_temp_c %>
+    <var>Esc1 temp c:</var>
+    <var class="value"><%= device_state.esc1_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc1 rpm:</strong>
-    <%= device_state.esc1_rpm %>
+    <var>Esc1 rpm:</var>
+    <var class="value"><%= device_state.esc1_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc2 v:</strong>
-    <%= device_state.esc2_v %>
+    <var>Esc2 v:</var>
+    <var class="value"><%= device_state.esc2_v %></var>
   </p>
 
   <p>
-    <strong>Esc2 a:</strong>
-    <%= device_state.esc2_a %>
+    <var>Esc2 a:</var>
+    <var class="value"><%= device_state.esc2_a %></var>
   </p>
 
   <p>
-    <strong>Esc2 temp c:</strong>
-    <%= device_state.esc2_temp_c %>
+    <var>Esc2 temp c:</var>
+    <var class="value"><%= device_state.esc2_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc2 rpm:</strong>
-    <%= device_state.esc2_rpm %>
+    <var>Esc2 rpm:</var>
+    <var class="value"><%= device_state.esc2_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc3 v:</strong>
-    <%= device_state.esc3_v %>
+    <var>Esc3 v:</var>
+    <var class="value"><%= device_state.esc3_v %></var>
   </p>
 
   <p>
-    <strong>Esc3 a:</strong>
-    <%= device_state.esc3_a %>
+    <var>Esc3 a:</var>
+    <var class="value"><%= device_state.esc3_a %></var>
   </p>
 
   <p>
-    <strong>Esc3 temp c:</strong>
-    <%= device_state.esc3_temp_c %>
+    <var>Esc3 temp c:</var>
+    <var class="value"><%= device_state.esc3_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc3 rpm:</strong>
-    <%= device_state.esc3_rpm %>
+    <var>Esc3 rpm:</var>
+    <var class="value"><%= device_state.esc3_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc4 v:</strong>
-    <%= device_state.esc4_v %>
+    <var>Esc4 v:</var>
+    <var class="value"><%= device_state.esc4_v %></var>
   </p>
 
   <p>
-    <strong>Esc4 a:</strong>
-    <%= device_state.esc4_a %>
+    <var>Esc4 a:</var>
+    <var class="value"><%= device_state.esc4_a %></var>
   </p>
 
   <p>
-    <strong>Esc4 temp c:</strong>
-    <%= device_state.esc4_temp_c %>
+    <var>Esc4 temp c:</var>
+    <var class="value"><%= device_state.esc4_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc4 rpm:</strong>
-    <%= device_state.esc4_rpm %>
+    <var>Esc4 rpm:</var>
+    <var class="value"><%= device_state.esc4_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc5 v:</strong>
-    <%= device_state.esc5_v %>
+    <var>Esc5 v:</var>
+    <var class="value"><%= device_state.esc5_v %></var>
   </p>
 
   <p>
-    <strong>Esc5 a:</strong>
-    <%= device_state.esc5_a %>
+    <var>Esc5 a:</var>
+    <var class="value"><%= device_state.esc5_a %></var>
   </p>
 
   <p>
-    <strong>Esc5 temp c:</strong>
-    <%= device_state.esc5_temp_c %>
+    <var>Esc5 temp c:</var>
+    <var class="value"><%= device_state.esc5_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc5 rpm:</strong>
-    <%= device_state.esc5_rpm %>
+    <var>Esc5 rpm:</var>
+    <var class="value"><%= device_state.esc5_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc6 v:</strong>
-    <%= device_state.esc6_v %>
+    <var>Esc6 v:</var>
+    <var class="value"><%= device_state.esc6_v %></var>
   </p>
 
   <p>
-    <strong>Esc6 a:</strong>
-    <%= device_state.esc6_a %>
+    <var>Esc6 a:</var>
+    <var class="value"><%= device_state.esc6_a %></var>
   </p>
 
   <p>
-    <strong>Esc6 temp c:</strong>
-    <%= device_state.esc6_temp_c %>
+    <var>Esc6 temp c:</var>
+    <var class="value"><%= device_state.esc6_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc6 rpm:</strong>
-    <%= device_state.esc6_rpm %>
+    <var>Esc6 rpm:</var>
+    <var class="value"><%= device_state.esc6_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc7 v:</strong>
-    <%= device_state.esc7_v %>
+    <var>Esc7 v:</var>
+    <var class="value"><%= device_state.esc7_v %></var>
   </p>
 
   <p>
-    <strong>Esc7 a:</strong>
-    <%= device_state.esc7_a %>
+    <var>Esc7 a:</var>
+    <var class="value"><%= device_state.esc7_a %></var>
   </p>
 
   <p>
-    <strong>Esc7 temp c:</strong>
-    <%= device_state.esc7_temp_c %>
+    <var>Esc7 temp c:</var>
+    <var class="value"><%= device_state.esc7_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc7 rpm:</strong>
-    <%= device_state.esc7_rpm %>
+    <var>Esc7 rpm:</var>
+    <var class="value"><%= device_state.esc7_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc8 v:</strong>
-    <%= device_state.esc8_v %>
+    <var>Esc8 v:</var>
+    <var class="value"><%= device_state.esc8_v %></var>
   </p>
 
   <p>
-    <strong>Esc8 a:</strong>
-    <%= device_state.esc8_a %>
+    <var>Esc8 a:</var>
+    <var class="value"><%= device_state.esc8_a %></var>
   </p>
 
   <p>
-    <strong>Esc8 temp c:</strong>
-    <%= device_state.esc8_temp_c %>
+    <var>Esc8 temp c:</var>
+    <var class="value"><%= device_state.esc8_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc8 rpm:</strong>
-    <%= device_state.esc8_rpm %>
+    <var>Esc8 rpm:</var>
+    <var class="value"><%= device_state.esc8_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc9 v:</strong>
-    <%= device_state.esc9_v %>
+    <var>Esc9 v:</var>
+    <var class="value"><%= device_state.esc9_v %></var>
   </p>
 
   <p>
-    <strong>Esc9 a:</strong>
-    <%= device_state.esc9_a %>
+    <var>Esc9 a:</var>
+    <var class="value"><%= device_state.esc9_a %></var>
   </p>
 
   <p>
-    <strong>Esc9 temp c:</strong>
-    <%= device_state.esc9_temp_c %>
+    <var>Esc9 temp c:</var>
+    <var class="value"><%= device_state.esc9_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc9 rpm:</strong>
-    <%= device_state.esc9_rpm %>
+    <var>Esc9 rpm:</var>
+    <var class="value"><%= device_state.esc9_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc10 v:</strong>
-    <%= device_state.esc10_v %>
+    <var>Esc10 v:</var>
+    <var class="value"><%= device_state.esc10_v %></var>
   </p>
 
   <p>
-    <strong>Esc10 a:</strong>
-    <%= device_state.esc10_a %>
+    <var>Esc10 a:</var>
+    <var class="value"><%= device_state.esc10_a %></var>
   </p>
 
   <p>
-    <strong>Esc10 temp c:</strong>
-    <%= device_state.esc10_temp_c %>
+    <var>Esc10 temp c:</var>
+    <var class="value"><%= device_state.esc10_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc10 rpm:</strong>
-    <%= device_state.esc10_rpm %>
+    <var>Esc10 rpm:</var>
+    <var class="value"><%= device_state.esc10_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc11 v:</strong>
-    <%= device_state.esc11_v %>
+    <var>Esc11 v:</var>
+    <var class="value"><%= device_state.esc11_v %></var>
   </p>
 
   <p>
-    <strong>Esc11 a:</strong>
-    <%= device_state.esc11_a %>
+    <var>Esc11 a:</var>
+    <var class="value"><%= device_state.esc11_a %></var>
   </p>
 
   <p>
-    <strong>Esc11 temp c:</strong>
-    <%= device_state.esc11_temp_c %>
+    <var>Esc11 temp c:</var>
+    <var class="value"><%= device_state.esc11_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc11 rpm:</strong>
-    <%= device_state.esc11_rpm %>
+    <var>Esc11 rpm:</var>
+    <var class="value"><%= device_state.esc11_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc12 v:</strong>
-    <%= device_state.esc12_v %>
+    <var>Esc12 v:</var>
+    <var class="value"><%= device_state.esc12_v %></var>
   </p>
 
   <p>
-    <strong>Esc12 a:</strong>
-    <%= device_state.esc12_a %>
+    <var>Esc12 a:</var>
+    <var class="value"><%= device_state.esc12_a %></var>
   </p>
 
   <p>
-    <strong>Esc12 temp c:</strong>
-    <%= device_state.esc12_temp_c %>
+    <var>Esc12 temp c:</var>
+    <var class="value"><%= device_state.esc12_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc12 rpm:</strong>
-    <%= device_state.esc12_rpm %>
+    <var>Esc12 rpm:</var>
+    <var class="value"><%= device_state.esc12_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc13 v:</strong>
-    <%= device_state.esc13_v %>
+    <var>Esc13 v:</var>
+    <var class="value"><%= device_state.esc13_v %></var>
   </p>
 
   <p>
-    <strong>Esc13 a:</strong>
-    <%= device_state.esc13_a %>
+    <var>Esc13 a:</var>
+    <var class="value"><%= device_state.esc13_a %></var>
   </p>
 
   <p>
-    <strong>Esc13 temp c:</strong>
-    <%= device_state.esc13_temp_c %>
+    <var>Esc13 temp c:</var>
+    <var class="value"><%= device_state.esc13_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc13 rpm:</strong>
-    <%= device_state.esc13_rpm %>
+    <var>Esc13 rpm:</var>
+    <var class="value"><%= device_state.esc13_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc14 v:</strong>
-    <%= device_state.esc14_v %>
+    <var>Esc14 v:</var>
+    <var class="value"><%= device_state.esc14_v %></var>
   </p>
 
   <p>
-    <strong>Esc14 a:</strong>
-    <%= device_state.esc14_a %>
+    <var>Esc14 a:</var>
+    <var class="value"><%= device_state.esc14_a %></var>
   </p>
 
   <p>
-    <strong>Esc14 temp c:</strong>
-    <%= device_state.esc14_temp_c %>
+    <var>Esc14 temp c:</var>
+    <var class="value"><%= device_state.esc14_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc14 rpm:</strong>
-    <%= device_state.esc14_rpm %>
+    <var>Esc14 rpm:</var>
+    <var class="value"><%= device_state.esc14_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc15 v:</strong>
-    <%= device_state.esc15_v %>
+    <var>Esc15 v:</var>
+    <var class="value"><%= device_state.esc15_v %></var>
   </p>
 
   <p>
-    <strong>Esc15 a:</strong>
-    <%= device_state.esc15_a %>
+    <var>Esc15 a:</var>
+    <var class="value"><%= device_state.esc15_a %></var>
   </p>
 
   <p>
-    <strong>Esc15 temp c:</strong>
-    <%= device_state.esc15_temp_c %>
+    <var>Esc15 temp c:</var>
+    <var class="value"><%= device_state.esc15_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc15 rpm:</strong>
-    <%= device_state.esc15_rpm %>
+    <var>Esc15 rpm:</var>
+    <var class="value"><%= device_state.esc15_rpm %></var>
   </p>
 
   <p>
-    <strong>Esc16 v:</strong>
-    <%= device_state.esc16_v %>
+    <var>Esc16 v:</var>
+    <var class="value"><%= device_state.esc16_v %></var>
   </p>
 
   <p>
-    <strong>Esc16 a:</strong>
-    <%= device_state.esc16_a %>
+    <var>Esc16 a:</var>
+    <var class="value"><%= device_state.esc16_a %></var>
   </p>
 
   <p>
-    <strong>Esc16 temp c:</strong>
-    <%= device_state.esc16_temp_c %>
+    <var>Esc16 temp c:</var>
+    <var class="value"><%= device_state.esc16_temp_c %></var>
   </p>
 
   <p>
-    <strong>Esc16 rpm:</strong>
-    <%= device_state.esc16_rpm %>
+    <var>Esc16 rpm:</var>
+    <var class="value"><%= device_state.esc16_rpm %></var>
   </p>
+
+  </details>
 
+<details>
+<summary>EFI</summary>
   <p>
-    <strong>Efi rpm:</strong>
-    <%= device_state.efi_rpm %>
+    <var>Efi rpm:</var>
+    <var class="value"><%= device_state.efi_rpm %></var>
   </p>
 
   <p>
-    <strong>Efi fuel pressure bar:</strong>
-    <%= device_state.efi_fuel_pressure_bar %>
+    <var>Efi fuel pressure bar:</var>
+    <var class="value"><%= device_state.efi_fuel_pressure_bar %></var>
   </p>
 
   <p>
-    <strong>Efi intake temp c:</strong>
-    <%= device_state.efi_intake_temp_c %>
+    <var>Efi intake temp c:</var>
+    <var class="value"><%= device_state.efi_intake_temp_c %></var>
   </p>
 
   <p>
-    <strong>Efi exhaust temp c:</strong>
-    <%= device_state.efi_exhaust_temp_c %>
+    <var>Efi exhaust temp c:</var>
+    <var class="value"><%= device_state.efi_exhaust_temp_c %></var>
   </p>
 
   <p>
-    <strong>Efi fuel flow lps:</strong>
-    <%= device_state.efi_fuel_flow_lps %>
+    <var>Efi fuel flow lps:</var>
+    <var class="value"><%= device_state.efi_fuel_flow_lps %></var>
   </p>
 
   <p>
-    <strong>Efi fuel percent:</strong>
-    <%= device_state.efi_fuel_percent %>
+    <var>Efi fuel percent:</var>
+    <var class="value"><%= device_state.efi_fuel_percent %></var>
   </p>
 
   <p>
-    <strong>Efi baro:</strong>
-    <%= device_state.efi_baro %>
+    <var>Efi baro:</var>
+    <var class="value"><%= device_state.efi_baro %></var>
   </p>
 
   <p>
-    <strong>Efi load:</strong>
-    <%= device_state.efi_load %>
+    <var>Efi load:</var>
+    <var class="value"><%= device_state.efi_load %></var>
   </p>
 
   <p>
-    <strong>Throttle angle:</strong>
-    <%= device_state.throttle_angle %>
+    <var>Throttle angle:</var>
+    <var class="value"><%= device_state.throttle_angle %></var>
   </p>
 
   <p>
-    <strong>Brake angle:</strong>
-    <%= device_state.brake_angle %>
+    <var>Brake angle:</var>
+    <var class="value"><%= device_state.brake_angle %></var>
   </p>
 
   <p>
-    <strong>Steering wheel angle:</strong>
-    <%= device_state.steering_wheel_angle %>
+    <var>Steering wheel angle:</var>
+    <var class="value"><%= device_state.steering_wheel_angle %></var>
   </p>
 
   <p>
-    <strong>Turn signal:</strong>
-    <%= device_state.turn_signal %>
+    <var>Turn signal:</var>
+    <var class="value"><%= device_state.turn_signal %></var>
   </p>
+  </details>
 
+
+<details>
+<summary>XPDR</summary>
   <p>
-    <strong>Xpdr adsb tx sys fail:</strong>
-    <%= device_state.xpdr_adsb_tx_sys_fail %>
+    <var>Xpdr adsb tx sys fail:</var>
+    <var class="value"><%= device_state.xpdr_adsb_tx_sys_fail %></var>
   </p>
 
   <p>
-    <strong>Xpdr airborne status:</strong>
-    <%= device_state.xpdr_airborne_status %>
+    <var>Xpdr airborne status:</var>
+    <var class="value"><%= device_state.xpdr_airborne_status %></var>
   </p>
 
   <p>
-    <strong>Xpdr board temperature c:</strong>
-    <%= device_state.xpdr_board_temperature_c %>
+    <var>Xpdr board temperature c:</var>
+    <var class="value"><%= device_state.xpdr_board_temperature_c %></var>
   </p>
 
   <p>
-    <strong>Xpdr es1090 tx enable:</strong>
-    <%= device_state.xpdr_es1090_tx_enable %>
+    <var>Xpdr es1090 tx enable:</var>
+    <var class="value"><%= device_state.xpdr_es1090_tx_enable %></var>
   </p>
 
   <p>
-    <strong>Xpdr flight:</strong>
-    <%= device_state.xpdr_flight_id %>
+    <var>Xpdr flight:</var>
+    <var class="value"><%= device_state.xpdr_flight_id %></var>
   </p>
 
   <p>
-    <strong>Xpdr gps no fix:</strong>
-    <%= device_state.xpdr_gps_no_fix %>
+    <var>Xpdr gps no fix:</var>
+    <var class="value"><%= device_state.xpdr_gps_no_fix %></var>
   </p>
 
   <p>
-    <strong>Xpdr gps unavail:</strong>
-    <%= device_state.xpdr_gps_unavail %>
+    <var>Xpdr gps unavail:</var>
+    <var class="value"><%= device_state.xpdr_gps_unavail %></var>
   </p>
 
   <p>
-    <strong>Xpdr ident active:</strong>
-    <%= device_state.xpdr_ident_active %>
+    <var>Xpdr ident active:</var>
+    <var class="value"><%= device_state.xpdr_ident_active %></var>
   </p>
 
   <p>
-    <strong>Xpdr interrogated since:</strong>
-    <%= device_state.xpdr_interrogated_since %>
+    <var>Xpdr interrogated since:</var>
+    <var class="value"><%= device_state.xpdr_interrogated_since %></var>
   </p>
 
   <p>
-    <strong>Xpdr maint req:</strong>
-    <%= device_state.xpdr_maint_req %>
+    <var>Xpdr maint req:</var>
+    <var class="value"><%= device_state.xpdr_maint_req %></var>
   </p>
 
   <p>
-    <strong>Xpdr mode a enable:</strong>
-    <%= device_state.xpdr_mode_A_enable %>
+    <var>Xpdr mode a enable:</var>
+    <var class="value"><%= device_state.xpdr_mode_A_enable %></var>
   </p>
 
   <p>
-    <strong>Xpdr mode a squawk:</strong>
-    <%= device_state.xpdr_mode_A_squawk %>
+    <var>Xpdr mode a squawk:</var>
+    <var class="value"><%= device_state.xpdr_mode_A_squawk %></var>
   </p>
 
   <p>
-    <strong>Xpdr mode c enable:</strong>
-    <%= device_state.xpdr_mode_C_enable %>
+    <var>Xpdr mode c enable:</var>
+    <var class="value"><%= device_state.xpdr_mode_C_enable %></var>
   </p>
 
   <p>
-    <strong>Xpdr mode s enable:</strong>
-    <%= device_state.xpdr_mode_S_enable %>
+    <var>Xpdr mode s enable:</var>
+    <var class="value"><%= device_state.xpdr_mode_S_enable %></var>
   </p>
 
   <p>
-    <strong>Xpdr nacp:</strong>
-    <%= device_state.xpdr_nacp %>
+    <var>Xpdr nacp:</var>
+    <var class="value"><%= device_state.xpdr_nacp %></var>
   </p>
 
   <p>
-    <strong>Xpdr nic:</strong>
-    <%= device_state.xpdr_nic %>
+    <var>Xpdr nic:</var>
+    <var class="value"><%= device_state.xpdr_nic %></var>
   </p>
 
   <p>
-    <strong>Xpdr status pending:</strong>
-    <%= device_state.xpdr_status_pending %>
+    <var>Xpdr status pending:</var>
+    <var class="value"><%= device_state.xpdr_status_pending %></var>
   </p>
 
   <p>
-    <strong>Xpdr status unavail:</strong>
-    <%= device_state.xpdr_status_unavail %>
+    <var>Xpdr status unavail:</var>
+    <var class="value"><%= device_state.xpdr_status_unavail %></var>
   </p>
 
   <p>
-    <strong>Xpdr x bit status:</strong>
-    <%= device_state.xpdr_x_bit_status %>
+    <var>Xpdr x bit status:</var>
+    <var class="value"><%= device_state.xpdr_x_bit_status %></var>
   </p>
+</details>
 
+<details>
+<summary>Cell</summary>
   <p>
-    <strong>Cell rssi dbm:</strong>
-    <%= device_state.cell_rssi_dbm %>
+    <var>Cell rssi dbm:</var>
+    <var class="value"><%= device_state.cell_rssi_dbm %></var>
   </p>
 
   <p>
-    <strong>Cell rsrp:</strong>
-    <%= device_state.cell_rsrp %>
+    <var>Cell rsrp:</var>
+    <var class="value"><%= device_state.cell_rsrp %></var>
   </p>
 
   <p>
-    <strong>Cell rsrq:</strong>
-    <%= device_state.cell_rsrq %>
+    <var>Cell rsrq:</var>
+    <var class="value"><%= device_state.cell_rsrq %></var>
   </p>
 
   <p>
-    <strong>Cell sinr:</strong>
-    <%= device_state.cell_sinr %>
+    <var>Cell sinr:</var>
+    <var class="value"><%= device_state.cell_sinr %></var>
   </p>
 
   <p>
-    <strong>Cell network type:</strong>
-    <%= device_state.cell_network_type %>
+    <var>Cell network type:</var>
+    <var class="value"><%= device_state.cell_network_type %></var>
   </p>
 
   <p>
-    <strong>Cell:</strong>
-    <%= device_state.cell_id %>
+    <var>Cell:</var>
+    <var class="value"><%= device_state.cell_id %></var>
   </p>
 
   <p>
-    <strong>Cell connection state:</strong>
-    <%= device_state.cell_connection_state %>
+    <var>Cell connection state:</var>
+    <var class="value"><%= device_state.cell_connection_state %></var>
   </p>
 
   <p>
-    <strong>Cell network registration state:</strong>
-    <%= device_state.cell_network_registration_state %>
+    <var>Cell network registration state:</var>
+    <var class="value"><%= device_state.cell_network_registration_state %></var>
   </p>
 
   <p>
-    <strong>Cell retry count:</strong>
-    <%= device_state.cell_retry_count %>
+    <var>Cell retry count:</var>
+    <var class="value"><%= device_state.cell_retry_count %></var>
   </p>
 
   <p>
-    <strong>Cell latency ms:</strong>
-    <%= device_state.cell_latency_ms %>
+    <var>Cell latency ms:</var>
+    <var class="value"><%= device_state.cell_latency_ms %></var>
   </p>
 
   <p>
-    <strong>Cell ip:</strong>
-    <%= device_state.cell_ip %>
+    <var>Cell ip:</var>
+    <var class="value"><%= device_state.cell_ip %></var>
   </p>
 
   <p>
-    <strong>Cell network bytes sent:</strong>
-    <%= device_state.cell_network_bytes_sent %>
+    <var>Cell network bytes sent:</var>
+    <var class="value"><%= device_state.cell_network_bytes_sent %></var>
   </p>
 
   <p>
-    <strong>Cell network bytes recevied:</strong>
-    <%= device_state.cell_network_bytes_recevied %>
+    <var>Cell network bytes recevied:</var>
+    <var class="value"><%= device_state.cell_network_bytes_recevied %></var>
   </p>
 
   <p>
-    <strong>Cell network bps up:</strong>
-    <%= device_state.cell_network_bps_up %>
+    <var>Cell network bps up:</var>
+    <var class="value"><%= device_state.cell_network_bps_up %></var>
   </p>
 
   <p>
-    <strong>Cell network bps down:</strong>
-    <%= device_state.cell_network_bps_down %>
+    <var>Cell network bps down:</var>
+    <var class="value"><%= device_state.cell_network_bps_down %></var>
   </p>
+</details>
 
+<details>
+<summary>Wifi</summary>
   <p>
-    <strong>Wifi ssid:</strong>
-    <%= device_state.wifi_ssid %>
+    <var>Wifi ssid:</var>
+    <var class="value"><%= device_state.wifi_ssid %></var>
   </p>
 
   <p>
-    <strong>Wifi bssid:</strong>
-    <%= device_state.wifi_bssid %>
+    <var>Wifi bssid:</var>
+    <var class="value"><%= device_state.wifi_bssid %></var>
   </p>
 
   <p>
-    <strong>Wifi rssi dbm:</strong>
-    <%= device_state.wifi_rssi_dbm %>
+    <var>Wifi rssi dbm:</var>
+    <var class="value"><%= device_state.wifi_rssi_dbm %></var>
   </p>
 
   <p>
-    <strong>Wifi snr db:</strong>
-    <%= device_state.wifi_snr_db %>
+    <var>Wifi snr db:</var>
+    <var class="value"><%= device_state.wifi_snr_db %></var>
   </p>
 
   <p>
-    <strong>Wifi link speed mbps:</strong>
-    <%= device_state.wifi_link_speed_mbps %>
+    <var>Wifi link speed mbps:</var>
+    <var class="value"><%= device_state.wifi_link_speed_mbps %></var>
   </p>
 
   <p>
-    <strong>Wifi band:</strong>
-    <%= device_state.wifi_band %>
+    <var>Wifi band:</var>
+    <var class="value"><%= device_state.wifi_band %></var>
   </p>
 
   <p>
-    <strong>Wifi channel:</strong>
-    <%= device_state.wifi_channel %>
+    <var>Wifi channel:</var>
+    <var class="value"><%= device_state.wifi_channel %></var>
   </p>
 
   <p>
-    <strong>Wifi ip address:</strong>
-    <%= device_state.wifi_ip_address %>
+    <var>Wifi ip address:</var>
+    <var class="value"><%= device_state.wifi_ip_address %></var>
   </p>
 
   <p>
-    <strong>Wifi connection status:</strong>
-    <%= device_state.wifi_connection_status %>
+    <var>Wifi connection status:</var>
+    <var class="value"><%= device_state.wifi_connection_status %></var>
   </p>
 
   <p>
-    <strong>Wifi uptime sec:</strong>
-    <%= device_state.wifi_uptime_sec %>
+    <var>Wifi uptime sec:</var>
+    <var class="value"><%= device_state.wifi_uptime_sec %></var>
   </p>
 
   <p>
-    <strong>Wifi bytes sent:</strong>
-    <%= device_state.wifi_bytes_sent %>
+    <var>Wifi bytes sent:</var>
+    <var class="value"><%= device_state.wifi_bytes_sent %></var>
   </p>
 
   <p>
-    <strong>Wifi bytes received:</strong>
-    <%= device_state.wifi_bytes_received %>
+    <var>Wifi bytes received:</var>
+    <var class="value"><%= device_state.wifi_bytes_received %></var>
   </p>
+</details>
 
+<details>
+<summary>Network</summary>
   <p>
-    <strong>Mac address:</strong>
-    <%= device_state.mac_address %>
+    <var>Mac address:</var>
+    <var class="value"><%= device_state.mac_address %></var>
   </p>
 
   <p>
-    <strong>Ethernet link status:</strong>
-    <%= device_state.ethernet_link_status %>
+    <var>Ethernet link status:</var>
+    <var class="value"><%= device_state.ethernet_link_status %></var>
   </p>
 
   <p>
-    <strong>Ethernet speed:</strong>
-    <%= device_state.ethernet_speed %>
+    <var>Ethernet speed:</var>
+    <var class="value"><%= device_state.ethernet_speed %></var>
   </p>
 
   <p>
-    <strong>Ip address:</strong>
-    <%= device_state.ip_address %>
+    <var>Ip address:</var>
+    <var class="value"><%= device_state.ip_address %></var>
   </p>
 
   <p>
-    <strong>Subnet mask:</strong>
-    <%= device_state.subnet_mask %>
+    <var>Subnet mask:</var>
+    <var class="value"><%= device_state.subnet_mask %></var>
   </p>
 
   <p>
-    <strong>Default gateway:</strong>
-    <%= device_state.default_gateway %>
+    <var>Default gateway:</var>
+    <var class="value"><%= device_state.default_gateway %></var>
   </p>
 
   <p>
-    <strong>Dhcp status:</strong>
-    <%= device_state.dhcp_status %>
+    <var>Dhcp status:</var>
+    <var class="value"><%= device_state.dhcp_status %></var>
   </p>
 
   <p>
-    <strong>Dhcp lease:</strong>
-    <%= device_state.dhcp_lease %>
+    <var>Dhcp lease:</var>
+    <var class="value"><%= device_state.dhcp_lease %></var>
   </p>
+  </details>
+
 
+<details>
+<summary>RF</summary>
   <p>
-    <strong>Ham radio rx hz:</strong>
-    <%= device_state.ham_radio_rx_hz %>
+    <var>Ham radio rx hz:</var>
+    <var class="value"><%= device_state.ham_radio_rx_hz %></var>
   </p>
 
   <p>
-    <strong>Ham radio tx hz:</strong>
-    <%= device_state.ham_radio_tx_hz %>
+    <var>Ham radio tx hz:</var>
+    <var class="value"><%= device_state.ham_radio_tx_hz %></var>
   </p>
 
   <p>
-    <strong>Ham radio watts:</strong>
-    <%= device_state.ham_radio_watts %>
+    <var>Ham radio watts:</var>
+    <var class="value"><%= device_state.ham_radio_watts %></var>
   </p>
 
   <p>
-    <strong>Ham radio enable:</strong>
-    <%= device_state.ham_radio_enable %>
+    <var>Ham radio enable:</var>
+    <var class="value"><%= device_state.ham_radio_enable %></var>
   </p>
 
   <p>
-    <strong>Ham radio v:</strong>
-    <%= device_state.ham_radio_v %>
+    <var>Ham radio v:</var>
+    <var class="value"><%= device_state.ham_radio_v %></var>
   </p>
 
   <p>
-    <strong>Ham radio a:</strong>
-    <%= device_state.ham_radio_a %>
+    <var>Ham radio a:</var>
+    <var class="value"><%= device_state.ham_radio_a %></var>
   </p>
+  </details>
 
+<details>
+<summary>Heaters</summary>
   <p>
-    <strong>Heater1 v:</strong>
-    <%= device_state.heater1_v %>
+    <var>Heater1 v:</var>
+    <var class="value"><%= device_state.heater1_v %></var>
   </p>
 
   <p>
-    <strong>Heater1 a:</strong>
-    <%= device_state.heater1_a %>
+    <var>Heater1 a:</var>
+    <var class="value"><%= device_state.heater1_a %></var>
   </p>
 
   <p>
-    <strong>Heater1 temp c:</strong>
-    <%= device_state.heater1_temp_c %>
+    <var>Heater1 temp c:</var>
+    <var class="value"><%= device_state.heater1_temp_c %></var>
   </p>
 
   <p>
-    <strong>Heater2 v:</strong>
-    <%= device_state.heater2_v %>
+    <var>Heater2 v:</var>
+    <var class="value"><%= device_state.heater2_v %></var>
   </p>
 
   <p>
-    <strong>Heater2 a:</strong>
-    <%= device_state.heater2_a %>
+    <var>Heater2 a:</var>
+    <var class="value"><%= device_state.heater2_a %></var>
   </p>
 
   <p>
-    <strong>Heater2 temp c:</strong>
-    <%= device_state.heater2_temp_c %>
+    <var>Heater2 temp c:</var>
+    <var class="value"><%= device_state.heater2_temp_c %></var>
   </p>
 
   <p>
-    <strong>Heater3 v:</strong>
-    <%= device_state.heater3_v %>
+    <var>Heater3 v:</var>
+    <var class="value"><%= device_state.heater3_v %></var>
   </p>
 
   <p>
-    <strong>Heater3 a:</strong>
-    <%= device_state.heater3_a %>
+    <var>Heater3 a:</var>
+    <var class="value"><%= device_state.heater3_a %></var>
   </p>
 
   <p>
-    <strong>Heater3 temp c:</strong>
-    <%= device_state.heater3_temp_c %>
+    <var>Heater3 temp c:</var>
+    <var class="value"><%= device_state.heater3_temp_c %></var>
   </p>
 
   <p>
-    <strong>Heater4 v:</strong>
-    <%= device_state.heater4_v %>
+    <var>Heater4 v:</var>
+    <var class="value"><%= device_state.heater4_v %></var>
   </p>
 
   <p>
-    <strong>Heater4 a:</strong>
-    <%= device_state.heater4_a %>
+    <var>Heater4 a:</var>
+    <var class="value"><%= device_state.heater4_a %></var>
   </p>
 
   <p>
-    <strong>Heater4 temp c:</strong>
-    <%= device_state.heater4_temp_c %>
+    <var>Heater4 temp c:</var>
+    <var class="value"><%= device_state.heater4_temp_c %></var>
   </p>
 
   <p>
-    <strong>Humidity1:</strong>
-    <%= device_state.humidity1 %>
+    <var>Humidity1:</var>
+    <var class="value"><%= device_state.humidity1 %></var>
   </p>
 
   <p>
-    <strong>Humidity2:</strong>
-    <%= device_state.humidity2 %>
+    <var>Humidity2:</var>
+    <var class="value"><%= device_state.humidity2 %></var>
   </p>
 
   <p>
-    <strong>Fan1 v:</strong>
-    <%= device_state.fan1_v %>
+    <var>Fan1 v:</var>
+    <var class="value"><%= device_state.fan1_v %></var>
   </p>
 
   <p>
-    <strong>Fan1 a:</strong>
-    <%= device_state.fan1_a %>
+    <var>Fan1 a:</var>
+    <var class="value"><%= device_state.fan1_a %></var>
   </p>
 
   <p>
-    <strong>Fan1 rpm:</strong>
-    <%= device_state.fan1_rpm %>
+    <var>Fan1 rpm:</var>
+    <var class="value"><%= device_state.fan1_rpm %></var>
   </p>
 
   <p>
-    <strong>Fan2 v:</strong>
-    <%= device_state.fan2_v %>
+    <var>Fan2 v:</var>
+    <var class="value"><%= device_state.fan2_v %></var>
   </p>
 
   <p>
-    <strong>Fan2 a:</strong>
-    <%= device_state.fan2_a %>
+    <var>Fan2 a:</var>
+    <var class="value"><%= device_state.fan2_a %></var>
   </p>
 
   <p>
-    <strong>Fan2 rpm:</strong>
-    <%= device_state.fan2_rpm %>
+    <var>Fan2 rpm:</var>
+    <var class="value"><%= device_state.fan2_rpm %></var>
   </p>
+   </details>
 
+<details>
+<summary>Rangefinders</summary>
   <p>
-    <strong>Rangefinder1 m:</strong>
-    <%= device_state.rangefinder1_m %>
+    <var>Rangefinder1 m:</var>
+    <var class="value"><%= device_state.rangefinder1_m %></var>
   </p>
 
   <p>
-    <strong>Rangefinder2 m:</strong>
-    <%= device_state.rangefinder2_m %>
+    <var>Rangefinder2 m:</var>
+    <var class="value"><%= device_state.rangefinder2_m %></var>
   </p>
 
   <p>
-    <strong>Rangefinder3 m:</strong>
-    <%= device_state.rangefinder3_m %>
+    <var>Rangefinder3 m:</var>
+    <var class="value"><%= device_state.rangefinder3_m %></var>
   </p>
 
   <p>
-    <strong>Rangefinder4 m:</strong>
-    <%= device_state.rangefinder4_m %>
+    <var>Rangefinder4 m:</var>
+    <var class="value"><%= device_state.rangefinder4_m %></var>
   </p>
 
   <p>
-    <strong>Rangefinder5 m:</strong>
-    <%= device_state.rangefinder5_m %>
+    <var>Rangefinder5 m:</var>
+    <var class="value"><%= device_state.rangefinder5_m %></var>
   </p>
 
   <p>
-    <strong>Rangefinder6 m:</strong>
-    <%= device_state.rangefinder6_m %>
+    <var>Rangefinder6 m:</var>
+    <var class="value"><%= device_state.rangefinder6_m %></var>
   </p>
 
   <p>
-    <strong>Rangefinder7 m:</strong>
-    <%= device_state.rangefinder7_m %>
+    <var>Rangefinder7 m:</var>
+    <var class="value"><%= device_state.rangefinder7_m %></var>
   </p>
 
   <p>
-    <strong>Rangefinder8 m:</strong>
-    <%= device_state.rangefinder8_m %>
+    <var>Rangefinder8 m:</var>
+    <var class="value"><%= device_state.rangefinder8_m %></var>
   </p>
+  </details>
 
+<details>
+<summary>Solar</summary>
   <p>
-    <strong>Solar1 v:</strong>
-    <%= device_state.solar1_v %>
+    <var>Solar1 v:</var>
+    <var class="value"><%= device_state.solar1_v %></var>
   </p>
 
   <p>
-    <strong>Solar1 a:</strong>
-    <%= device_state.solar1_a %>
+    <var>Solar1 a:</var>
+    <var class="value"><%= device_state.solar1_a %></var>
   </p>
 
   <p>
-    <strong>Solar2 v:</strong>
-    <%= device_state.solar2_v %>
+    <var>Solar2 v:</var>
+    <var class="value"><%= device_state.solar2_v %></var>
   </p>
 
   <p>
-    <strong>Solar2 a:</strong>
-    <%= device_state.solar2_a %>
+    <var>Solar2 a:</var>
+    <var class="value"><%= device_state.solar2_a %></var>
   </p>
 
   <p>
-    <strong>Charge v:</strong>
-    <%= device_state.charge_v %>
+    <var>Charge v:</var>
+    <var class="value"><%= device_state.charge_v %></var>
   </p>
 
   <p>
-    <strong>Charge a:</strong>
-    <%= device_state.charge_a %>
+    <var>Charge a:</var>
+    <var class="value"><%= device_state.charge_a %></var>
   </p>
+  </details>
 
+<details>
+<summary>Mag</summary>
   <p>
-    <strong>Mag1:</strong>
-    <%= device_state.mag1 %>
+    <var>Mag1:</var>
+    <var class="value"><%= device_state.mag1 %></var>
   </p>
 
   <p>
-    <strong>Mag2:</strong>
-    <%= device_state.mag2 %>
+    <var>Mag2:</var>
+    <var class="value"><%= device_state.mag2 %></var>
   </p>
 
   <p>
-    <strong>Mag3:</strong>
-    <%= device_state.mag3 %>
+    <var>Mag3:</var>
+    <var class="value"><%= device_state.mag3 %></var>
   </p>
 
   <p>
-    <strong>Mag4:</strong>
-    <%= device_state.mag4 %>
+    <var>Mag4:</var>
+    <var class="value"><%= device_state.mag4 %></var>
   </p>
+  </details>
 
+<details>
+<summary>Buttons</summary>
   <p>
-    <strong>Button1:</strong>
-    <%= device_state.button1 %>
+    <var>Button1:</var>
+    <var class="value"><%= device_state.button1 %></var>
   </p>
 
   <p>
-    <strong>Button2:</strong>
-    <%= device_state.button2 %>
+    <var>Button2:</var>
+    <var class="value"><%= device_state.button2 %></var>
   </p>
 
   <p>
-    <strong>Switch1:</strong>
-    <%= device_state.switch1 %>
+    <var>Switch1:</var>
+    <var class="value"><%= device_state.switch1 %></var>
   </p>
 
   <p>
-    <strong>Switch2:</strong>
-    <%= device_state.switch2 %>
+    <var>Switch2:</var>
+    <var class="value"><%= device_state.switch2 %></var>
   </p>
+</details>
 
+<details>
+<summary>Load Cells</summary>
   <p>
-    <strong>Load cell1 n:</strong>
-    <%= device_state.load_cell1_n %>
+    <var>Load cell1 n:</var>
+    <var class="value"><%= device_state.load_cell1_n %></var>
   </p>
 
   <p>
-    <strong>Load cell2 n:</strong>
-    <%= device_state.load_cell2_n %>
+    <var>Load cell2 n:</var>
+    <var class="value"><%= device_state.load_cell2_n %></var>
   </p>
 
   <p>
-    <strong>Load cell3 n:</strong>
-    <%= device_state.load_cell3_n %>
+    <var>Load cell3 n:</var>
+    <var class="value"><%= device_state.load_cell3_n %></var>
   </p>
 
   <p>
-    <strong>Load cell4 n:</strong>
-    <%= device_state.load_cell4_n %>
+    <var>Load cell4 n:</var>
+    <var class="value"><%= device_state.load_cell4_n %></var>
   </p>
+  </details>
 
+<details>
+<summary>IO</summary>
   <p>
-    <strong>Current sensor1 ma:</strong>
-    <%= device_state.current_sensor1_ma %>
+    <var>Current sensor1 ma:</var>
+    <var class="value"><%= device_state.current_sensor1_ma %></var>
   </p>
 
   <p>
-    <strong>Current sensor2 ma:</strong>
-    <%= device_state.current_sensor2_ma %>
+    <var>Current sensor2 ma:</var>
+    <var class="value"><%= device_state.current_sensor2_ma %></var>
   </p>
 
   <p>
-    <strong>Current sensor3 ma:</strong>
-    <%= device_state.current_sensor3_ma %>
+    <var>Current sensor3 ma:</var>
+    <var class="value"><%= device_state.current_sensor3_ma %></var>
   </p>
 
   <p>
-    <strong>Current sensor4 ma:</strong>
-    <%= device_state.current_sensor4_ma %>
+    <var>Current sensor4 ma:</var>
+    <var class="value"><%= device_state.current_sensor4_ma %></var>
   </p>
 
   <p>
-    <strong>Current sensor5 ma:</strong>
-    <%= device_state.current_sensor5_ma %>
+    <var>Current sensor5 ma:</var>
+    <var class="value"><%= device_state.current_sensor5_ma %></var>
   </p>
 
   <p>
-    <strong>Current sensor6 ma:</strong>
-    <%= device_state.current_sensor6_ma %>
+    <var>Current sensor6 ma:</var>
+    <var class="value"><%= device_state.current_sensor6_ma %></var>
   </p>
 
   <p>
-    <strong>Current sensor7 ma:</strong>
-    <%= device_state.current_sensor7_ma %>
+    <var>Current sensor7 ma:</var>
+    <var class="value"><%= device_state.current_sensor7_ma %></var>
   </p>
 
   <p>
-    <strong>Current sensor8 ma:</strong>
-    <%= device_state.current_sensor8_ma %>
+    <var>Current sensor8 ma:</var>
+    <var class="value"><%= device_state.current_sensor8_ma %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor1 mv:</strong>
-    <%= device_state.voltage_sensor1_mv %>
+    <var>Voltage sensor1 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor1_mv %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor2 mv:</strong>
-    <%= device_state.voltage_sensor2_mv %>
+    <var>Voltage sensor2 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor2_mv %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor3 mv:</strong>
-    <%= device_state.voltage_sensor3_mv %>
+    <var>Voltage sensor3 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor3_mv %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor4 mv:</strong>
-    <%= device_state.voltage_sensor4_mv %>
+    <var>Voltage sensor4 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor4_mv %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor5 mv:</strong>
-    <%= device_state.voltage_sensor5_mv %>
+    <var>Voltage sensor5 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor5_mv %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor6 mv:</strong>
-    <%= device_state.voltage_sensor6_mv %>
+    <var>Voltage sensor6 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor6_mv %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor7 mv:</strong>
-    <%= device_state.voltage_sensor7_mv %>
+    <var>Voltage sensor7 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor7_mv %></var>
   </p>
 
   <p>
-    <strong>Voltage sensor9 mv:</strong>
-    <%= device_state.voltage_sensor9_mv %>
+    <var>Voltage sensor9 mv:</var>
+    <var class="value"><%= device_state.voltage_sensor9_mv %></var>
   </p>
 
   <p>
-    <strong>Digital output1:</strong>
-    <%= device_state.digital_output1 %>
+    <var>Digital output1:</var>
+    <var class="value"><%= device_state.digital_output1 %></var>
   </p>
 
   <p>
-    <strong>Digital output2:</strong>
-    <%= device_state.digital_output2 %>
+    <var>Digital output2:</var>
+    <var class="value"><%= device_state.digital_output2 %></var>
   </p>
 
   <p>
-    <strong>Digital output3:</strong>
-    <%= device_state.digital_output3 %>
+    <var>Digital output3:</var>
+    <var class="value"><%= device_state.digital_output3 %></var>
   </p>
 
   <p>
-    <strong>Digital output4:</strong>
-    <%= device_state.digital_output4 %>
+    <var>Digital output4:</var>
+    <var class="value"><%= device_state.digital_output4 %></var>
   </p>
 
   <p>
-    <strong>Digital output5:</strong>
-    <%= device_state.digital_output5 %>
+    <var>Digital output5:</var>
+    <var class="value"><%= device_state.digital_output5 %></var>
   </p>
 
   <p>
-    <strong>Digital output6:</strong>
-    <%= device_state.digital_output6 %>
+    <var>Digital output6:</var>
+    <var class="value"><%= device_state.digital_output6 %></var>
   </p>
 
   <p>
-    <strong>Digital output7:</strong>
-    <%= device_state.digital_output7 %>
+    <var>Digital output7:</var>
+    <var class="value"><%= device_state.digital_output7 %></var>
   </p>
 
   <p>
-    <strong>Digital output8:</strong>
-    <%= device_state.digital_output8 %>
+    <var>Digital output8:</var>
+    <var class="value"><%= device_state.digital_output8 %></var>
   </p>
 
   <p>
-    <strong>Digital input1:</strong>
-    <%= device_state.digital_input1 %>
+    <var>Digital input1:</var>
+    <var class="value"><%= device_state.digital_input1 %></var>
   </p>
 
   <p>
-    <strong>Digital input2:</strong>
-    <%= device_state.digital_input2 %>
+    <var>Digital input2:</var>
+    <var class="value"><%= device_state.digital_input2 %></var>
   </p>
 
   <p>
-    <strong>Digital input3:</strong>
-    <%= device_state.digital_input3 %>
+    <var>Digital input3:</var>
+    <var class="value"><%= device_state.digital_input3 %></var>
   </p>
 
   <p>
-    <strong>Digital input4:</strong>
-    <%= device_state.digital_input4 %>
+    <var>Digital input4:</var>
+    <var class="value"><%= device_state.digital_input4 %></var>
   </p>
 
   <p>
-    <strong>Digital input5:</strong>
-    <%= device_state.digital_input5 %>
+    <var>Digital input5:</var>
+    <var class="value"><%= device_state.digital_input5 %></var>
   </p>
 
   <p>
-    <strong>Digital input6:</strong>
-    <%= device_state.digital_input6 %>
+    <var>Digital input6:</var>
+    <var class="value"><%= device_state.digital_input6 %></var>
   </p>
 
   <p>
-    <strong>Digital input7:</strong>
-    <%= device_state.digital_input7 %>
+    <var>Digital input7:</var>
+    <var class="value"><%= device_state.digital_input7 %></var>
   </p>
 
   <p>
-    <strong>Digital input8:</strong>
-    <%= device_state.digital_input8 %>
+    <var>Digital input8:</var>
+    <var class="value"><%= device_state.digital_input8 %></var>
   </p>
 
   <p>
-    <strong>Analog output1:</strong>
-    <%= device_state.analog_output1 %>
+    <var>Analog output1:</var>
+    <var class="value"><%= device_state.analog_output1 %></var>
   </p>
 
   <p>
-    <strong>Analog output2:</strong>
-    <%= device_state.analog_output2 %>
+    <var>Analog output2:</var>
+    <var class="value"><%= device_state.analog_output2 %></var>
   </p>
 
   <p>
-    <strong>Analog output3:</strong>
-    <%= device_state.analog_output3 %>
+    <var>Analog output3:</var>
+    <var class="value"><%= device_state.analog_output3 %></var>
   </p>
 
   <p>
-    <strong>Analog output4:</strong>
-    <%= device_state.analog_output4 %>
+    <var>Analog output4:</var>
+    <var class="value"><%= device_state.analog_output4 %></var>
   </p>
 
   <p>
-    <strong>Analog output5:</strong>
-    <%= device_state.analog_output5 %>
+    <var>Analog output5:</var>
+    <var class="value"><%= device_state.analog_output5 %></var>
   </p>
 
   <p>
-    <strong>Analog output6:</strong>
-    <%= device_state.analog_output6 %>
+    <var>Analog output6:</var>
+    <var class="value"><%= device_state.analog_output6 %></var>
   </p>
 
   <p>
-    <strong>Analog output7:</strong>
-    <%= device_state.analog_output7 %>
+    <var>Analog output7:</var>
+    <var class="value"><%= device_state.analog_output7 %></var>
   </p>
 
   <p>
-    <strong>Analog output8:</strong>
-    <%= device_state.analog_output8 %>
+    <var>Analog output8:</var>
+    <var class="value"><%= device_state.analog_output8 %></var>
   </p>
 
   <p>
-    <strong>Hall1 angle degrees:</strong>
-    <%= device_state.hall1_angle_degrees %>
+    <var>Hall1 angle degrees:</var>
+    <var class="value"><%= device_state.hall1_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall2 angle degrees:</strong>
-    <%= device_state.hall2_angle_degrees %>
+    <var>Hall2 angle degrees:</var>
+    <var class="value"><%= device_state.hall2_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall3 angle degrees:</strong>
-    <%= device_state.hall3_angle_degrees %>
+    <var>Hall3 angle degrees:</var>
+    <var class="value"><%= device_state.hall3_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall4 angle degrees:</strong>
-    <%= device_state.hall4_angle_degrees %>
+    <var>Hall4 angle degrees:</var>
+    <var class="value"><%= device_state.hall4_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall5 angle degrees:</strong>
-    <%= device_state.hall5_angle_degrees %>
+    <var>Hall5 angle degrees:</var>
+    <var class="value"><%= device_state.hall5_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall6 angle degrees:</strong>
-    <%= device_state.hall6_angle_degrees %>
+    <var>Hall6 angle degrees:</var>
+    <var class="value"><%= device_state.hall6_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall7 angle degrees:</strong>
-    <%= device_state.hall7_angle_degrees %>
+    <var>Hall7 angle degrees:</var>
+    <var class="value"><%= device_state.hall7_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall8 angle degrees:</strong>
-    <%= device_state.hall8_angle_degrees %>
+    <var>Hall8 angle degrees:</var>
+    <var class="value"><%= device_state.hall8_angle_degrees %></var>
   </p>
 
   <p>
-    <strong>Hall1 presence:</strong>
-    <%= device_state.hall1_presence %>
+    <var>Hall1 presence:</var>
+    <var class="value"><%= device_state.hall1_presence %></var>
   </p>
 
   <p>
-    <strong>Hall2 presence:</strong>
-    <%= device_state.hall2_presence %>
+    <var>Hall2 presence:</var>
+    <var class="value"><%= device_state.hall2_presence %></var>
   </p>
 
   <p>
-    <strong>Hall3 presence:</strong>
-    <%= device_state.hall3_presence %>
+    <var>Hall3 presence:</var>
+    <var class="value"><%= device_state.hall3_presence %></var>
   </p>
 
   <p>
-    <strong>Hall4 presence:</strong>
-    <%= device_state.hall4_presence %>
+    <var>Hall4 presence:</var>
+    <var class="value"><%= device_state.hall4_presence %></var>
   </p>
 
   <p>
-    <strong>Hall5 presence:</strong>
-    <%= device_state.hall5_presence %>
+    <var>Hall5 presence:</var>
+    <var class="value"><%= device_state.hall5_presence %></var>
   </p>
 
   <p>
-    <strong>Hall6 presence:</strong>
-    <%= device_state.hall6_presence %>
+    <var>Hall6 presence:</var>
+    <var class="value"><%= device_state.hall6_presence %></var>
   </p>
 
   <p>
-    <strong>Hall7 presence:</strong>
-    <%= device_state.hall7_presence %>
+    <var>Hall7 presence:</var>
+    <var class="value"><%= device_state.hall7_presence %></var>
   </p>
 
   <p>
-    <strong>Hall8 presence:</strong>
-    <%= device_state.hall8_presence %>
+    <var>Hall8 presence:</var>
+    <var class="value"><%= device_state.hall8_presence %></var>
   </p>
+</details>
 
+<details>
+<summary>Radiation</summary>
   <p>
-    <strong>Geiger mrad:</strong>
-    <%= device_state.geiger_mrad %>
+    <var>Geiger mrad:</var>
+    <var class="value"><%= device_state.geiger_mrad %></var>
   </p>
+  </details>
 
+<details>
+<summary>Color</summary>
+
   <p>
-    <strong>Color r:</strong>
-    <%= device_state.color_r %>
+    <var>Color r:</var>
+    <var class="value"><%= device_state.color_r %></var>
   </p>
 
   <p>
-    <strong>Color g:</strong>
-    <%= device_state.color_g %>
+    <var>Color g:</var>
+    <var class="value"><%= device_state.color_g %></var>
   </p>
 
   <p>
-    <strong>Color b:</strong>
-    <%= device_state.color_b %>
+    <var>Color b:</var>
+    <var class="value"><%= device_state.color_b %></var>
   </p>
+  </details>
+
+<details>
+<summary>Text</summary>
 
   <p>
-    <strong>Text1:</strong>
-    <%= device_state.text1 %>
+    <var>Text1:</var>
+    <var class="value"><%= device_state.text1 %></var>
   </p>
 
   <p>
-    <strong>Text2:</strong>
-    <%= device_state.text2 %>
+    <var>Text2:</var>
+    <var class="value"><%= device_state.text2 %></var>
   </p>
 
   <p>
-    <strong>Text3:</strong>
-    <%= device_state.text3 %>
+    <var>Text3:</var>
+    <var class="value"><%= device_state.text3 %></var>
   </p>
 
   <p>
-    <strong>Text4:</strong>
-    <%= device_state.text4 %>
+    <var>Text4:</var>
+    <var class="value"><%= device_state.text4 %></var>
   </p>
 
   <p>
-    <strong>Text5:</strong>
-    <%= device_state.text5 %>
+    <var>Text5:</var>
+    <var class="value"><%= device_state.text5 %></var>
   </p>
 
   <p>
-    <strong>Text6:</strong>
-    <%= device_state.text6 %>
+    <var>Text6:</var>
+    <var class="value"><%= device_state.text6 %></var>
   </p>
 
   <p>
-    <strong>Text7:</strong>
-    <%= device_state.text7 %>
+    <var>Text7:</var>
+    <var class="value"><%= device_state.text7 %></var>
   </p>
 
   <p>
-    <strong>Text8:</strong>
-    <%= device_state.text8 %>
+    <var>Text8:</var>
+    <var class="value"><%= device_state.text8 %></var>
   </p>
+  </details>
 
 </div>
