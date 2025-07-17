@@ -35,41 +35,24 @@
   <% end %>
 </div>
 
-<script>
+<script type="module">
+  import { initializeDevicesMap } from "devices/map";
+  
   document.addEventListener('DOMContentLoaded', function() {
-    // Create a single map for all devices
-    var map = L.map('all_devices_map');
-    
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    
-    var markers = [];
-    var bounds = L.latLngBounds();
-    
-    <% @devices.each do |device| %>
-      <% if device.state != nil && device.state.latitude1.present? && device.state.longitude1.present? %>
-        var lat = <%= device.state.latitude1 %>;
-        var lng = <%= device.state.longitude1 %>;
-        var latlng = L.latLng(lat, lng);
-        
-        // Add marker for this device
-        var marker = L.marker(latlng).addTo(map);
-        marker.bindPopup("<b><%= device.name %></b><br>Lat: " + lat + "<br>Lng: " + lng);
-        
-        // Store marker and extend bounds
-        markers.push(marker);
-        bounds.extend(latlng);
+    // Prepare device data from server-side variables
+    const deviceData = [
+      <% @devices.each do |device| %>
+        <% if device.state != nil && device.state.latitude1.present? && device.state.longitude1.present? %>
+          {
+            name: "<%= device.name %>",
+            lat: <%= device.state.latitude1 %>,
+            lng: <%= device.state.longitude1 %>
+          },
+        <% end %>
       <% end %>
-    <% end %>
+    ];
     
-    // If we have any markers, fit the map to show all of them
-    if (markers.length > 0) {
-      map.fitBounds(bounds, { padding: [50, 50] });
-    } else {
-      // Default view if no markers
-      map.setView([0, 0], 2);
-    }
+    // Initialize map with device data
+    initializeDevicesMap(deviceData);
   });
 </script>
