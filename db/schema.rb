@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_17_082512) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_17_082736) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -432,6 +432,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_082512) do
     t.index ["state_id"], name: "index_devices_on_state_id"
   end
 
+  create_table "photographs", force: :cascade do |t|
+    t.integer "Device_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Device_id"], name: "index_photographs_on_Device_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -462,4 +469,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_082512) do
   add_foreign_key "commands", "Devices"
   add_foreign_key "device_states", "Devices"
   add_foreign_key "devices", "device_states", column: "state_id"
+  add_foreign_key "photographs", "Devices"
 end

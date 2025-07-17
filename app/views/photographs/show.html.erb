@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @photograph %>
+
+<div>
+  <%= link_to "Edit this photograph", edit_photograph_path(@photograph) %> |
+  <%= link_to "Back to photographs", photographs_path %>
+
+  <%= button_to "Destroy this photograph", @photograph, method: :delete %>
+</div>

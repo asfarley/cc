@@ -1,0 +1,1 @@
+rails g scaffold AudioClip path:string Device:belongs_to

@@ -12,11 +12,11 @@
 <!-- Add a single map container at the top -->
 <div id="all_devices_map" style="height: 400px; width: 100%; margin-bottom: 30px;"></div>
 
-<div id="devices">
+<div id="devices" class="container">
   <% @devices.each do |device| %>
-    <div id="<%= dom_id device %>">
+    <div id="<%= dom_id device %>" class="device">
       <p>
-        <strong><%= device.name %></strong>
+        <strong><%= link_to device.name, device %></strong>
       </p>
 
       <% if device.state != nil %>
@@ -24,10 +24,14 @@
       <% else %>
         <p>Device state is missing.</p>
       <% end %>
+
+      <% if device.latest_photograph != nil %>
+      <%= render device.latest_photograph %>
+      <% else %>
+      <p>No photograph available</p>
+      <% end %>
+
     </div>
-    <p>
-      <%= link_to "Show this device", device %>
-    </p>
   <% end %>
 </div>
 

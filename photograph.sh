@@ -1,0 +1,1 @@
+rails g scaffold Photograph Device:belongs_to file:attachment
