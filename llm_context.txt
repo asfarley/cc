@@ -1,0 +1,78 @@
+# Command and Control (CC) Rails Project Summary
+
+## Overview
+This is a Ruby on Rails application (Rails 8.0.2) designed as a command and control system for managing devices, monitoring their states, and sending commands to them. The application appears to be focused on managing and controlling hardware devices that have extensive telemetry and control capabilities, potentially including drones, vehicles, or other IoT devices.
+
+## Core Models
+1. **Device**: Represents a physical device that can be monitored and controlled
+   - Has a name
+   - Associated with a current state
+   - Can have multiple historical device states
+   - Can receive commands
+
+2. **DeviceState**: Represents the current or historical state of a device
+   - Extremely detailed model with 300+ attributes covering various sensors and system states
+   - Includes GPS data, battery information, motor/ESC data, temperature readings
+   - Tracks network connectivity (WiFi, cellular, ethernet)
+   - Monitors various sensors (IMU, accelerometers, rangefinders, etc.)
+   - Contains digital and analog I/O states
+
+3. **Command**: Represents instructions sent to devices
+   - Associated with a specific device
+   - Has a trigger time for scheduled execution
+   - Contains the command text/data
+   - Tracks command type and execution result
+
+4. **User**: Authentication model using Devise and DeviseTokenAuth
+   - Supports token-based authentication for API access
+   - Provides standard user management capabilities
+
+## Authentication
+- Uses Devise for web-based authentication
+- Implements DeviseTokenAuth for API authentication
+- Routes are protected with authentication requirements
+
+## API Endpoints
+- RESTful resources for devices, device states, and commands
+- Nested routes for device commands
+- Authentication endpoints via Devise and DeviseTokenAuth
+
+## Technical Details
+- Built on Rails 8.0.2
+- Uses SQLite as the database
+- Implements token-based authentication for API access
+- Uses Devise for user management
+- Dockerized for deployment (Dockerfile present)
+
+## Purpose
+The application appears designed to serve as a central management system for monitoring and controlling complex devices with extensive telemetry and control capabilities. The detailed device state model suggests it's intended for sophisticated hardware with many sensors and control points, potentially including drones, vehicles, or industrial equipment.Rails Project Summary: Command and Control System
+
+This is a Rails 8.0.2 application that appears to be a command and control system for managing devices, likely drones or other remote-controlled vehicles. The project uses SQLite as its database and includes authentication via Devise and DeviseTokenAuth for API access.
+
+Core Models:
+1. Device - Represents a physical device with a name and current state
+2. DeviceState - Extensive model tracking numerous sensor readings and device parameters including:
+   - GPS coordinates (dual GPS systems)
+   - Motion data (IMU readings, heading, roll, yaw)
+   - Battery information (multiple batteries)
+   - Motor/ESC data
+   - Various sensor readings (temperature, pressure, rangefinders)
+   - Network connectivity status (cellular, WiFi, Ethernet)
+   - Control surfaces and inputs/outputs
+
+3. Command - Represents commands sent to devices, including:
+   - Command type and content
+   - Trigger time
+   - Result of execution
+
+4. User - Authentication model using Devise with token authentication
+
+The application appears designed to:
+- Monitor device states in real-time
+- Send commands to devices
+- Track command history and results
+- Provide API access for remote control
+
+The project includes shell scripts (command.sh, device.sh, devicestate.sh) likely for interacting with physical devices or simulators. The extensive sensor and control parameters in DeviceState suggest this is for complex robotic systems or drones with significant telemetry capabilities.
+
+Authentication is handled through Devise with token authentication, suggesting the system supports both web interface and API access for programmatic control.

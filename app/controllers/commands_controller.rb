@@ -7,6 +7,10 @@ class CommandsController < ApplicationController
     @commands = Command.all
   end
 
+  def pending_commands
+    @commands = Command.where(Device_id: params[:Device_id], status: "pending")
+  end
+
   # GET /commands/1 or /commands/1.json
   def show
   end
@@ -66,6 +70,6 @@ class CommandsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def command_params
-      params.expect(command: [ :Device_id, :trigger_time, :command, :commandtype, :result ])
+      params.expect(command: [ :Device_id, :trigger_time, :command, :commandtype, :result, :status ])
     end
 end

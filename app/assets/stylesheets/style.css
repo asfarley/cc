@@ -10,5 +10,18 @@ var {
 	font-weight:bold;
 }
 
+.summary-top {
+	margin:10px;
+	font-weight:lighter;
+}
+
+.summary-details {
+	
+}
+
 
 #map { height: 180px; width: 360px;}
+
+* {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

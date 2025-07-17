@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_25_044540) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_16_221507) do
   create_table "commands", force: :cascade do |t|
     t.integer "Device_id", null: false
     t.datetime "trigger_time"
@@ -19,6 +19,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_25_044540) do
     t.string "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
     t.index ["Device_id"], name: "index_commands_on_Device_id"
   end
 
