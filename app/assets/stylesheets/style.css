@@ -31,6 +31,12 @@ var {
 	background-color: lightblue;
 	padding:20px;
 	border: 1px solid #000;
+	overflow:hidden;
+}
+
+.device_state {
+	height: 15em;
+	overflow-y:scroll;
 }
 
 .container { display:flex; }
