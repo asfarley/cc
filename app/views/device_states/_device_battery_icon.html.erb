@@ -1,0 +1,13 @@
+
+<span>
+<var class="value"><%= device_state.battery1_v %></var>V
+<var class="value"><%= device_state.battery1_a %></var>A
+<var class="value"><%= device_state.battery1_temp_c %></var>°C
+<div id="battery<%= battery_num %>_<%= device_state.Device_id %>" style="width: 40px; height: 20px; border: 2px solid #000; position: relative; display: flex; padding: 2px; box-sizing: border-box;">
+    <div style="width: 4px; height: 12px; background: #000; position: absolute; right: -6px; top: 2px;"></div>
+    <div class="segment" style="flex: 1; margin: 0 1px; background: lightgray;"></div>
+    <div class="segment" style="flex: 1; margin: 0 1px; background: lightgray;"></div>
+    <div class="segment" style="flex: 1; margin: 0 1px; background: lightgray;"></div>
+    <div class="segment" style="flex: 1; margin: 0 1px; background: lightgray;"></div>
+</div>
+</span>

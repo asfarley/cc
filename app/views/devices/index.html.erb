@@ -55,6 +55,7 @@
 <script type="module">
   import { initializeDevicesMap } from "devices/map";
   import { initializeGamepadHandler } from "devices/controller";
+  import { setBattery } from "devices/display";
   
   document.addEventListener('DOMContentLoaded', function() {
     // Prepare device data from server-side variables
@@ -75,5 +76,13 @@
     
     // Initialize game controller handler
     initializeGamepadHandler();
+
+    <% @devices.each do |device| %>
+    <% if device.state != nil %>
+    setBattery(<%= device.state.battery1_percent %>, 1, <%= device.id %>); // Example usage with 62%            
+    setBattery(<%= device.state.battery2_percent %>, 2, <%= device.id %>); // Example usage with 62%            
+    <% end %>
+    <% end %>
+    
   });
 </script>
