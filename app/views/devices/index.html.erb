@@ -29,7 +29,20 @@
   </div>
 </div>
 
-<div id="devices" class="container">
+<div id="devices" class="container" data-devices='<%= 
+  @devices.map do |device|
+    if device.state != nil && device.state.latitude1.present? && device.state.longitude1.present?
+      {
+        id: device.id,
+        name: device.name,
+        lat: device.state.latitude1,
+        lng: device.state.longitude1,
+        battery1_percent: device.state.battery1_percent,
+        battery2_percent: device.state.battery2_percent
+      }
+    end
+  end.compact.to_json.html_safe
+%>'>
   <% @devices.each do |device| %>
     <div id="<%= dom_id device %>" class="device">
       <p>
@@ -51,38 +64,3 @@
     </div>
   <% end %>
 </div>
-
-<script type="module">
-  import { initializeDevicesMap } from "devices/map";
-  import { initializeGamepadHandler } from "devices/controller";
-  import { setBattery } from "devices/display";
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    // Prepare device data from server-side variables
-    const deviceData = [
-      <% @devices.each do |device| %>
-        <% if device.state != nil && device.state.latitude1.present? && device.state.longitude1.present? %>
-          {
-            name: "<%= device.name %>",
-            lat: <%= device.state.latitude1 %>,
-            lng: <%= device.state.longitude1 %>
-          },
-        <% end %>
-      <% end %>
-    ];
-    
-    // Initialize map with device data
-    initializeDevicesMap(deviceData);
-    
-    // Initialize game controller handler
-    initializeGamepadHandler();
-
-    <% @devices.each do |device| %>
-    <% if device.state != nil %>
-    setBattery(<%= device.state.battery1_percent %>, 1, <%= device.id %>); // Example usage with 62%            
-    setBattery(<%= device.state.battery2_percent %>, 2, <%= device.id %>); // Example usage with 62%            
-    <% end %>
-    <% end %>
-    
-  });
-</script>

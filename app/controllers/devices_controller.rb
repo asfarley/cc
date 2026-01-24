@@ -5,10 +5,12 @@ class DevicesController < ApplicationController
   # GET /devices or /devices.json
   def index
     @devices = Device.all
+    
   end
 
   # GET /devices/1 or /devices/1.json
   def show
+    @recent_states = @device.device_states.order(created_at: :desc).limit(10).reverse
   end
 
   # GET /devices/new

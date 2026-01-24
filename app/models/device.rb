@@ -11,4 +11,9 @@ class Device < ApplicationRecord
     latest_photograph = photographs.sort_by { |p| p.created_at }.last
   end
 
+
+  def recent_device_states(limit = 10)
+    device_states.recent(limit)
+  end
+
 end
