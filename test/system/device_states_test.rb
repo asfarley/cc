@@ -345,7 +345,7 @@ class DeviceStatesTest < ApplicationSystemTestCase
     fill_in "Voltage sensor5 mv", with: @device_state.voltage_sensor5_mv
     fill_in "Voltage sensor6 mv", with: @device_state.voltage_sensor6_mv
     fill_in "Voltage sensor7 mv", with: @device_state.voltage_sensor7_mv
-    fill_in "Voltage sensor9 mv", with: @device_state.voltage_sensor9_mv
+    fill_in "Voltage sensor9 mv", with: @device_state.voltage_sensor8_mv
     fill_in "Vx", with: @device_state.vx
     fill_in "Vy", with: @device_state.vy
     fill_in "Vz", with: @device_state.vz
@@ -722,7 +722,7 @@ class DeviceStatesTest < ApplicationSystemTestCase
     fill_in "Voltage sensor5 mv", with: @device_state.voltage_sensor5_mv
     fill_in "Voltage sensor6 mv", with: @device_state.voltage_sensor6_mv
     fill_in "Voltage sensor7 mv", with: @device_state.voltage_sensor7_mv
-    fill_in "Voltage sensor9 mv", with: @device_state.voltage_sensor9_mv
+    fill_in "Voltage sensor9 mv", with: @device_state.voltage_sensor8_mv
     fill_in "Vx", with: @device_state.vx
     fill_in "Vy", with: @device_state.vy
     fill_in "Vz", with: @device_state.vz

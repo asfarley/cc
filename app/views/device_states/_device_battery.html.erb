@@ -1,174 +1,31 @@
 <details>
 <summary>Battery</summary>
-  <ul>
+  <ul class="state-list">
     <li>
-      <var>Battery1 V:</var>
+      <var>Battery voltage (V):</var>
       <var class="value"><%= device_state.battery1_v %></var>
     </li>
 
     <li>
-      <var>Battery1 A:</var>
+      <var>Battery current (A):</var>
       <var class="value"><%= device_state.battery1_a %></var>
     </li>
 
     <li>
-      <var>Battery1 (°C):</var>
+      <var>Battery temperature (°C):</var>
       <var class="value"><%= device_state.battery1_temp_c %></var>
     </li>
 
     <li>
-      <var>Battery1 %:</var>
-      <var class="value"><%= device_state.battery1_percent %></var>
+      <var>Battery charge percentage:</var>
+      <var class="value"><%= device_state.battery1_percent %> %</var>
     </li>
 
     <li>
-  `   <%= render "device_states/device_battery_icon", device_state: device_state, battery_num: 1 %> 
+     <%= render "device_states/device_battery_icon", device_state: device_state, battery_num: 1 %> 
     </li>
 
-    <li>
-      <var>Battery2 V:</var>
-      <var class="value"><%= device_state.battery2_v %></var>
-    </li>
-
-    <li>
-      <var>Battery2 A:</var>
-      <var class="value"><%= device_state.battery2_a %></var>
-    </li>
-
-    <li>
-      <var>Battery2 (°C):</var>
-      <var class="value"><%= device_state.battery2_temp_c %></var>
-    </li>
-
-    <li>
-      <var>Battery2 %:</var>
-      <var class="value"><%= device_state.battery2_percent %></var>
-    </li>
-
-    <li>
-  `   <%= render "device_states/device_battery_icon", device_state: device_state, battery_num: 2  %> 
-    </li>
-
-    <li>
-      <var>Battery3 V:</var>
-      <var class="value"><%= device_state.battery3_v %></var>
-    </li>
-
-    <li>
-      <var>Battery3 A:</var>
-      <var class="value"><%= device_state.battery3_a %></var>
-    </li>
-
-    <li>
-      <var>Battery3 (°C):</var>
-      <var class="value"><%= device_state.battery3_temp_c %></var>
-    </li>
-
-    <li>
-      <var>Battery3 %:</var>
-      <var class="value"><%= device_state.battery3_percent %></var>
-    </li>
-
-    <li>
-      <var>Battery4 V:</var>
-      <var class="value"><%= device_state.battery4_v %></var>
-    </li>
-
-    <li>
-      <var>Battery4 A:</var>
-      <var class="value"><%= device_state.battery4_a %></var>
-    </li>
-
-    <li>
-      <var>Battery4 (°C):</var>
-      <var class="value"><%= device_state.battery4_temp_c %></var>
-    </li>
-
-    <li>
-      <var>Battery4 %:</var>
-      <var class="value"><%= device_state.battery4_percent %></var>
-    </li>
-
-    <li>
-      <var>Battery5 V:</var>
-      <var class="value"><%= device_state.battery5_v %></var>
-    </li>
-
-    <li>
-      <var>Battery5 A:</var>
-      <var class="value"><%= device_state.battery5_a %></var>
-    </li>
-
-    <li>
-      <var>Battery5 (°C):</var>
-      <var class="value"><%= device_state.battery5_temp_c %></var>
-    </li>
-
-    <li>
-      <var>Battery5 %:</var>
-      <var class="value"><%= device_state.battery5_percent %></var>
-    </li>
-
-    <li>
-      <var>Battery6 V:</var>
-      <var class="value"><%= device_state.battery6_v %></var>
-    </li>
-
-    <li>
-      <var>Battery6 A:</var>
-      <var class="value"><%= device_state.battery6_a %></var>
-    </li>
-
-    <li>
-      <var>Battery6 (°C):</var>
-      <var class="value"><%= device_state.battery6_temp_c %></var>
-    </li>
-
-    <li>
-      <var>Battery6 %:</var>
-      <var class="value"><%= device_state.battery6_percent %></var>
-    </li>
-
-    <li>
-      <var>Battery7 V:</var>
-      <var class="value"><%= device_state.battery7_v %></var>
-    </li>
-
-    <li>
-      <var>Battery7 A:</var>
-      <var class="value"><%= device_state.battery7_a %></var>
-    </li>
-
-    <li>
-      <var>Battery7 (°C):</var>
-      <var class="value"><%= device_state.battery7_temp_c %></var>
-    </li>
-
-    <li>
-      <var>Battery7 %:</var>
-      <var class="value"><%= device_state.battery7_percent %></var>
-    </li>
-
-    <li>
-      <var>Battery8 V:</var>
-      <var class="value"><%= device_state.battery8_v %></var>
-    </li>
-
-    <li>
-      <var>Battery8 A:</var>
-      <var class="value"><%= device_state.battery8_a %></var>
-    </li>
-
-    <li>
-      <var>Battery8 (°C):</var>
-      <var class="value"><%= device_state.battery8_temp_c %></var>
-    </li>
-
-    <li>
-      <var>Battery8 %:</var>
-      <var class="value"><%= device_state.battery8_percent %></var>
-    </li>
-  </ul>
+      </ul>
   </details>
 
  

@@ -1,18 +1,18 @@
 <details>
   <Summary>IMU</Summary>
-  <ul>
+  <ul class="state-list">
     <li>
-      <var>Vibe X:</var>
+      <var>Vibration<sub>x</sub>:</var>
       <var class="value"><%= device_state.vibex %></var>
     </li>
 
     <li>
-      <var>Vibe Y:</var>
+      <var>Vibration<sub>y</sub>:</var>
       <var class="value"><%= device_state.vibey %></var>
     </li>
 
     <li>
-      <var>Vibe Z:</var>
+      <var>Vibration<sub>z</sub>:</var>
       <var class="value"><%= device_state.vibez %></var>
     </li>
 
@@ -47,22 +47,22 @@
     </li>
 
     <li>
-      <var>Extended 1:</var>
+      <var>Extended[1]:</var>
       <var class="value"><%= device_state.extended1 %></var>
     </li>
 
     <li>
-      <var>Extend 1:</var>
+      <var>Extend[1]:</var>
       <var class="value"><%= device_state.extend1 %></var>
     </li>
 
     <li> 
-      <var>Extended 2:</var>
+      <var>Extended[2]:</var>
       <var class="value"><%= device_state.extended2 %></var>
     </li>
 
     <li>
-      <var>Extend 2:</var>
+      <var>Extend[2]:</var>
       <var class="value"><%= device_state.extend2 %></var>
     </li>
 
@@ -87,78 +87,54 @@
     </li>
 
     <li>
-      <var>Ax 1:</var>
+      <var>A<sub>x</sub> (m/s^2):</var>
       <var class="value"><%= device_state.ax1 %></var>
     </li>
 
     <li>
-      <var>Ay 1:</var>
+      <var>A<sub>y</sub> (m/s^2):</var>
       <var class="value"><%= device_state.ay1 %></var>
     </li>
 
     <li>
-      <var>Az 1:</var>
+      <var>A<sub>z</sub> (m/s^2):</var>
       <var class="value"><%= device_state.az1 %></var>
     </li>
 
     <li>
-      <var>Ax 2:</var>
-      <var class="value"><%= device_state.ax2 %></var>
-    </li>
-
-    <li> 
-      <var>Ay 2:</var>
-      <var class="value"><%= device_state.ay2 %></var>
-    </li>
-
-    <li>
-      <var>Az 2:</var>
-      <var class="value"><%= device_state.az2 %></var>
-    </li>
-
-    <li>
-      <var>Ax 3:</var>
-      <var class="value"><%= device_state.ax3 %></var>
-    </li>
-
-    <li>
-      <var>Ay 3:</var>
-      <var class="value"><%= device_state.ay3 %></var>
-    </li>
-
-    <li>
-      <var>Az 3:</var>
-      <var class="value"><%= device_state.az3 %></var>
-    </li>
-
-    <li>
-      <var>Vx:</var>
+      <var>V<sub>x</sub> (m/s):</var>
       <var class="value"><%= device_state.vx %></var>
     </li>
 
     <li>
-      <var>Vy:</var>
+      <var>V<sub>y</sub> (m/s):</var>
       <var class="value"><%= device_state.vy %></var>
     </li>
 
     <li>
-      <var>Vz:</var>
+      <var>V<sub>z</sub> (m/s):</var>
       <var class="value"><%= device_state.vz %></var>
     </li>
 
+    <li> 
+      <var>α<sub>x</sub>:</var>
+      <var class="value"><%= device_state.gx1 %></var>
+    </li>
+    
+    <li> 
+      <var>α<sub>y</sub>:</var>
+      <var class="value"><%= device_state.gy1 %></var>
+    </li>
+
+    <li> 
+      <var>α<sub>z</sub>:</var>
+      <var class="value"><%= device_state.gz1 %></var>
+    </li>
+
     <li>
-      <var>IMU 1 Temp (°C):</var>
+      <var>IMU Temp (°C):</var>
       <var class="value"><%= device_state.imu1_temp_c %></var>
     </li>
 
-    <li>
-      <var>IMU 2 Temp (°C):</var>
-      <var class="value"><%= device_state.imu2_temp_c %></var>
-    </li>
-
-    <li>
-      <var>IMU 3 Temp (°C):</var>
-      <var class="value"><%= device_state.imu3_temp_c %></var>
-    </li>
   </ul>
 </details>

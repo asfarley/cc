@@ -1,0 +1,52 @@
+.battery {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;               /* IMPORTANT: no gap between body and cap */
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+.battery__cap {
+  width: 0.35rem;
+  height: 0.8rem;
+  border: 1px solid currentColor;
+  border-left: 0;
+  border-radius: 0 2px 2px 0;
+  opacity: 0.9;
+}
+
+.battery__body {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+
+.battery__seg {
+  width: 0.35rem;
+  height: 0.65rem;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+  opacity: 0.25;
+}
+
+.battery__seg.is-filled {
+  opacity: 1;
+  background: currentColor;
+}
+
+.battery__label {
+  margin-left: 0.4rem;  /* spacing to text, not between icon parts */
+}
+
+/* sizes */
+.battery--sm .battery__seg { width: 0.28rem; height: 0.55rem; }
+.battery--sm .battery__cap { height: 0.65rem; }
+.battery--lg .battery__seg { width: 0.45rem; height: 0.85rem; }
+.battery--lg .battery__cap { height: 1.0rem; }
+
+/* state colors (override currentColor) */
+.battery--ok   { color: #2e7d32; }  /* green */
+.battery--warn { color: #ed6c02; }  /* orange */
+.battery--crit { color: #d32f2f; }  /* red */

@@ -1,33 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
-<% if user_signed_in? %>
-  Logged in as <%= current_user.email %> |
-  <%= link_to 'Log Out', destroy_user_session_path, data: { turbo_method: :delete } %>
-<% else %>
-  <%= link_to 'Log In', new_user_session_path %> |
-<% end %>
 
 <% content_for :title, "Devices" %>
 
 <!-- Add a single map container at the top -->
 <div id="all_devices_map" style="height: 400px; width: 100%; margin-bottom: 30px;"></div>
 
-<!-- Game Controller Input Display -->
-<div class="container mb-4">
-  <div class="card">
-    <div class="card-header">
-      <h4>Game Controller Input</h4>
-    </div>
-    <div class="card-body">
-      <p>Connect a game controller and press any button or move any stick to see the input.</p>
-      <div class="form-group">
-        <label for="lastGameInput">Last Input Received:</label>
-        <input type="text" id="lastGameInput" class="form-control" readonly value="No input detected yet">
-      </div>
-      <div id="controllerStatus" class="mt-2 text-muted">No controller detected</div>
-    </div>
-  </div>
-</div>
 
 <div id="devices" class="container" data-devices='<%= 
   @devices.map do |device|
@@ -46,21 +22,40 @@
   <% @devices.each do |device| %>
     <div id="<%= dom_id device %>" class="device">
       <p>
-        <strong><%= link_to device.name, device %></strong>
+      <%= render "summaryline", device: device %> 
       </p>
-
-      <% if device.state != nil %>
-        <%= render device.state %>
-      <% else %>
-        <p>Device state is missing.</p>
-      <% end %>
 
       <% if device.latest_photograph != nil %>
       <%= render device.latest_photograph %>
       <% else %>
-      <p>No photograph available</p>
+      <p class="placeholder">Image unavailable.</p>
       <% end %>
+
+      <% if device.state != nil %>
+        <%= render device.state %>
+      <% else %>
+        <p class="placeholder">Device state available.</p>
+      <% end %>
+
 
     </div>
   <% end %>
 </div>
+
+<!-- Game Controller Input Display -->
+<div class="container mb-4">
+  <div class="card">
+    <details>
+      <summary>Controller</summary>
+    <div class="card-body">
+      <p>Connect a game controller and press any button or move any stick to see the input.</p>
+      <div class="form-group">
+        <label for="lastGameInput">Last Input Received:</label>
+        <input type="text" id="lastGameInput" class="form-control" readonly value="No input detected yet">
+      </div>
+      <div id="controllerStatus" class="mt-2 text-muted">No controller detected</div>
+    </div>
+    </details>
+  </div>
+</div>
+

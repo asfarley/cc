@@ -1,0 +1,6 @@
+<span>
+<%= render "shared/led", value: device.active?, label: "", size: 16 %>
+
+<%= link_to device.name, device %>
+<span style="float:right;"><%= battery_level_icon(device.main_battery_percentage) %></span>
+</span>

@@ -1,0 +1,18 @@
+<%# app/views/shared/_led.html.erb %>
+<%# locals: value:, label: nil, size: 16 %>
+
+<% color =
+  case value
+  when :red, "red" then :red
+  when :green, "green", true, 1 then :green
+  when :white, "white" then :white
+  else :off
+  end
+%>
+
+<% file = (color == :off ? "black.png" : "#{color}.png") %>
+
+<span class="led-wrap" title="<%= label %>">
+  <%= image_tag("/#{file}", alt: (label || "LED #{color}"), width: size, height: size, class: "led") %>
+  <% if label.present? %><span class="led-label"><%= label %></span><% end %>
+</span>

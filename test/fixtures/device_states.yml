@@ -315,7 +315,7 @@ one:
   voltage_sensor5_mv: 1.5
   voltage_sensor6_mv: 1.5
   voltage_sensor7_mv: 1.5
-  voltage_sensor9_mv: 1.5
+  voltage_sensor8_mv: 1.5
   digital_output1: false
   digital_output2: false
   digital_output3: false
@@ -684,7 +684,7 @@ two:
   voltage_sensor5_mv: 1.5
   voltage_sensor6_mv: 1.5
   voltage_sensor7_mv: 1.5
-  voltage_sensor9_mv: 1.5
+  voltage_sensor8_mv: 1.5
   digital_output1: false
   digital_output2: false
   digital_output3: false

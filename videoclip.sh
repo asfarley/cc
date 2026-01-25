@@ -1,1 +1,0 @@
-rails g scaffold VideoClip path:string Device:belongs_to
