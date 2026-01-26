@@ -1,0 +1,15 @@
+<p>
+<%= render "devices/summaryline", device: device %> 
+</p>
+
+<% if device.latest_photograph != nil %>
+  <%= render device.latest_photograph %>
+<% else %>
+  <p class="placeholder">Image unavailable.</p>
+<% end %>
+
+<% if device.state != nil %>
+  <%= render device.state %>
+<% else %>
+  <p class="placeholder">Device state unavailable.</p>
+<% end %>

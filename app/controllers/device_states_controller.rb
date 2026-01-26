@@ -29,11 +29,14 @@ class DeviceStatesController < ApplicationController
     par = filtered_params[:Device_id]
     logger.debug "par: #{par}"
     device = Device.find(par)
-    device.state = @device_state
-    device.save
 
     respond_to do |format|
       if @device_state.save
+        # Update the device's state reference AFTER the device_state is saved
+        # This ensures the device_state has an ID before we assign it
+        device.state = @device_state
+        device.save
+        
         format.html { redirect_to @device_state, notice: "Device state was successfully created." }
         format.json { render :show, status: :created, location: @device_state }
       else

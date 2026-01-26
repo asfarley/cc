@@ -4,11 +4,11 @@ class Device < ApplicationRecord
   has_many :commands, dependent: :destroy
   has_many :photographs, dependent: :destroy
 
+  # Enable Turbo Streams broadcasts for this model
+#  broadcasts_to ->(device) { "devices" }, inserts_by: :append
+
   def latest_photograph
-    if photographs.count == 0
-      return nil
-    end
-    latest_photograph = photographs.sort_by { |p| p.created_at }.last
+    photographs.order(created_at: :desc).first
   end
 
 

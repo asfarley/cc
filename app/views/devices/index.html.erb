@@ -1,8 +1,11 @@
 
 <% content_for :title, "Devices" %>
 
+<!-- Turbo Stream connection for live updates -->
+<%= turbo_stream_from "devices" %>
+
 <!-- Add a single map container at the top -->
-<div id="all_devices_map" style="height: 400px; width: 100%; margin-bottom: 30px;"></div>
+<div id="all_devices_map" style="height: 400px; width: 100%; margin-bottom: 30px;" data-controller="device-map"></div>
 
 
 <div id="devices" class="container" data-devices='<%= 
@@ -20,25 +23,7 @@
   end.compact.to_json.html_safe
 %>'>
   <% @devices.each do |device| %>
-    <div id="<%= dom_id device %>" class="device">
-      <p>
-      <%= render "summaryline", device: device %> 
-      </p>
-
-      <% if device.latest_photograph != nil %>
-      <%= render device.latest_photograph %>
-      <% else %>
-      <p class="placeholder">Image unavailable.</p>
-      <% end %>
-
-      <% if device.state != nil %>
-        <%= render device.state %>
-      <% else %>
-        <p class="placeholder">Device state available.</p>
-      <% end %>
-
-
-    </div>
+    <%= render "device_card", device: device %>
   <% end %>
 </div>
 
