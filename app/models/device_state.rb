@@ -26,7 +26,7 @@ class DeviceState < ApplicationRecord
       device.device_states.reload
       
       # Broadcast a Turbo Stream update for this device
-      broadcast_update_to(
+      broadcast_replace_to(
         "devices",
         target: "device_#{device.id}",
         partial: "devices/device_card",
