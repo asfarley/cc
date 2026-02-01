@@ -10,28 +10,25 @@ class DeviceState < ApplicationRecord
   private
 
   def broadcast_update
-    # Find the device this state belongs to
     device = Device.find_by(id: self.Device_id)
+    return unless device
     
-    if device
-      # Ensure the device's state_id points to this state (for newly created states)
-      if device.state_id != self.id
-        device.update_column(:state_id, self.id)
-      end
-      
-      # Now eager load the associations we need for the partial
-      # We reload the associations explicitly to ensure they're fresh
-      device.reload  # Reload the entire device to get fresh association data
-      device.photographs.reload
-      device.device_states.reload
-      
-      # Broadcast a Turbo Stream update for this device
-      broadcast_replace_to(
-        "devices",
-        target: "device_#{device.id}",
-        partial: "devices/device_card",
-        locals: { device: device }
-      )
-    end
+    device.update_column(:state_id, self.id) if device.state_id != self.id
+    
+    # Broadcast summary (battery, active status)
+    broadcast_replace_to(
+      "devices",
+      target: "device_#{device.id}_summary",
+      partial: "devices/device_card_summary",
+      locals: { device: device }
+    )
+    
+    # Broadcast device state content (preserves <details> state)
+    broadcast_replace_to(
+      "devices",
+      target: "#{ActionView::RecordIdentifier.dom_id(self)}_content",
+      partial: "device_states/device_state_content",
+      locals: { device_state: self }
+    )
   end
 end

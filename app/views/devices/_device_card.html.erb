@@ -9,19 +9,25 @@
      <% end %>
      data-controller="device-update">
 
-<p>
-<%= render "devices/summaryline", device: device %> 
-</p>
+<div id="device_<%= device.id %>_summary">
+  <p>
+  <%= render "devices/summaryline", device: device %> 
+  </p>
+</div>
 
-<% if device.latest_photograph != nil %>
-  <%= render device.latest_photograph %>
-<% else %>
-  <p class="placeholder">Image unavailable.</p>
-<% end %>
+<div id="device_<%= device.id %>_photograph">
+  <% if device.latest_photograph != nil %>
+    <%= render device.latest_photograph %>
+  <% else %>
+    <p class="placeholder">Image unavailable.</p>
+  <% end %>
+</div>
 
-<% if device.state != nil %>
-  <%= render device.state %>
-<% else %>
-  <p class="placeholder">Device state unavailable.</p>
-<% end %>
+<div id="device_<%= device.id %>_state">
+  <% if device.state != nil %>
+    <%= render device.state %>
+  <% else %>
+    <p class="placeholder">Device state unavailable.</p>
+  <% end %>
+</div>
   </div>
