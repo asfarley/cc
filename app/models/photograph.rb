@@ -1,5 +1,5 @@
 class Photograph < ApplicationRecord
-  belongs_to :Device
+  belongs_to :device, class_name: "Device", foreign_key: "Device_id"
   has_one_attached :file
   
   after_commit :broadcast_photograph_update, on: [:create, :update]
@@ -7,11 +7,16 @@ class Photograph < ApplicationRecord
   private
   
   def broadcast_photograph_update
-    device = Device.find_by(id: self.Device_id)
-    return unless device
+    logger.info "Attempting to broadcast photograph update"
     
+    unless device
+      logger.info "device is null, cannot broadcast photograph."
+      return
+    end
+    
+    logger.info "Broadcasting device photograph update..."
     device.reload
-    broadcast_replace_to(
+    broadcast_replace_later_to(
       "devices",
       target: "device_#{device.id}_photograph",
       partial: "devices/device_card_photograph",

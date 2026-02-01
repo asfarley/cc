@@ -1,5 +1,7 @@
-<% if device.latest_photograph != nil %>
-  <%= render device.latest_photograph %>
-<% else %>
-  <p class="placeholder">Image unavailable.</p>
-<% end %>
+<div id="device_<%= device.id %>_photograph">
+  <% if device.latest_photograph != nil %>
+    <%= render device.latest_photograph %>
+  <% else %>
+    <p class="placeholder">Image unavailable.</p>
+  <% end %>
+</div>
