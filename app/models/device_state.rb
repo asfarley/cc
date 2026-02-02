@@ -15,13 +15,7 @@ class DeviceState < ApplicationRecord
     
     device.update_column(:state_id, self.id) if device.state_id != self.id
     
-    # Broadcast summary (battery, active status)
-    broadcast_replace_to(
-      "devices",
-      target: "device_#{device.id}_summary",
-      partial: "devices/summaryline",
-      locals: { device: device }
-    )
+    # Summary is now handled client-side via device_liveness_controller.js
     
     # Broadcast individual section updates to preserve <details> state
     sections = %w[info location imu configuration temperature environmental battery 

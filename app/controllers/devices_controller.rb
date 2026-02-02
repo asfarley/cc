@@ -1,5 +1,5 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i[ show edit update destroy ]
+  before_action :set_device, only: %i[ show edit update destroy telemetry_status ]
   before_action :authenticate_user!
 
   # GET /devices or /devices.json
@@ -59,6 +59,18 @@ class DevicesController < ApplicationController
       format.html { redirect_to devices_path, status: :see_other, notice: "Device was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # GET /devices/1/telemetry_status.json
+  def telemetry_status
+    last_state = @device.device_states.last
+    
+    render json: {
+      id: @device.id,
+      name: @device.name,
+      last_telemetry_at: last_state&.created_at,
+      battery_percent: last_state&.battery1_percent || "?"
+    }
   end
 
   private

@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     mount_devise_token_auth_for 'User', at: 'auth'  
   end
   resources :device_states
-  resources :devices
+  resources :devices do
+    member do
+      get :telemetry_status
+    end
+  end
   get "devices/:Device_id/pending_commands", to: "commands#pending_commands"
 
 

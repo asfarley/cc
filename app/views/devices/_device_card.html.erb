@@ -7,10 +7,11 @@
      data-device-battery1="<%= device.state.battery1_percent %>"
      data-device-battery2="<%= device.state.battery2_percent %>"
      <% end %>
-     data-controller="device-update">
+     data-controller="device-update device-liveness"
+     data-device-liveness-device-id-value="<%= device.id %>">
 
 <div id="device_<%= device.id %>_summary">
-  <p>
+  <p data-device-liveness-target="summary">
   <%= render "devices/summaryline", device: device %> 
   </p>
 </div>
