@@ -1,7 +1,7 @@
-<div id="<%= dom_id device_state %>" class="device_state">
+<div id="device_<%= device_state.Device_id %>_state_wrapper" class="device_state">
   <details>
     <summary>Logs and Diagnostics</summary>
-    <div id="<%= dom_id device_state %>_content">
+    <div id="device_<%= device_state.Device_id %>_state_content">
       <%= render "device_states/device_state_content", device_state: device_state  %> 
     </div>
   </details>

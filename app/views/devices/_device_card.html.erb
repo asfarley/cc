@@ -15,13 +15,7 @@
   </p>
 </div>
 
-<div id="device_<%= device.id %>_photograph">
-  <% if device.latest_photograph != nil %>
-    <%= render device.latest_photograph %>
-  <% else %>
-    <p class="placeholder">Image unavailable.</p>
-  <% end %>
-</div>
+<%= render "devices/device_card_photograph", device: device %>
 
 <div id="device_<%= device.id %>_state">
   <% if device.state != nil %>

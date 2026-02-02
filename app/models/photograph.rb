@@ -16,11 +16,15 @@ class Photograph < ApplicationRecord
     
     logger.info "Broadcasting device photograph update..."
     device.reload
-    broadcast_replace_later_to(
-      "devices",
-      target: "device_#{device.id}_photograph",
-      partial: "devices/device_card_photograph",
-      locals: { device: device }
-    )
+    
+    if file.attached?
+      image_url = Rails.application.routes.url_helpers.rails_blob_path(file, only_path: true)
+      
+      broadcast_update_to(
+        "devices",
+        target: "device_#{device.id}_photograph_img",
+        html: %(<img src="#{image_url}" class="photograph" data-action="photograph-update#loadComplete" />)
+      )
+    end
   end
 end

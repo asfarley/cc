@@ -1,7 +1,9 @@
-<div id="device_<%= device.id %>_photograph">
-  <% if device.latest_photograph != nil %>
-    <%= render device.latest_photograph %>
-  <% else %>
-    <p class="placeholder">Image unavailable.</p>
-  <% end %>
+<div id="device_<%= device.id %>_photograph" class="device_image" data-controller="photograph-update">
+  <div id="device_<%= device.id %>_photograph_img">
+    <% if device.latest_photograph&.file&.attached? %>
+      <%= image_tag url_for(device.latest_photograph.file), class: "photograph", data: { action: "photograph-update#loadComplete" } %>
+    <% else %>
+      <p class="placeholder">Image unavailable.</p>
+    <% end %>
+  </div>
 </div>

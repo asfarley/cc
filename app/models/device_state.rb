@@ -19,16 +19,21 @@ class DeviceState < ApplicationRecord
     broadcast_replace_to(
       "devices",
       target: "device_#{device.id}_summary",
-      partial: "devices/device_card_summary",
+      partial: "devices/summaryline",
       locals: { device: device }
     )
     
-    # Broadcast device state content (preserves <details> state)
-    broadcast_replace_to(
-      "devices",
-      target: "#{ActionView::RecordIdentifier.dom_id(self)}_content",
-      partial: "device_states/device_state_content",
-      locals: { device_state: self }
-    )
+    # Broadcast individual section updates to preserve <details> state
+    sections = %w[info location imu configuration temperature environmental battery 
+                  esc cell wifi network heaters rangefinders solar io text]
+    
+    sections.each do |section|
+      broadcast_replace_to(
+        "devices",
+        target: "device_#{device.id}_#{section}",
+        partial: "device_states/device_#{section}",
+        locals: { device_state: self }
+      )
+    end
   end
 end

@@ -84,6 +84,11 @@ var {
 	overflow:hidden;
 }
 
+.device_image {
+  width: 320px;
+  height:240px;
+}
+
 .device_state {
 	overflow-y:scroll;
 }

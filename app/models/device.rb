@@ -1,3 +1,5 @@
+include ActionView::Helpers::DateHelper
+
 class Device < ApplicationRecord
   belongs_to :state, class_name: "DeviceState", optional: true
   has_many :device_states, dependent: :destroy
@@ -36,6 +38,14 @@ class Device < ApplicationRecord
       return nil
     end
     return Time.current - last_state.created_at
+  end
+
+  def last_telemetry_time_h 
+    last_state = device_states.last
+    if last_state.nil?
+      return nil
+    end
+    return distance_of_time_in_words(last_state.created_at,Time.current, include_seconds: true)
   end
 
   def main_battery_percentage
