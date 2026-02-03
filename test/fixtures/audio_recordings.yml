@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device: one
+  command: one
+  recorded_at: 2026-02-02 17:58:21
+  duration_seconds: 1
+
+two:
+  device: two
+  command: two
+  recorded_at: 2026-02-02 17:58:21
+  duration_seconds: 1

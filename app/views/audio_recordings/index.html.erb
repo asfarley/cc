@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Audio recordings" %>
+
+<h1>Audio recordings</h1>
+
+<div id="audio_recordings">
+  <% @audio_recordings.each do |audio_recording| %>
+    <%= render audio_recording %>
+    <p>
+      <%= link_to "Show this audio recording", audio_recording %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New audio recording", new_audio_recording_path %>

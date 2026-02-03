@@ -8,12 +8,18 @@ export default class extends Controller {
   }
 
   connect() {
+    this.lastTelemetryAt = null
+    this.batteryPercent = null
+    this.deviceName = null
+    
     this.updateLiveness()
     this.startPolling()
+    this.startLocalUpdate()
   }
 
   disconnect() {
     this.stopPolling()
+    this.stopLocalUpdate()
   }
 
   startPolling() {
@@ -28,30 +34,45 @@ export default class extends Controller {
     }
   }
 
+  startLocalUpdate() {
+    this.localUpdateTimer = setInterval(() => {
+      this.renderSummaryFromCache()
+    }, 1000)
+  }
+
+  stopLocalUpdate() {
+    if (this.localUpdateTimer) {
+      clearInterval(this.localUpdateTimer)
+    }
+  }
+
   async updateLiveness() {
     try {
       const response = await fetch(`/devices/${this.deviceIdValue}/telemetry_status`)
       if (!response.ok) return
       
       const data = await response.json()
-      this.renderSummary(data)
+      this.lastTelemetryAt = data.last_telemetry_at
+      this.batteryPercent = data.battery_percent
+      this.deviceName = data.name
+      this.renderSummaryFromCache()
     } catch (error) {
       console.error("Failed to fetch device liveness:", error)
     }
   }
 
-  renderSummary(data) {
-    const { last_telemetry_at, battery_percent, name } = data
+  renderSummaryFromCache() {
+    if (!this.deviceName) return
     
-    const active = this.isActive(last_telemetry_at)
-    const timeText = this.formatTimeAgo(last_telemetry_at)
+    const active = this.isActive(this.lastTelemetryAt)
+    const timeText = this.formatTimeAgo(this.lastTelemetryAt)
     
     this.summaryTarget.innerHTML = `
       <span>
         ${this.renderLED(active)}
-        <a href="/devices/${this.deviceIdValue}">${this.escapeHtml(name)}</a>
+        <a href="/devices/${this.deviceIdValue}">${this.escapeHtml(this.deviceName)}</a>
         <small>Last telemetry: ${timeText}</small>
-        <span style="float:right;">${this.renderBattery(battery_percent)}</span>
+        <span style="float:right;">${this.renderBattery(this.batteryPercent)}</span>
       </span>
     `
   }
@@ -66,30 +87,26 @@ export default class extends Controller {
   formatTimeAgo(timestamp) {
     if (!timestamp) return "never"
     
-    const seconds = Math.floor((Date.now() - new Date(timestamp)) / 1000)
+    const ms = Date.now() - new Date(timestamp)
+    const seconds = Math.floor(ms / 1000)
     
-    if (seconds < 5) return "less than 5 seconds"
-    if (seconds < 10) return "less than 10 seconds"
-    if (seconds < 20) return "less than 20 seconds"
-    if (seconds < 40) return "half a minute"
-    if (seconds < 60) return "less than a minute"
-    if (seconds < 90) return "1 minute"
+    if (ms < 1000) return `${ms} ms ago`
+    if (seconds < 60) return `${seconds} second${seconds === 1 ? '' : 's'} ago`
     
     const minutes = Math.floor(seconds / 60)
-    if (minutes < 45) return `${minutes} minutes`
-    if (minutes < 90) return "about 1 hour"
+    if (minutes < 60) return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
     
     const hours = Math.floor(minutes / 60)
-    if (hours < 24) return `about ${hours} hours`
+    if (hours < 24) return `${hours} hour${hours === 1 ? '' : 's'} ago`
     
     const days = Math.floor(hours / 24)
-    if (days < 30) return `${days} days`
+    if (days < 30) return `${days} day${days === 1 ? '' : 's'} ago`
     
     const months = Math.floor(days / 30)
-    if (months < 12) return `${months} months`
+    if (months < 12) return `${months} month${months === 1 ? '' : 's'} ago`
     
     const years = Math.floor(months / 12)
-    return `about ${years} years`
+    return `${years} year${years === 1 ? '' : 's'} ago`
   }
 
   renderLED(active) {

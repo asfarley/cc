@@ -1,0 +1,11 @@
+<% content_for :title, "New audio recording" %>
+
+<h1>New audio recording</h1>
+
+<%= render "form", audio_recording: @audio_recording %>
+
+<br>
+
+<div>
+  <%= link_to "Back to audio recordings", audio_recordings_path %>
+</div>
