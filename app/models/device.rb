@@ -5,12 +5,17 @@ class Device < ApplicationRecord
   has_many :device_states, dependent: :destroy
   has_many :commands, dependent: :destroy
   has_many :photographs, dependent: :destroy
+  has_many :audio_recordings, dependent: :destroy
 
   # Enable Turbo Streams broadcasts for this model
 #  broadcasts_to ->(device) { "devices" }, inserts_by: :append
 
   def latest_photograph
     photographs.order(created_at: :desc).first
+  end
+
+  def latest_audio_recording
+    audio_recordings.order(created_at: :desc).first
   end
 
 

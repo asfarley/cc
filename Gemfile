@@ -70,3 +70,4 @@ gem 'devise_token_auth'
 
 gem 'chartkick'
 gem 'groupdate'
+gem 'active_storage_validations'

@@ -1,0 +1,22 @@
+<%= turbo_stream_from "device_#{device.id}_audio" %>
+
+<div id="device_<%= device.id %>_audio" class="audio-player-container mb-3">
+  <% audio = device.latest_audio_recording %>
+  <% if audio&.audio&.attached? %>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Latest Audio Recording</h6>
+        <audio controls preload="metadata" class="w-100">
+          <source src="<%= url_for(audio.audio) %>" type="<%= audio.audio.content_type %>">
+          Your browser does not support the audio element.
+        </audio>
+        <small class="text-muted d-block mt-2">
+          Recorded: <%= audio.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          <% if audio.duration_seconds.present? %>
+            | Duration: <%= audio.duration_seconds %>s
+          <% end %>
+        </small>
+      </div>
+    </div>
+  <% end %>
+</div>

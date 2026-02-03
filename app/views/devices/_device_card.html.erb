@@ -18,6 +18,8 @@
 
 <%= render "devices/device_card_photograph", device: device %>
 
+<%= render "devices/device_card_audio", device: device %>
+
 <div id="device_<%= device.id %>_state">
   <% if device.state != nil %>
     <%= render device.state %>
