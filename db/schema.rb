@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_03_005821) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_03_010000) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -485,6 +485,17 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_03_005821) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  create_table "video_recordings", force: :cascade do |t|
+    t.integer "device_id", null: false
+    t.integer "command_id"
+    t.datetime "recorded_at"
+    t.integer "duration_seconds"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["command_id"], name: "index_video_recordings_on_command_id"
+    t.index ["device_id"], name: "index_video_recordings_on_device_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audio_recordings", "commands"
@@ -493,4 +504,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_03_005821) do
   add_foreign_key "device_states", "Devices"
   add_foreign_key "devices", "device_states", column: "state_id"
   add_foreign_key "photographs", "Devices"
+  add_foreign_key "video_recordings", "commands"
+  add_foreign_key "video_recordings", "devices"
 end

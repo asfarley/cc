@@ -16,9 +16,13 @@
   </p>
 </div>
 
+<%= render "devices/device_card_video", device: device %>
+
 <%= render "devices/device_card_photograph", device: device %>
 
 <%= render "devices/device_card_audio", device: device %>
+
+<%= render "devices/device_card_commands", device: device %>
 
 <div id="device_<%= device.id %>_state">
   <% if device.state != nil %>

@@ -4,15 +4,18 @@
 Rails 8.0.2 app with real-time telemetry monitoring. SQLite database. Turbo Streams for live updates. Devise authentication.
 
 ## CORE MODELS
-**Device**: Tracks hardware units (name, state_id). Has many device_states, commands, photographs.
+**Device**: Tracks hardware units (name, state_id). Has many device_states, commands, photographs, audio_recordings, video_recordings.
 **DeviceState**: Massive telemetry snapshot (340+ fields) - GPS (2x), IMU (3x), batteries (8x), ESCs (16x), sensors, environmental, network (cell/wifi/ethernet), transponder, actuators, etc. Belongs to Device. Broadcasts Turbo Stream updates on create/update to granular partials.
 **Command**: Queued commands for devices (trigger_time, command, commandtype, result, status). Belongs to Device.
 **Photograph**: Images with ActiveStorage attachments. Belongs to Device.
+**AudioRecording**: Audio files with ActiveStorage attachments, optional command reference. Belongs to Device. Broadcasts Turbo Stream updates.
+**VideoRecording**: Video files with ActiveStorage attachments, optional command reference. Belongs to Device. Broadcasts Turbo Stream updates.
 **User**: Devise + devise_token_auth for authentication.
 
 ## KEY VIEWS
 **devices/index.html.erb**: Main dashboard. Leaflet map showing all devices. Turbo stream subscription. Device cards with live updates. Game controller input display.
-**devices/_device_card.html.erb**: Per-device card with Stimulus controllers (device-update, device-liveness). Shows summary, photograph, state partials.
+**devices/_device_card.html.erb**: Per-device card with Stimulus controllers (device-update, device-liveness). Shows summary, photograph, audio, video, state partials.
+**devices/_device_card_audio.html.erb**: Audio recording display partial for Turbo Stream updates.
 **device_states/**: 20+ granular partials (_device_info, _device_location, _device_imu, _device_battery, _device_esc, _device_network, _device_environmental, etc.) for collapsible <details> sections preserving state during Turbo updates.
 
 ## CONTROLLERS
@@ -20,19 +23,21 @@ Rails 8.0.2 app with real-time telemetry monitoring. SQLite database. Turbo Stre
 **DeviceStatesController**: Create updates parent Device.state reference. Accepts 340+ whitelisted params.
 **CommandsController**: pending_commands route.
 **PhotographsController**: CRUD for images.
+**AudioRecordingsController**: CRUD for audio recordings with ActiveStorage.
+**VideoRecordingsController**: CRUD for video recordings with ActiveStorage.
 
 ## JAVASCRIPT/STIMULUS
-- device_update_controller.js: Handles device updates
+- device_update_controller.js: Handles device updates via Turbo Streams
 - device_liveness_controller.js: Monitors telemetry freshness (10min threshold), updates summary
 - device_map_controller.js: Leaflet map integration, battery-based marker colors
-- photograph_update_controller.js: Photo refresh
+- photograph_update_controller.js: Photo refresh via Turbo Streams
 - devices/controller.js, devices/map.js, devices/display.js: Game controller + device utilities
 
 ## ROUTES
 - Root: devices#index (authenticated), sessions#new (unauthenticated)
-- Resources: devices, device_states, commands, photographs
+- Resources: devices, device_states, commands, photographs, audio_recordings, video_recordings
 - API: devise_token_auth at /api/auth
-- Custom: devices/:id/telemetry_status, devices/:Device_id/pending_commands
+- Custom: devices/:id/telemetry_status, devices/:device_id/pending_commands
 
 ## DATABASE HIGHLIGHTS
 DeviceState fields include:
@@ -49,6 +54,7 @@ DeviceState fields include:
 
 ## REAL-TIME BEHAVIOR
 DeviceState#broadcast_update: On commit, updates Device.state_id, broadcasts replace_to "devices" for each section partial (info, location, imu, battery, etc.) to preserve <details> open/closed state. Client-side liveness checks via Stimulus.
+AudioRecording/VideoRecording: Broadcast Turbo Stream updates to device-specific targets on create.
 
 ## AUTHENTICATION
 Devise for web sessions. devise_token_auth for API (/api/auth). before_action :authenticate_user! on all controllers.
@@ -62,4 +68,5 @@ rails 8.0.2, turbo-rails, stimulus-rails, propshaft, puma, sqlite3, devise, devi
 - Map: Leaflet with battery-based colors, popup showing device name + battery%
 - Game controller: Gamepad API integration on devices index
 - Photographs: Latest via Device#latest_photograph
-- Migrations: Recent gyro readings added (20260124212725), voltage_sensor index fix (20260125010550)
+- Audio/Video: ActiveStorage with content type validation, Turbo Stream broadcasts
+- Migrations: Recent additions - gyro readings (20260124212725), voltage_sensor index fix (20260125010550), audio_recordings (20260203005821), video_recordings (20260203010000)

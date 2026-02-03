@@ -30,10 +30,10 @@ class CommandsController < ApplicationController
 
     respond_to do |format|
       if @command.save
-        format.html { redirect_to @command, notice: "Command was successfully created." }
+        format.html { redirect_to devices_path, notice: "Command queued successfully." }
         format.json { render :show, status: :created, location: @command }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to devices_path, alert: "Failed to queue command: #{@command.errors.full_messages.join(', ')}" }
         format.json { render json: @command.errors, status: :unprocessable_entity }
       end
     end

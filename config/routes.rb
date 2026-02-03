@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :video_recordings
   resources :audio_recordings
   resources :photographs
   resources :commands

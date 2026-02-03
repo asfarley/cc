@@ -1,0 +1,149 @@
+<div class="card mt-3">
+  <details>
+    <summary>Commands</summary>
+    <div class="card-body">
+      <%= form_with(model: Command.new, local: true, class: "command-form") do |f| %>
+        <%= f.hidden_field :Device_id, value: device.id %>
+        <%= f.hidden_field :status, value: "pending" %>
+        
+        <div class="form-group mb-3">
+          <%= f.label :commandtype, "Command Type" %>
+          <%= f.select :commandtype, 
+            [
+              ['Media Capture', [
+                ['Record Image', 'record_image'],
+                ['Record Video', 'record_video'],
+                ['Record Audio', 'record_audio']
+              ]],
+              ['Digital/Analog Output', [
+                ['Set Digital Output', 'set_digital_output'],
+                ['Set Analog Output (mV)', 'set_analog_output_mv']
+              ]],
+              ['Lighting', [
+                ['Set Headlight', 'set_headlight'],
+                ['Set Spotlight', 'set_spotlight']
+              ]],
+              ['Gimbal', [
+                ['Set Gimbal Heading', 'set_gimbal_heading'],
+                ['Set Gimbal Tilt', 'set_gimbal_tilt'],
+                ['Set Gimbal Yaw', 'set_gimbal_yaw']
+              ]],
+              ['Peripherals', [
+                ['Enable Peripheral', 'enable_peripheral']
+              ]],
+              ['Actuators', [
+                ['Extend Actuator', 'extend_actuator'],
+                ['Retract Actuator', 'retract_actuator']
+              ]],
+              ['System', [
+                ['Configure', 'configure'],
+                ['Enable Safe Mode', 'enable_safe_mode'],
+                ['Disable Safe Mode', 'disable_safe_mode'],
+                ['Update Application', 'update_application']
+              ]]
+            ],
+            { include_blank: 'Select command type' },
+            { class: 'form-control', id: "commandtype_#{device.id}" }
+          %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= f.label :command, "Parameters" %>
+          <%= f.text_field :command, 
+            class: 'form-control', 
+            placeholder: 'e.g., duration:10,format:mp3 or output:3,value:true',
+            id: "command_#{device.id}" 
+          %>
+          <small class="form-text text-muted" id="command_hint_<%= device.id %>">
+            Enter parameters as key:value pairs separated by commas, or leave blank for defaults.
+          </small>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= f.label :trigger_time, "Scheduled Execution (Optional)" %>
+          <%= f.datetime_local_field :trigger_time, 
+            class: 'form-control',
+            id: "trigger_time_#{device.id}"
+          %>
+          <small class="form-text text-muted">Leave blank for immediate execution</small>
+        </div>
+
+        <%= f.submit "Send Command", class: "btn btn-primary" %>
+      <% end %>
+
+      <hr class="mt-4 mb-3">
+      
+      <h6>Recent Commands</h6>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Parameters</th>
+              <th>Status</th>
+              <th>Scheduled</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% device.commands.order(created_at: :desc).limit(10).each do |cmd| %>
+              <tr class="<%= 'table-success' if cmd.status == 'completed' %>
+                         <%= 'table-danger' if cmd.status == 'failed' %>
+                         <%= 'table-warning' if cmd.status == 'in_progress' %>">
+                <td><%= cmd.commandtype %></td>
+                <td><small><%= cmd.command&.truncate(30) || '-' %></small></td>
+                <td><span class="badge bg-<%= 
+                  case cmd.status
+                  when 'completed' then 'success'
+                  when 'failed' then 'danger'
+                  when 'in_progress' then 'warning'
+                  else 'secondary'
+                  end
+                %>"><%= cmd.status %></span></td>
+                <td><small><%= cmd.trigger_time&.strftime('%m/%d %H:%M') || 'immediate' %></small></td>
+                <td><small><%= cmd.result&.truncate(40) || '-' %></small></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+</div>
+
+<script>
+(function() {
+  const commandTypeSelect = document.getElementById('commandtype_<%= device.id %>');
+  const commandInput = document.getElementById('command_<%= device.id %>');
+  const hintText = document.getElementById('command_hint_<%= device.id %>');
+  
+  const hints = {
+    'record_audio': 'duration:10,format:mp3 (formats: wav, mp3, flac, ogg)',
+    'record_video': 'duration:30 (seconds)',
+    'record_image': 'No parameters required',
+    'set_digital_output': 'output:3,value:true (output: 1-8, value: true/false)',
+    'set_analog_output_mv': 'output:5,value:2500 (output: 1-8, value: millivolts)',
+    'set_headlight': 'true or false',
+    'set_spotlight': 'true or false',
+    'set_gimbal_heading': '1.57 (radians)',
+    'set_gimbal_tilt': '0.785 (radians)',
+    'set_gimbal_yaw': '-1.57 (radians)',
+    'enable_peripheral': 'peripheral:camera,state:true (peripherals: gps,cell,radio,camera,video,microphone,bluetooth,wifi,rangefinders,heaters,charger,motors,io)',
+    'extend_actuator': '1 or actuator:2 (actuator: 1-2)',
+    'retract_actuator': '1 or actuator:2 (actuator: 1-2)',
+    'configure': 'server_url:https://example.com,device_id:123,admin_username:admin@example.com,admin_password:secret',
+    'enable_safe_mode': 'No parameters required',
+    'disable_safe_mode': 'No parameters required',
+    'update_application': 'No parameters required'
+  };
+  
+  commandTypeSelect.addEventListener('change', function() {
+    const selectedType = this.value;
+    if (hints[selectedType]) {
+      hintText.textContent = hints[selectedType];
+    } else {
+      hintText.textContent = 'Enter parameters as key:value pairs separated by commas, or leave blank for defaults.';
+    }
+  });
+})();
+</script>

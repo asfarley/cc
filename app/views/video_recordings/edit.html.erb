@@ -1,0 +1,12 @@
+<% content_for :title, "Editing video recording" %>
+
+<h1>Editing video recording</h1>
+
+<%= render "form", video_recording: @video_recording %>
+
+<br>
+
+<div>
+  <%= link_to "Show this video recording", @video_recording %> |
+  <%= link_to "Back to video recordings", video_recordings_path %>
+</div>

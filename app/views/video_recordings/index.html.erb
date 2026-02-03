@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Video recordings" %>
+
+<h1>Video recordings</h1>
+
+<div id="video_recordings">
+  <% @video_recordings.each do |video_recording| %>
+    <%= render video_recording %>
+    <p>
+      <%= link_to "Show this video recording", video_recording %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New video recording", new_video_recording_path %>

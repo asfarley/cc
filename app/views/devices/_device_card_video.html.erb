@@ -1,0 +1,22 @@
+<%= turbo_stream_from "device_#{device.id}_video" %>
+
+<div id="device_<%= device.id %>_video" class="video-player-container mb-3">
+  <% video = device.latest_video_recording %>
+  <% if video&.video&.attached? %>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Latest Video Recording</h6>
+        <video controls preload="metadata" class="w-100">
+          <source src="<%= url_for(video.video) %>" type="<%= video.video.content_type %>">
+          Your browser does not support the video element.
+        </video>
+        <small class="text-muted d-block mt-2">
+          Recorded: <%= video.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          <% if video.duration_seconds.present? %>
+            | Duration: <%= video.duration_seconds %>s
+          <% end %>
+        </small>
+      </div>
+    </div>
+  <% end %>
+</div>
