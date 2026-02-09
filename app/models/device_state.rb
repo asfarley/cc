@@ -20,7 +20,7 @@ class DeviceState < ApplicationRecord
     # Broadcast telemetry pane to update GPS coordinates and trigger map update
     broadcast_replace_to(
       "devices",
-      target: "device_#{device.id}_telemetry",
+      target: "device_#{device.id}_telemetry_content",
       partial: "devices/device_card_telemetry",
       locals: { device_state: self, device: device }
     )
