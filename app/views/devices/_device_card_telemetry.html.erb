@@ -1,0 +1,20 @@
+<div style="display: flex; flex-direction: column; gap: 8px;" 
+     data-controller="device-update"
+     data-device-id="<%= device.id %>"
+     data-device-name="<%= device.name %>"
+     <%= "data-device-lat=\"#{device_state.latitude1}\"".html_safe if device_state.latitude1.present? %>
+     <%= "data-device-lng=\"#{device_state.longitude1}\"".html_safe if device_state.longitude1.present? %>
+     data-device-battery1="<%= device_state.battery1_percent %>"
+     data-device-battery2="<%= device_state.battery2_percent %>">
+  <div><strong>Battery 1:</strong> <%= device_state.battery1_percent || "?" %>%</div>
+  <div><strong>Battery 2:</strong> <%= device_state.battery2_percent || "?" %>%</div>
+  <% if device_state.latitude1.present? && device_state.longitude1.present? %>
+    <div><strong>GPS:</strong> <%= device_state.latitude1.round(2) %>, <%= device_state.longitude1.round(2) %></div>
+  <% end %>
+  <% if device_state.temp1_c.present? %>
+    <div><strong>Temp:</strong> <%= device_state.temp1_c.round(1) %>°C</div>
+  <% end %>
+  <% if device_state.mode.present? %>
+    <div><strong>Mode:</strong> <%= device_state.mode %></div>
+  <% end %>
+</div>

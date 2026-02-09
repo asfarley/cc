@@ -1,23 +1,22 @@
-<div class="auth-status">
-    <% if user_signed_in? %>
-      Logged in as <%= current_user.email %> |
-
-      <%= link_to 'Log Out', destroy_user_session_path, data: { turbo_method: :delete } %>
-    <% else %>
-      <%= link_to 'Log In', new_user_session_path %> |
-    <% end %>
-    </div>
+<div class="auth-status" style="padding: 12px 20px; background: #f8f9fa; border-bottom: 1px solid #ddd;">
+  <% if user_signed_in? %>
+    Logged in as <%= current_user.email %> |
+    <%= link_to 'Log Out', destroy_user_session_path, data: { turbo_method: :delete } %>
+  <% else %>
+    <%= link_to 'Log In', new_user_session_path %>
+  <% end %>
+</div>
 
 <% content_for :title, "Devices" %>
 
 <!-- Turbo Stream connection for live updates -->
 <%= turbo_stream_from "devices" %>
 
-<!-- Add a single map container at the top -->
-<div id="all_devices_map" style="height: 400px; width: 100%; margin-bottom: 30px;" data-controller="device-map"></div>
+<!-- Map Overview -->
+<div id="all_devices_map" style="height: 400px; width: 100%; margin-bottom: 20px;" data-controller="device-map"></div>
 
-
-<div id="devices" class="container" data-devices='<%= 
+<!-- Device Cards -->
+<div id="devices" class="container" style="max-width: 1400px;" data-devices='<%= 
   @devices.map do |device|
     if device.state != nil && device.state.latitude1.present? && device.state.longitude1.present?
       {
@@ -36,20 +35,18 @@
   <% end %>
 </div>
 
-<!-- Game Controller Input Display -->
-<div class="container mb-4">
-  <div class="card">
-    <details>
-      <summary>Controller</summary>
-    <div class="card-body">
+<!-- Game Controller (Collapsible) -->
+<div class="container" style="max-width: 1400px; margin-top: 20px;">
+  <details style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+    <summary style="padding: 12px 20px; cursor: pointer; user-select: none; font-weight: 500; background: #fff;">Game Controller</summary>
+    <div style="padding: 20px; background: #fafafa;">
       <p>Connect a game controller and press any button or move any stick to see the input.</p>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="lastGameInput">Last Input Received:</label>
         <input type="text" id="lastGameInput" class="form-control" readonly value="No input detected yet">
       </div>
-      <div id="controllerStatus" class="mt-2 text-muted">No controller detected</div>
+      <div id="controllerStatus" class="text-muted">No controller detected</div>
     </div>
-    </details>
-  </div>
+  </details>
 </div>
 

@@ -68,12 +68,9 @@ export default class extends Controller {
     const timeText = this.formatTimeAgo(this.lastTelemetryAt)
     
     this.summaryTarget.innerHTML = `
-      <span>
-        ${this.renderLED(active)}
-        <a href="/devices/${this.deviceIdValue}">${this.escapeHtml(this.deviceName)}</a>
-        <small>Last telemetry: ${timeText}</small>
-        <span style="float:right;">${this.renderBattery(this.batteryPercent)}</span>
-      </span>
+      ${this.renderLED(active)}
+      <strong><a href="/devices/${this.deviceIdValue}" style="text-decoration: none; color: #333;">${this.escapeHtml(this.deviceName)}</a></strong>
+      <span style="color: #666; font-size: 14px;">Last telemetry: ${timeText}</span>
     `
   }
 

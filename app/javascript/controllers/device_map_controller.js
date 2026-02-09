@@ -2,22 +2,28 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    console.log("Device map controller connected")
     this.markers = {}
     this.initMap()
     this.loadAllDevices()
     
     // Listen for device updates
-    window.addEventListener('device-updated', this.handleDeviceUpdate.bind(this))
+    this.boundHandler = this.handleDeviceUpdate.bind(this)
+    window.addEventListener('device-updated', this.boundHandler)
   }
 
   disconnect() {
-    window.removeEventListener('device-updated', this.handleDeviceUpdate.bind(this))
+    window.removeEventListener('device-updated', this.boundHandler)
   }
 
   initMap() {
-    if (!this.map) {
-      // Initialize map with default center
+    const container = L.DomUtil.get('all_devices_map')
+    
+    // If container already has a map, remove it first
+    if (container && container._leaflet_id) {
+      container._leaflet_id = null
+    }
+    
+    if (!this.map || !this.map._container) {
       this.map = L.map('all_devices_map').setView([0, 0], 2)
       
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -27,8 +33,8 @@ export default class extends Controller {
   }
 
   loadAllDevices() {
-    // Load all devices from the DOM
-    const deviceElements = document.querySelectorAll('[data-device-id]')
+    // Load all devices from the DOM - target only device cards, not nested elements
+    const deviceElements = document.querySelectorAll('.device-card[data-device-id]')
     const devices = []
     
     deviceElements.forEach(el => {
@@ -49,6 +55,8 @@ export default class extends Controller {
       }
     })
     
+    console.log('[MAP] Loaded', devices.length, 'devices on initial load')
+    
     // Fit bounds if we have markers
     if (Object.keys(this.markers).length > 0) {
       const group = L.featureGroup(Object.values(this.markers))
@@ -58,8 +66,15 @@ export default class extends Controller {
 
   handleDeviceUpdate(event) {
     const device = event.detail
+    
+    console.log('[MAP] Device update received:', device)
+    
     if (device.lat && device.lng && !isNaN(device.lat) && !isNaN(device.lng)) {
+      console.log('[MAP] Valid coordinates, updating marker')
       this.addOrUpdateMarker(device)
+      this.fitBoundsToMarkers()
+    } else {
+      console.log('[MAP] Invalid coordinates, skipping')
     }
   }
 
@@ -79,5 +94,29 @@ export default class extends Controller {
       `)
     
     this.markers[device.id] = marker
+  }
+
+  fitBoundsToMarkers() {
+    const markerValues = Object.values(this.markers)
+    
+    console.log('[MAP] fitBoundsToMarkers called, marker count:', markerValues.length)
+    
+    if (markerValues.length === 0) {
+      console.log('[MAP] No markers to fit')
+      return
+    }
+    
+    if (markerValues.length === 1) {
+      // Single marker: center on it with reasonable zoom
+      const latlng = markerValues[0].getLatLng()
+      console.log('[MAP] Single marker, setting view to:', latlng)
+      this.map.setView(latlng, 13, { animate: true })
+    } else {
+      // Multiple markers: fit bounds with padding
+      const group = L.featureGroup(markerValues)
+      const bounds = group.getBounds()
+      console.log('[MAP] Multiple markers, fitting bounds:', bounds)
+      this.map.fitBounds(bounds.pad(0.1), { animate: true })
+    }
   }
 }

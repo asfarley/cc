@@ -1,4 +1,4 @@
-<div id="device_<%= device.id %>" class="device" 
+<div id="device_<%= device.id %>" class="device-card mb-4" 
      data-device-id="<%= device.id %>"
      data-device-name="<%= device.name %>"
      <% if device.state&.latitude1.present? && device.state&.longitude1.present? %>
@@ -7,28 +7,197 @@
      data-device-battery1="<%= device.state.battery1_percent %>"
      data-device-battery2="<%= device.state.battery2_percent %>"
      <% end %>
-     data-controller="device-update device-liveness"
-     data-device-liveness-device-id-value="<%= device.id %>">
+     data-controller="device-update device-liveness device-media"
+     data-device-liveness-device-id-value="<%= device.id %>"
+     style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
 
-<div id="device_<%= device.id %>_summary">
-  <p data-device-liveness-target="summary">
-  <%= render "devices/summaryline", device: device %> 
-  </p>
-</div>
-
-<%= render "devices/device_card_video", device: device %>
-
-<%= render "devices/device_card_photograph", device: device %>
-
-<%= render "devices/device_card_audio", device: device %>
-
-<%= render "devices/device_card_commands", device: device %>
-
-<div id="device_<%= device.id %>_state">
-  <% if device.state != nil %>
-    <%= render device.state %>
-  <% else %>
-    <p class="placeholder">Device state unavailable.</p>
-  <% end %>
-</div>
+  <!-- Status Bar -->
+  <div class="status-bar" style="background: #f8f9fa; padding: 12px 20px; border-bottom: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 12px;" data-device-liveness-target="summary">
+      <%= render "shared/led", value: device.active?, label: "", size: 16 %>
+      <strong><%= link_to device.name, device, style: "text-decoration: none; color: #333;" %></strong>
+      <span style="color: #666; font-size: 14px;">
+        Last telemetry: <%= device.last_telemetry_time_h || "never" %>
+      </span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <%= battery_level_icon(device.main_battery_percentage, size: :sm) %>
+      <span style="font-size: 20px; cursor: pointer;" title="More options">⋯</span>
+    </div>
   </div>
+
+  <!-- Media & Telemetry Split Pane -->
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 20px;">
+    
+    <!-- Media Pane -->
+    <div class="media-pane">
+      <div class="media-display" style="background: #000; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; position: relative;">
+        <!-- Video Display -->
+        <div data-device-media-target="videoPanel" style="display: none; width: 100%; height: 100%;">
+          <%= turbo_stream_from "device_#{device.id}_video" %>
+          <div id="device_<%= device.id %>_video">
+            <% video = device.latest_video_recording %>
+            <% if video&.video&.attached? %>
+              <video controls preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+                <source src="<%= url_for(video.video) %>" type="<%= video.video.content_type %>">
+              </video>
+              <div data-device-media-target="videoDuration" style="display: none;"><%= video.duration_seconds %></div>
+              <div data-device-media-target="videoRecorded" style="display: none;"><%= video.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+            <% else %>
+              <div style="color: #888; text-align: center; padding: 40px;">No video available</div>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- Image Display -->
+        <div data-device-media-target="imagePanel" style="width: 100%; height: 100%;">
+          <%= turbo_stream_from "device_#{device.id}_photograph" %>
+          <div id="device_<%= device.id %>_photograph" data-controller="photograph-update">
+            <div id="device_<%= device.id %>_photograph_img" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+              <% if device.latest_photograph&.file&.attached? %>
+                <%= image_tag url_for(device.latest_photograph.file), 
+                    style: "max-width: 100%; max-height: 100%; object-fit: contain;", 
+                    data: { action: "photograph-update#loadComplete" } %>
+                <div data-device-media-target="imageRecorded" style="display: none;"><%= device.latest_photograph.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+              <% else %>
+                <div style="color: #888;">No image available</div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio Display -->
+        <div data-device-media-target="audioPanel" style="display: none; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; padding: 40px;">
+          <%= turbo_stream_from "device_#{device.id}_audio" %>
+          <div id="device_<%= device.id %>_audio" style="width: 100%;">
+            <% audio = device.latest_audio_recording %>
+            <% if audio&.audio&.attached? %>
+              <div style="text-align: center;">
+                <div style="font-size: 48px; margin-bottom: 20px; color: #666;">🎵</div>
+                <audio controls preload="metadata" style="width: 100%; max-width: 400px;">
+                  <source src="<%= url_for(audio.audio) %>" type="<%= audio.audio.content_type %>">
+                </audio>
+                <div data-device-media-target="audioDuration" style="display: none;"><%= audio.duration_seconds %></div>
+                <div data-device-media-target="audioRecorded" style="display: none;"><%= audio.created_at.strftime("%Y-%m-%d %H:%M:%S") %></div>
+              </div>
+            <% else %>
+              <div style="color: #888; text-align: center;">No audio available</div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Media Selector & Metadata -->
+      <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="btn-group" role="group" style="gap: 4px;">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-action="click->device-media#showVideo">Video</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary active" data-action="click->device-media#showImage">Image</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-action="click->device-media#showAudio">Audio</button>
+        </div>
+        <div style="font-size: 13px; color: #666;">
+          <span data-device-media-target="metadata">
+            <% if device.latest_photograph&.file&.attached? %>
+              Recorded: <%= device.latest_photograph.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Telemetry Pane -->
+    <div id="device_<%= device.id %>_telemetry" class="telemetry-pane" style="background: #f8f9fa; padding: 16px; border-radius: 4px; font-size: 14px;">
+      <% if device.state %>
+        <%= render "devices/device_card_telemetry", device_state: device.state, device: device %>
+      <% else %>
+        <div style="color: #999;">No telemetry data</div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Collapsible Commands Section -->
+  <div style="border-top: 1px solid #ddd;">
+    <details style="padding: 0;">
+      <summary style="padding: 12px 20px; cursor: pointer; user-select: none; font-weight: 500; background: #fff;">Commands</summary>
+      <div style="padding: 20px; background: #fafafa;">
+        <!-- Quick Actions -->
+        <div style="margin-bottom: 20px;">
+          <label style="font-size: 13px; font-weight: 500; color: #666; margin-bottom: 8px; display: block;">Quick actions:</label>
+          <div class="btn-group" role="group" style="gap: 8px;">
+            <%= button_to "Snapshot", commands_path(command: { Device_id: device.id, commandtype: "record_image", status: "pending" }), 
+                class: "btn btn-sm btn-primary", form: { data: { turbo: true } } %>
+            <%= button_to "Start Rec", commands_path(command: { Device_id: device.id, commandtype: "record_video", command: "duration:30", status: "pending" }), 
+                class: "btn btn-sm btn-success", form: { data: { turbo: true } } %>
+            <%= button_to "Stop", "#", class: "btn btn-sm btn-danger", disabled: true %>
+          </div>
+        </div>
+
+        <!-- Command Form -->
+        <%= form_with(model: Command.new, local: true, style: "margin-bottom: 20px;") do |f| %>
+          <%= f.hidden_field :Device_id, value: device.id %>
+          <%= f.hidden_field :status, value: "pending" %>
+          
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px; align-items: end;">
+            <div>
+              <%= f.label :commandtype, "Command:", style: "font-size: 13px; font-weight: 500; color: #666; margin-bottom: 4px; display: block;" %>
+              <%= f.select :commandtype, 
+                [
+                  ['Record Image', 'record_image'],
+                  ['Record Video', 'record_video'],
+                  ['Record Audio', 'record_audio'],
+                  ['Set Digital Output', 'set_digital_output'],
+                  ['Set Headlight', 'set_headlight'],
+                  ['Configure', 'configure']
+                ],
+                { include_blank: 'Select...' },
+                { class: 'form-control form-control-sm' }
+              %>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: end;">
+              <div style="flex: 1;">
+                <%= f.label :command, "Args:", style: "font-size: 13px; font-weight: 500; color: #666; margin-bottom: 4px; display: block;" %>
+                <%= f.text_field :command, 
+                  class: 'form-control form-control-sm', 
+                  placeholder: 'e.g., duration:10'
+                %>
+              </div>
+              <%= f.submit "Send Command", class: "btn btn-sm btn-primary" %>
+              <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Schedule…</button>
+            </div>
+          </div>
+        <% end %>
+
+        <!-- Last Command -->
+        <% last_cmd = device.commands.order(created_at: :desc).first %>
+        <% if last_cmd %>
+          <div style="font-size: 13px; color: #666; padding: 8px; background: #fff; border-radius: 4px;">
+            Last command: "<%= last_cmd.commandtype %>" • 
+            <%= distance_of_time_in_words(last_cmd.created_at, Time.current) %> ago • 
+            <% case last_cmd.status
+               when 'completed' %>✅ success
+            <% when 'failed' %>❌ failed
+            <% when 'in_progress' %>⏳ in progress
+            <% else %>⏸️ <%= last_cmd.status %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </details>
+  </div>
+
+  <!-- Collapsible Logs and Diagnostics Section -->
+  <div style="border-top: 1px solid #ddd;">
+    <details style="padding: 0;">
+      <summary style="padding: 12px 20px; cursor: pointer; user-select: none; font-weight: 500; background: #fff;">Logs and Diagnostics</summary>
+      <div style="padding: 20px; background: #fafafa;">
+        <div id="device_<%= device.id %>_state">
+          <% if device.state != nil %>
+            <%= render device.state %>
+          <% else %>
+            <p style="color: #999;">Device state unavailable.</p>
+          <% end %>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
