@@ -1,122 +1,91 @@
 import { Controller } from "@hotwired/stimulus"
+import consumer from "channels/consumer"
 
 export default class extends Controller {
   connect() {
-    this.markers = {}
+    this.markersById = new Map()
     this.initMap()
     this.loadAllDevices()
-    
-    // Listen for device updates
-    this.boundHandler = this.handleDeviceUpdate.bind(this)
-    window.addEventListener('device-updated', this.boundHandler)
+    this.subscribeToUpdates()
   }
 
   disconnect() {
-    window.removeEventListener('device-updated', this.boundHandler)
+    if (this.subscription) {
+      this.subscription.unsubscribe()
+    }
   }
 
   initMap() {
     const container = L.DomUtil.get('all_devices_map')
-    
-    // If container already has a map, remove it first
     if (container && container._leaflet_id) {
       container._leaflet_id = null
     }
     
-    if (!this.map || !this.map._container) {
-      this.map = L.map('all_devices_map').setView([0, 0], 2)
-      
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(this.map)
-    }
+    this.map = L.map('all_devices_map').setView([0, 0], 2)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(this.map)
   }
 
   loadAllDevices() {
-    // Load all devices from the DOM - target only device cards, not nested elements
     const deviceElements = document.querySelectorAll('.device-card[data-device-id]')
-    const devices = []
     
     deviceElements.forEach(el => {
       const lat = parseFloat(el.dataset.deviceLat)
       const lng = parseFloat(el.dataset.deviceLng)
       
-      if (lat && lng && !isNaN(lat) && !isNaN(lng)) {
-        const device = {
-          id: el.dataset.deviceId,
+      if (!isNaN(lat) && !isNaN(lng)) {
+        const data = {
+          id: parseInt(el.dataset.deviceId),
           name: el.dataset.deviceName,
-          lat: lat,
-          lng: lng,
-          battery1_percent: el.dataset.deviceBattery1,
-          battery2_percent: el.dataset.deviceBattery2
+          lat,
+          lng,
+          battery1_percent: parseFloat(el.dataset.deviceBattery1) || 0,
+          battery2_percent: parseFloat(el.dataset.deviceBattery2) || 0
         }
-        devices.push(device)
-        this.addOrUpdateMarker(device)
+        this.updateMarker(data)
       }
     })
     
-    console.log('[MAP] Loaded', devices.length, 'devices on initial load')
-    
-    // Fit bounds if we have markers
-    if (Object.keys(this.markers).length > 0) {
-      const group = L.featureGroup(Object.values(this.markers))
+    if (this.markersById.size > 0) {
+      const group = L.featureGroup([...this.markersById.values()])
       this.map.fitBounds(group.getBounds().pad(0.1))
     }
   }
 
-  handleDeviceUpdate(event) {
-    const device = event.detail
-    
-    console.log('[MAP] Device update received:', device)
-    
-    if (device.lat && device.lng && !isNaN(device.lat) && !isNaN(device.lng)) {
-      console.log('[MAP] Valid coordinates, updating marker')
-      this.addOrUpdateMarker(device)
-      // Don't re-fit bounds on updates to avoid excessive panning
-    } else {
-      console.log('[MAP] Invalid coordinates, skipping')
-    }
+  subscribeToUpdates() {
+    this.subscription = consumer.subscriptions.create("DeviceLocationsChannel", {
+      received: (data) => {
+        this.updateMarker(data)
+      }
+    })
   }
 
-  addOrUpdateMarker(device) {
-    // Remove existing marker if it exists
-    if (this.markers[device.id]) {
-      this.markers[device.id].remove()
-    }
+  updateMarker(data) {
+    const { id, name, lat, lng, battery1_percent, battery2_percent } = data
     
-    // Create new marker
-    const marker = L.marker([device.lat, device.lng])
-      .addTo(this.map)
-      .bindPopup(`
-        <b>${device.name}</b><br>
-        Battery 1: ${device.battery1_percent || 'N/A'}%<br>
-        Battery 2: ${device.battery2_percent || 'N/A'}%
+    if (!id || isNaN(lat) || isNaN(lng)) return
+    
+    const marker = this.markersById.get(id)
+    
+    if (marker) {
+      // Update existing marker position
+      marker.setLatLng([lat, lng])
+      marker.getPopup().setContent(`
+        <b>${name}</b><br>
+        Battery 1: ${battery1_percent || 'N/A'}%<br>
+        Battery 2: ${battery2_percent || 'N/A'}%
       `)
-    
-    this.markers[device.id] = marker
-  }
-
-  fitBoundsToMarkers() {
-    const markerValues = Object.values(this.markers)
-    
-    console.log('[MAP] fitBoundsToMarkers called, marker count:', markerValues.length)
-    
-    if (markerValues.length === 0) {
-      console.log('[MAP] No markers to fit')
-      return
-    }
-    
-    if (markerValues.length === 1) {
-      // Single marker: center on it with reasonable zoom
-      const latlng = markerValues[0].getLatLng()
-      console.log('[MAP] Single marker, setting view to:', latlng)
-      this.map.setView(latlng, 13, { animate: true })
     } else {
-      // Multiple markers: fit bounds with padding
-      const group = L.featureGroup(markerValues)
-      const bounds = group.getBounds()
-      console.log('[MAP] Multiple markers, fitting bounds:', bounds)
-      this.map.fitBounds(bounds.pad(0.1), { animate: true })
+      // Create new marker
+      const newMarker = L.marker([lat, lng])
+        .addTo(this.map)
+        .bindPopup(`
+          <b>${name}</b><br>
+          Battery 1: ${battery1_percent || 'N/A'}%<br>
+          Battery 2: ${battery2_percent || 'N/A'}%
+        `)
+      this.markersById.set(id, newMarker)
     }
   }
 }

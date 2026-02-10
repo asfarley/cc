@@ -15,9 +15,20 @@ class DeviceState < ApplicationRecord
     
     device.update_column(:state_id, self.id) if device.state_id != self.id
     
-    # Summary is now handled client-side via device_liveness_controller.js
+    # Broadcast location update via ActionCable for map
+    if latitude1.present? && longitude1.present?
+      ActionCable.server.broadcast("device_locations", {
+        id: device.id,
+        name: device.name,
+        lat: latitude1.to_f,
+        lng: longitude1.to_f,
+        battery1_percent: battery1_percent&.to_f || 0,
+        battery2_percent: battery2_percent&.to_f || 0,
+        updated_at: updated_at.iso8601
+      })
+    end
     
-    # Broadcast telemetry pane to update GPS coordinates and trigger map update
+    # Broadcast telemetry pane to update GPS coordinates
     broadcast_replace_to(
       "devices",
       target: "device_#{device.id}_telemetry_content",
