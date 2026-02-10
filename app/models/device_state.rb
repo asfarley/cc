@@ -14,6 +14,7 @@ class DeviceState < ApplicationRecord
     return unless device
     
     device.update_column(:state_id, self.id) if device.state_id != self.id
+    device.reload  # Reload to get updated state association
     
     # Broadcast location update via ActionCable for map
     if latitude1.present? && longitude1.present?
@@ -27,6 +28,14 @@ class DeviceState < ApplicationRecord
         updated_at: updated_at.iso8601
       })
     end
+    
+    # Broadcast status bar battery update
+    broadcast_replace_to(
+      "devices",
+      target: "device_#{device.id}_status_bar_battery",
+      partial: "devices/status_bar_battery",
+      locals: { battery_percent: battery1_percent, device_id: device.id }
+    )
     
     # Broadcast telemetry pane to update GPS coordinates
     broadcast_replace_to(

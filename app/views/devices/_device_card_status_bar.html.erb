@@ -1,0 +1,13 @@
+<div class="status-bar" style="background: #f8f9fa; padding: 12px 20px; border-bottom: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 12px;" data-device-liveness-target="summary">
+    <%= render "shared/led", value: device.active?, label: "", size: 16 %>
+    <strong><%= link_to device.name, device, style: "text-decoration: none; color: #333;" %></strong>
+    <span style="color: #666; font-size: 14px;">
+      Last telemetry: <%= device.last_telemetry_time_h || "never" %>
+    </span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 16px; margin-left: auto;">
+    <%= render "devices/status_bar_battery", battery_percent: device.main_battery_percentage, device_id: device.id %>
+    <span style="font-size: 20px; cursor: pointer;" title="More options">⋯</span>
+  </div>
+</div>

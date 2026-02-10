@@ -12,19 +12,7 @@
      style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
 
   <!-- Status Bar -->
-  <div class="status-bar" style="background: #f8f9fa; padding: 12px 20px; border-bottom: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between;">
-    <div style="display: flex; align-items: center; gap: 12px;" data-device-liveness-target="summary">
-      <%= render "shared/led", value: device.active?, label: "", size: 16 %>
-      <strong><%= link_to device.name, device, style: "text-decoration: none; color: #333;" %></strong>
-      <span style="color: #666; font-size: 14px;">
-        Last telemetry: <%= device.last_telemetry_time_h || "never" %>
-      </span>
-    </div>
-    <div style="display: flex; align-items: center; gap: 16px;">
-      <%= battery_level_icon(device.main_battery_percentage, size: :sm) %>
-      <span style="font-size: 20px; cursor: pointer;" title="More options">⋯</span>
-    </div>
-  </div>
+  <%= render "devices/device_card_status_bar", device: device %>
 
   <!-- Media & Telemetry Split Pane -->
   <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 20px;">

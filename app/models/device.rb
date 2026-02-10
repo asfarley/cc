@@ -59,14 +59,9 @@ class Device < ApplicationRecord
   end
 
   def main_battery_percentage
-    last_state = device_states.last
-    if last_state.nil?
-      return "?"
-    end
-    if last_state.battery1_percent.nil?
-      return "?"
-    end
-    return last_state.battery1_percent
+    return "?" if state.nil?
+    return "?" if state.battery1_percent.nil?
+    state.battery1_percent
   end
 
   def main_battery_voltage
