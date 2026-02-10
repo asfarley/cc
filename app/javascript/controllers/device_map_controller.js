@@ -72,7 +72,7 @@ export default class extends Controller {
     if (device.lat && device.lng && !isNaN(device.lat) && !isNaN(device.lng)) {
       console.log('[MAP] Valid coordinates, updating marker')
       this.addOrUpdateMarker(device)
-      this.fitBoundsToMarkers()
+      // Don't re-fit bounds on updates to avoid excessive panning
     } else {
       console.log('[MAP] Invalid coordinates, skipping')
     }
