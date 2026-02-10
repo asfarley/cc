@@ -2,10 +2,10 @@
   <div><strong>Battery 1:</strong> <%= device_state.battery1_percent || "?" %>%</div>
   <div><strong>Battery 2:</strong> <%= device_state.battery2_percent || "?" %>%</div>
   <% if device_state.latitude1.present? && device_state.longitude1.present? %>
-    <div><strong>GPS:</strong> <%= device_state.latitude1.round(2) %>, <%= device_state.longitude1.round(2) %></div>
+    <div><strong>GPS:</strong> <%= device_state.latitude1.round(5) %>, <%= device_state.longitude1.round(5) %></div>
   <% end %>
   <% if device_state.temp1_c.present? %>
-    <div><strong>Temp:</strong> <%= device_state.temp1_c.round(1) %>°C</div>
+    <div><strong>Temp:</strong> <%= device_state.temp1_c.round(5) %>°C</div>
   <% end %>
   <% if device_state.mode.present? %>
     <div><strong>Mode:</strong> <%= device_state.mode %></div>

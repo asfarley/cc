@@ -21,9 +21,16 @@ export default class extends Controller {
       container._leaflet_id = null
     }
     
+    //this.map = L.map('all_devices_map').setView([0, 0], 2)
+    //L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //  attribution: '© OpenStreetMap contributors'
+    //}).addTo(this.map)
+
     this.map = L.map('all_devices_map').setView([0, 0], 2)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles @ Esri',
+      maxZoom: 19
+      
     }).addTo(this.map)
   }
 
