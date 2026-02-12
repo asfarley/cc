@@ -67,11 +67,25 @@ export default class extends Controller {
     const active = this.isActive(this.lastTelemetryAt)
     const timeText = this.formatTimeAgo(this.lastTelemetryAt)
     
-    this.summaryTarget.innerHTML = `
-      ${this.renderLED(active)}
-      <strong><a href="/devices/${this.deviceIdValue}" style="text-decoration: none; color: #333;">${this.escapeHtml(this.deviceName)}</a></strong>
-      <span style="color: #666; font-size: 14px;">Last telemetry: ${timeText}</span>
-    `
+    // Update LED image src without replacing entire DOM
+    const ledImg = this.summaryTarget.querySelector('img.led')
+    if (ledImg) {
+      const color = active ? "green" : "black"
+      ledImg.src = `/${color}.png`
+      ledImg.alt = `LED ${active ? 'green' : 'off'}`
+    }
+    
+    // Update last telemetry text
+    const timeSpan = this.summaryTarget.querySelector('span[style*="color: #666"]')
+    if (timeSpan) {
+      timeSpan.textContent = `Last telemetry: ${timeText}`
+    }
+    
+    // Update device name link if needed (only on first render)
+    const nameLink = this.summaryTarget.querySelector('strong a')
+    if (nameLink && nameLink.textContent !== this.deviceName) {
+      nameLink.textContent = this.deviceName
+    }
   }
 
   isActive(lastTelemetryAt) {
